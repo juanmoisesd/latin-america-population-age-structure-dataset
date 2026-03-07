@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://comparto.github.io/latin-america-population-age-structure-dataset/sitemap.xml
