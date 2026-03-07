@@ -662,6 +662,8 @@
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/compare-uruguay-vs-venezuela-pob_55_64_miles.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/compare-uruguay-vs-venezuela-pob_65_mas_miles.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/compare-uruguay-vs-venezuela-poblacion_total_millones.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/comparisons.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/countries.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/country-argentina-indice_envejecimiento.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/country-argentina-pct_0_14.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/country-argentina-pct_15_24.html</loc></url>
@@ -861,27 +863,48 @@
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/indicator-pob_55_64_miles.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/indicator-pob_65_mas_miles.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/indicator-poblacion_total_millones.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/argentina-o-chile-tienen-mayor-envejecimiento.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/colombia-o-peru-tienen-mayor-envejecimiento.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/indicators.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-argentina.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-bolivia.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-brasil.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-chile.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-colombia.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-ecuador.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-25-a-54-anos-en-la-region.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/donde-disminuyo-mas-la-poblacion-de-0-a-14-anos.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-mexico.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-paraguay.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-peru.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-uruguay.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-estructura-por-edades-en-venezuela.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-argentina.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-bolivia.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-brasil.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-chile.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-colombia.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-ecuador.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-mexico.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-paraguay.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-peru.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-uruguay.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-venezuela.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-argentina.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-bolivia.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-brasil.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-chile.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-colombia.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-ecuador.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-mexico.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-paraguay.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-peru.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-uruguay.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-venezuela.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/index.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/mexico-o-brasil-tienen-mayor-envejecimiento.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/que-paises-aumentaron-mas-su-poblacion-total.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/que-paises-envejecieron-mas-entre-2000-y-2023.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/que-paises-mantienen-una-estructura-mas-joven-en-2023.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/que-paises-presentan-mayor-indice-de-envejecimiento-en-2023.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/que-paises-tienen-mas-poblacion-de-65-en-2023.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/que-paises-tienen-mas-poblacion-total-en-2023.html</loc></url>
-  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/research-questions/que-revela-el-indice-de-envejecimiento-en-america-latina.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/year-2000.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/year-2010.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/year-2020.html</loc></url>
   <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/year-2023.html</loc></url>
+  <url><loc>https://comparto.github.io/latin-america-population-age-structure-dataset/pages/years.html</loc></url>
 </urlset>
