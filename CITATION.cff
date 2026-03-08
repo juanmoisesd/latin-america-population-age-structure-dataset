@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Si usas este dataset, citalo con los metadatos de este archivo."
+type: dataset
+title: "Evolucion Poblacional por Grupos de Edad en America Latina (2000-2023): Dataset Demografico por Pais"
+authors:
+  - family-names: "de la Serna"
+    given-names: "Juan Moises"
+    orcid: "https://orcid.org/0000-0002-8401-8018"
+    website: "https://juanmoisesdelaserna.es/"
+doi: "10.5281/zenodo.18891177"
+date-released: "2026-03-07"
+version: "1.0.0"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
+url: "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/"
+repository-artifact: "https://zenodo.org/records/18891177"
+abstract: >
+  Dataset demografico longitudinal con estructura de edad de la poblacion para
+  11 paises de America Latina en 4 cortes temporales (2000, 2010, 2020, 2023).
+  14 variables. Fuente: CEPALSTAT (CEPAL / ECLAC, Naciones Unidas).
+keywords:
+  - demografia
+  - America Latina
+  - estructura de edad
+  - envejecimiento poblacional
+  - CEPAL
+  - open data
+  - dataset
+  - poblacion
+  - transicion demografica
