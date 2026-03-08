@@ -1,1 +1,12 @@
-
+:root{--bg:#0f172a;--card:#111827;--text:#e5e7eb;--muted:#9ca3af;--line:#334155}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#0b1220,#111827);color:var(--text)}
+.wrapper{max-width:1280px;margin:0 auto;padding:24px}.hero{background:linear-gradient(135deg,#111827,#0f172a 60%,#082f49);border:1px solid var(--line);border-radius:20px;padding:28px;margin-bottom:22px}
+.hero h1{margin:0 0 8px;font-size:2rem}.hero p{margin:6px 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.card{grid-column:span 12;background:rgba(17,24,39,.9);border:1px solid var(--line);border-radius:18px;padding:18px}
+@media(min-width:900px){.card.half{grid-column:span 6}}.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 8px}
+.controls label{display:block;font-size:.9rem;color:var(--muted);margin-bottom:6px}.controls select,.controls button{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#0b1220;color:var(--text)}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.metric{background:#0b1220;border:1px solid var(--line);border-radius:12px;padding:12px}.metric .k{font-size:.8rem;color:var(--muted)}.metric .v{font-size:1.3rem;font-weight:700;margin-top:4px}
+svg{width:100%;height:auto;display:block}.legend{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.9rem}.legend span.sw{display:inline-block;width:18px;height:12px;border-radius:4px}
+table{width:100%;border-collapse:collapse}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:.95rem}th{color:#cbd5e1}
+a{color:#7dd3fc;text-decoration:none}.note{color:var(--muted);font-size:.92rem;line-height:1.5}.footer-box{margin-top:16px;padding-top:12px;border-top:1px solid var(--line)}
+.heat-row{display:grid;grid-template-columns:180px repeat(4,1fr);gap:8px;align-items:center;margin:8px 0}.heat-country{font-weight:600}.heat-cell{padding:10px;border-radius:10px;text-align:center;font-size:.9rem;border:1px solid rgba(255,255,255,.08)}
+.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.8rem}.small{font-size:.88rem;color:var(--muted)}
