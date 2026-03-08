@@ -5,12 +5,13 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Orden de ejecución del pipeline
 SCRIPTS = [
     'validate_dataset.py',
     'build_indicators.py',
     'build_atlas_data.py',
-    'generate_research_pages.py',
     'build_site.py',
+    'generate_research_pages.py',
 ]
 
 
