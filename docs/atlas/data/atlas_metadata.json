@@ -1,0 +1,40 @@
+{
+  "title": "Atlas Demográfico Interactivo de América Latina",
+  "author": "Juan Moisés de la Serna",
+  "record_count": 44,
+  "country_count": 11,
+  "year_range": [
+    2000,
+    2023
+  ],
+  "variables": [
+    "País",
+    "Año",
+    "Población_Total_Millones",
+    "Pct_0_14",
+    "Pct_15_24",
+    "Pct_25_54",
+    "Pct_55_64",
+    "Pct_65_más",
+    "Pob_0_14_Miles",
+    "Pob_15_24_Miles",
+    "Pob_25_54_Miles",
+    "Pob_55_64_Miles",
+    "Pob_65_más_Miles",
+    "Fuente",
+    "ISO3",
+    "Región",
+    "Pct_Edad_Laboral",
+    "Pct_Joven_Total",
+    "Pob_Edad_Laboral_Miles",
+    "Pob_Dependiente_Miles",
+    "Indice_Envejecimiento",
+    "Razon_Dependencia_Total",
+    "Razon_Dependencia_Infantil",
+    "Razon_Dependencia_Mayores",
+    "Indice_Bono_Demografico",
+    "Cambio_Envejecimiento_vs_2000",
+    "Suma_Pct_Grupos",
+    "Pct_Grupos_Validos"
+  ]
+}
