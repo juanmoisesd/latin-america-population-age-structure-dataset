@@ -1,1 +1,26 @@
-
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas Demográfico Interactivo de América Latina</title>
+<meta name="description" content="Atlas demográfico interactivo con pirámide poblacional, mapa térmico de envejecimiento y serie de bono demográfico basado en el dataset de Juan Moisés de la Serna.">
+<meta name="citation_title" content="Atlas Demográfico Interactivo de América Latina">
+<meta name="citation_author" content="Juan Moisés de la Serna">
+<meta name="citation_publication_date" content="2026">
+<link rel="stylesheet" href="./assets/atlas.css">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Dataset","name":"Atlas Demográfico Interactivo de América Latina","creator":{"@type":"Person","name":"Juan Moisés de la Serna","identifier":"https://orcid.org/0000-0002-8401-8018"},"description":"Capa interactiva de visualización del dataset demográfico de América Latina (2000-2023).","datePublished":"2026","distribution":{"@type":"DataDownload","encodingFormat":"text/csv","contentUrl":"./data/dataset.csv"}}</script>
+</head><body><div class="wrapper">
+<section class="hero"><span class="badge">Atlas interactivo</span><h1 id="atlasTitle">Atlas Demográfico Interactivo de América Latina</h1>
+<p>Visualización integrada del dataset demográfico: estructura por edades, envejecimiento, razón de dependencia y bono demográfico.</p>
+<p class="small">Pensado para integrarse dentro de <code>docs/</code> sin romper GitHub Pages. No depende de APIs externas en tiempo real.</p>
+<div class="controls">
+<div><label for="countrySelect">País</label><select id="countrySelect"></select></div>
+<div><label for="yearSelect">Año</label><select id="yearSelect"></select></div>
+<div><label for="sortSelect">Mapa térmico / ordenar por</label><select id="sortSelect"><option value="aging_index">Índice de envejecimiento</option><option value="dependency_ratio_total">Razón de dependencia total</option><option value="demographic_dividend_index">Índice de bono demográfico</option><option value="pct_65_plus">% población 65+</option></select></div>
+<div><label>&nbsp;</label><button id="playBtn">Reproducir años</button></div></div>
+<div class="meta"><div class="metric"><div class="k">Población total (millones)</div><div class="v" id="mTotal">—</div></div><div class="metric"><div class="k">Índice de envejecimiento</div><div class="v" id="mAging">—</div></div><div class="metric"><div class="k">Razón de dependencia</div><div class="v" id="mDependency">—</div></div><div class="metric"><div class="k">Bono demográfico</div><div class="v" id="mDividend">—</div></div></div></section>
+<div class="grid">
+<section class="card half"><h2>Pirámide poblacional simplificada</h2><p class="small" id="selectedTitle">—</p><svg id="pyramidSvg" aria-label="Pirámide poblacional"></svg><div class="footer-box note">Representación espejada de los grupos de edad disponibles en el dataset. No separa por sexo porque la base actual no lo incluye.</div></section>
+<section class="card half"><h2>Serie del bono demográfico</h2><p class="small">Evolución por país según el índice <code>población laboral / población dependiente</code>.</p><svg id="bonusSvg" aria-label="Serie del bono demográfico"></svg></section>
+<section class="card"><h2>Mapa térmico comparativo por país</h2><div id="heatmap"></div></section>
+<section class="card"><h2>Top 10 países más envejecidos en el año seleccionado</h2><table><thead><tr><th>#</th><th>País</th><th>% 65+</th><th>Índice de envejecimiento</th><th>Bono demográfico</th></tr></thead><tbody id="topTableBody"></tbody></table></section>
+<section class="card"><h2>Metodología y cita</h2><p class="note">Este atlas es una capa visual derivada del dataset demográfico principal y de sus indicadores calculados. Su objetivo es aumentar reutilización, autoridad y visibilidad académica del repositorio.</p><p><strong>Fuente declarada del registro seleccionado:</strong> <span id="sourceText">—</span></p><p><strong>Cita recomendada:</strong> de la Serna, J. M. (2026). <em>Atlas Demográfico Interactivo de América Latina</em>.</p><p class="small">Añade desde tu página principal un enlace a <code>/atlas/</code> o a <code>/pages/atlas.html</code>.</p></section>
+</div></div><script src="./assets/atlas.js"></script></body></html>
