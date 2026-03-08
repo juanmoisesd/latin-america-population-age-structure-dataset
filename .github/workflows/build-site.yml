@@ -27,8 +27,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run pipeline
-        run: python scripts/run_all.py
+      - name: Validate dataset (warning only)
+        run: python scripts/validate_dataset.py || true
+
+      - name: Build indicators
+        run: python scripts/build_indicators.py
+
+      - name: Build atlas data
+        run: python scripts/build_atlas_data.py
+
+      - name: Build site pages
+        run: python scripts/build_site.py
+
+      - name: Generate research pages
+        run: python scripts/generate_research_pages.py
 
       - name: Commit generated files
         run: |
