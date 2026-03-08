@@ -1,0 +1,28 @@
+INSTRUCCIONES DE INTEGRACIÓN DEL ATLAS EN GITHUB
+
+1. Haz copia de seguridad del repositorio y de la carpeta docs/.
+2. Sube estas rutas sin reemplazar docs/ completa:
+   - docs/atlas/
+   - docs/pages/atlas.html
+   - scripts/build_atlas_data.py
+3. No borres:
+   - docs/index.html
+   - docs/robots.txt
+   - docs/sitemap.xml
+   - docs/.nojekyll
+4. Verifica estas rutas:
+   - docs/atlas/index.html
+   - docs/atlas/assets/atlas.css
+   - docs/atlas/assets/atlas.js
+   - docs/atlas/data/atlas_data.json
+   - docs/pages/atlas.html
+5. Enlaza desde tu web principal a:
+   - /atlas/
+   o
+   - /pages/atlas.html
+6. Si cambias el dataset raíz data/dataset.csv, ejecuta:
+   python scripts/build_atlas_data.py
+
+LIMITACIÓN ACTUAL
+Esta versión usa un mapa térmico comparativo por país, no un mapa geográfico real con geojson.
+Eso la hace más estable, ligera y compatible con GitHub Pages.
