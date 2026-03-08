@@ -1,75 +1,85 @@
-# Scripts 10/10 para el dataset demográfico
+# Scripts del micrositio demográfico
 
-Este paquete sustituye tus scripts mínimos por un pipeline reproducible y mantenible.
+## Descripción
 
-## Qué incluye
+Scripts Python para generar el micrositio estático a partir del archivo `data/dataset.csv`.
 
-- `scripts/validate_dataset.py`: valida estructura, duplicados y coherencia aritmética.
-- `scripts/build_indicators.py`: calcula indicadores derivados y genera resúmenes.
-- `scripts/build_atlas_data.py`: construye el JSON/CSV para el atlas.
-- `scripts/generate_research_pages.py`: crea páginas automáticas de investigación con rankings.
-- `scripts/build_site.py`: genera el sitio HTML estático con índice, perfiles por país y comparativas.
-- `scripts/run_all.py`: ejecuta todo en el orden correcto.
-- `scripts/common.py`: utilidades compartidas, mapeo ISO3 y regiones.
+## Estructura generada
 
-## Estructura esperada del repositorio
+Al ejecutar el pipeline completo se produce:
 
-```text
-repo/
-├─ data/
-│  └─ dataset.csv
-├─ docs/
-│  └─ assets/atlas.css
-└─ scripts/
-   ├─ common.py
-   ├─ validate_dataset.py
-   ├─ build_indicators.py
-   ├─ build_atlas_data.py
-   ├─ generate_research_pages.py
-   ├─ build_site.py
-   └─ run_all.py
+```
+docs/
+├── index.html                          # portada del sitio
+├── assets/
+│   ├── style.css
+│   └── app.js
+├── pages/
+│   ├── countries.html                  # índice de países
+│   ├── country-{país}.html             # ficha por país (11)
+│   ├── country-{país}-year-{año}.html  # ficha país×año (44)
+│   ├── years.html                      # índice de años
+│   ├── year-{año}.html                 # ficha por año (4)
+│   ├── indicators.html                 # índice de indicadores
+│   ├── indicator-{ind}.html            # ficha por indicador (12)
+│   ├── comparisons.html               # índice de comparaciones
+│   ├── compare-{a}-vs-{b}-{ind}.html  # comparación bilateral (660)
+│   └── research-questions/
+│       ├── index.html                 # índice de preguntas
+│       ├── que-paises-*.html          # preguntas globales (4)
+│       └── como-*-en-{país}.html      # preguntas por país (33)
+├── atlas/
+│   └── data/
+│       ├── atlas_data.json
+│       ├── atlas_metadata.json
+│       └── atlas_data_with_indicators.csv
+└── data/
+    ├── dataset_with_indicators.csv
+    ├── indicators_summary_by_country.csv
+    ├── indicators_summary_by_year.csv
+    └── latest_snapshot.csv
 ```
 
-## Ejecución rápida
+## Scripts
+
+| Script | Función |
+|---|---|
+| `validate_dataset.py` | Valida columnas, tipos y coherencia del CSV |
+| `build_indicators.py` | Calcula indicadores y genera CSVs en `data/` |
+| `build_atlas_data.py` | Genera JSON para el atlas interactivo en `docs/atlas/data/` |
+| `build_site.py` | Genera las páginas HTML en `docs/pages/` |
+| `generate_research_pages.py` | Genera las preguntas de investigación en `docs/pages/research-questions/` |
+| `run_all.py` | Ejecuta el pipeline completo en orden |
+| `common.py` | Funciones compartidas (lectura, slugify, indicadores, etc.) |
+
+## Ejecución
+
+### Pipeline completo
 
 ```bash
 python scripts/run_all.py
 ```
 
-## Ejecución paso a paso
+### Scripts individuales
 
 ```bash
 python scripts/validate_dataset.py
 python scripts/build_indicators.py
 python scripts/build_atlas_data.py
-python scripts/generate_research_pages.py
 python scripts/build_site.py
+python scripts/generate_research_pages.py
 ```
 
-## Archivos generados
+## Requisitos
 
-### En `data/`
-- `dataset_with_indicators.csv`
-- `indicators_summary_by_country.csv`
-- `indicators_summary_by_year.csv`
-- `latest_snapshot.csv`
+```
+pip install -r requirements.txt
+```
 
-### En `docs/atlas/data/`
-- `atlas_data.json`
-- `atlas_metadata.json`
-- `atlas_data_with_indicators.csv`
+## Notas de diseño
 
-### En `docs/`
-- `index.html`
-- `countries/*.html`
-- `compare/*.html`
-- `research-questions/*.html`
-
-## Mejora real frente a tus scripts originales
-
-- ya no hay placeholders
-- ya no depende de edición manual
-- separa validación, indicadores, atlas y sitio
-- añade ISO3 y región
-- genera resúmenes y rankings
-- deja un pipeline reproducible para GitHub Pages
+- Todos los scripts leen `data/dataset.csv` por defecto (configurable con `--input`).
+- El directorio de salida por defecto es `docs/` (configurable con `--docs-dir`).
+- Las páginas generadas usan `assets/style.css` y `assets/app.js` del sitio real.
+- La navegación de todas las páginas es consistente con la estructura `docs/pages/`.
+- Las comparaciones bilaterales cubren los 11 países × 12 indicadores = 660 páginas.
