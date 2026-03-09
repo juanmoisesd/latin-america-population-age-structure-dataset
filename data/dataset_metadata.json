@@ -1,17 +1,42 @@
 {
-  "title": "Latin America Population Age Structure Dataset (2000–2023)",
-  "author": "Juan Moisés de la Serna",
-  "orcid": "0000-0002-8401-8018",
+  "title": "Latin America Population Age Structure Dataset",
+  "author": {
+    "name": "Juan Moisés de la Serna",
+    "orcid": "https://orcid.org/0000-0002-8401-8018"
+  },
   "license": "CC BY 4.0",
-  "temporal_coverage": [
-    2000,
-    2010,
-    2020,
-    2023
-  ],
+  "version": "1.0",
+  "temporal_coverage": {
+    "start_year": 2000,
+    "end_year": 2023
+  },
   "geographic_coverage": "Latin America",
   "countries": 11,
   "observations": 44,
-  "description": "Dataset describing the population age structure of selected Latin American countries with percentage and absolute population counts by age cohort.",
-  "source_file": "dataset.csv"
+  "variables": [
+    "country",
+    "year",
+    "population_total_millions",
+    "pct_0_14",
+    "pct_15_24",
+    "pct_25_54",
+    "pct_55_64",
+    "pct_65_plus",
+    "pop_0_14_thousands",
+    "pop_15_24_thousands",
+    "pop_25_54_thousands",
+    "pop_55_64_thousands",
+    "pop_65_plus_thousands",
+    "source"
+  ],
+  "description": "Dataset describing the population age structure of Latin American countries. It includes total population, percentage distribution by age groups, and absolute population counts for each cohort.",
+  "sources": [
+    "CEPAL",
+    "World Bank",
+    "BBVA Research"
+  ],
+  "source_file": "dataset.csv",
+  "related_files": [
+    "data_dictionary.md"
+  ]
 }
