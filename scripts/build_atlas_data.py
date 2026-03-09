@@ -2,61 +2,100 @@
 from __future__ import annotations
 
 import sys
+from typing import Any
+
+import pandas as pd
 
 from common import add_indicators, ensure_dir, parse_args, read_dataset, save_json
 
 
+def safe_float(value: Any) -> float | None:
+    return None if pd.isna(value) else float(value)
+
+
+def safe_int(value: Any) -> int | None:
+    return None if pd.isna(value) else int(value)
+
+
 def main() -> int:
-    parser = parse_args('Genera los archivos consumidos por el atlas interactivo.')
+    parser = parse_args("Genera los archivos consumidos por el atlas interactivo.")
     args = parser.parse_args()
 
-    df = add_indicators(read_dataset(args.input)).sort_values(['País', 'Año']).reset_index(drop=True)
-    out_dir = args.docs_dir / 'atlas' / 'data'
+    df = (
+        add_indicators(read_dataset(args.input))
+        .sort_values(["País", "Año"])
+        .reset_index(drop=True)
+    )
+
+    out_dir = args.docs_dir / "atlas" / "data"
     ensure_dir(out_dir)
 
     records = []
     for _, r in df.iterrows():
-        records.append({
-            'country': r['País'],
-            'iso3': r['ISO3'],
-            'region': r['Región'],
-            'year': int(r['Año']),
-            'population_total_millions': float(r['Población_Total_Millones']),
-            'age_groups_pct': {
-                '0_14': float(r['Pct_0_14']), '15_24': float(r['Pct_15_24']), '25_54': float(r['Pct_25_54']),
-                '55_64': float(r['Pct_55_64']), '65_plus': float(r['Pct_65_más']),
+        record = {
+            "country": r["País"],
+            "year": int(r["Año"]),
+            "population_total_millions": safe_float(r["Población_Total_Millones"]),
+            "age_groups_pct": {
+                "0_14": safe_float(r["Pct_0_14"]),
+                "15_24": safe_float(r["Pct_15_24"]),
+                "25_54": safe_float(r["Pct_25_54"]),
+                "55_64": safe_float(r["Pct_55_64"]),
+                "65_plus": safe_float(r["Pct_65_más"]),
             },
-            'age_groups_thousands': {
-                '0_14': float(r['Pob_0_14_Miles']), '15_24': float(r['Pob_15_24_Miles']), '25_54': float(r['Pob_25_54_Miles']),
-                '55_64': float(r['Pob_55_64_Miles']), '65_plus': float(r['Pob_65_más_Miles']),
+            "age_groups_thousands": {
+                "0_14": safe_float(r["Pob_0_14_Miles"]),
+                "15_24": safe_float(r["Pob_15_24_Miles"]),
+                "25_54": safe_float(r["Pob_25_54_Miles"]),
+                "55_64": safe_float(r["Pob_55_64_Miles"]),
+                "65_plus": safe_float(r["Pob_65_más_Miles"]),
             },
-            'indicators': {
-                'aging_index': None if str(r['Indice_Envejecimiento']) == 'nan' else float(r['Indice_Envejecimiento']),
-                'dependency_ratio_total': None if str(r['Razon_Dependencia_Total']) == 'nan' else float(r['Razon_Dependencia_Total']),
-                'dependency_ratio_child': None if str(r['Razon_Dependencia_Infantil']) == 'nan' else float(r['Razon_Dependencia_Infantil']),
-                'dependency_ratio_older': None if str(r['Razon_Dependencia_Mayores']) == 'nan' else float(r['Razon_Dependencia_Mayores']),
-                'demographic_dividend_index': None if str(r['Indice_Bono_Demografico']) == 'nan' else float(r['Indice_Bono_Demografico']),
-                'working_age_pct': float(r['Pct_Edad_Laboral']),
-                'youth_pct': float(r['Pct_Joven_Total']),
-                'working_age_thousands': float(r['Pob_Edad_Laboral_Miles']),
-                'dependent_thousands': float(r['Pob_Dependiente_Miles']),
-                'aging_change_vs_2000': None if str(r['Cambio_Envejecimiento_vs_2000']) == 'nan' else float(r['Cambio_Envejecimiento_vs_2000']),
+            "indicators": {
+                "aging_index": safe_float(r.get("Indice_Envejecimiento")),
+                "youth_index": safe_float(r.get("Indice_Juventud")),
+                "dependency_ratio_total": safe_float(r.get("Razon_Dependencia_Total")),
+                "dependency_ratio_youth": safe_float(r.get("Razon_Dependencia_Juvenil")),
+                "dependency_ratio_old_age": safe_float(r.get("Razon_Dependencia_Vejez")),
+                "demographic_dividend_index": safe_float(r.get("Indice_Bono_Demografico")),
+                "working_age_pct": safe_float(r.get("Pct_Edad_Laboral")),
+                "youth_pct": safe_float(r.get("Pct_Joven_Total")),
+                "older_pct": safe_float(r.get("Pct_65_más")),
+                "working_age_thousands": safe_float(r.get("Pob_Edad_Laboral_Miles")),
+                "dependent_thousands": safe_float(r.get("Pob_Dependiente_Miles")),
+                "youth_to_older_ratio": safe_float(r.get("Relacion_Jovenes_Mayores")),
+                "aging_change_vs_2000": safe_float(r.get("Cambio_Envejecimiento_vs_2000")),
             },
-            'source': r['Fuente'],
-        })
+            "source": r["Fuente"],
+        }
+
+        # Solo incluir estas claves si existen en el dataset procesado
+        if "ISO3" in df.columns:
+            record["iso3"] = r["ISO3"]
+        if "Región" in df.columns:
+            record["region"] = r["Región"]
+
+        records.append(record)
 
     metadata = {
-        'title': 'Atlas Demográfico Interactivo de América Latina',
-        'author': 'Juan Moisés de la Serna',
-        'record_count': int(len(df)),
-        'country_count': int(df['País'].nunique()),
-        'year_range': [int(df['Año'].min()), int(df['Año'].max())],
-        'variables': list(df.columns),
+        "title": "Atlas Demográfico Interactivo de América Latina",
+        "author": "Juan Moisés de la Serna",
+        "record_count": int(len(df)),
+        "country_count": int(df["País"].nunique()),
+        "year_range": [int(df["Año"].min()), int(df["Año"].max())],
+        "years": sorted(int(y) for y in df["Año"].dropna().unique()),
+        "countries": sorted(str(c) for c in df["País"].dropna().unique()),
+        "variables": list(df.columns),
+        "source_column": "Fuente",
+        "dataset_description": (
+            "Dataset demográfico comparativo con población total, estructura "
+            "por grupos de edad en porcentaje y población por grupos de edad "
+            "en miles."
+        ),
     }
 
-    save_json(out_dir / 'atlas_data.json', {'metadata': metadata, 'records': records})
-    save_json(out_dir / 'atlas_metadata.json', metadata)
-    df.to_csv(out_dir / 'atlas_data_with_indicators.csv', index=False, encoding='utf-8-sig')
+    save_json(out_dir / "atlas_data.json", {"metadata": metadata, "records": records})
+    save_json(out_dir / "atlas_metadata.json", metadata)
+    df.to_csv(out_dir / "atlas_data_with_indicators.csv", index=False, encoding="utf-8-sig")
 
     print(f'OK: {out_dir / "atlas_data.json"}')
     print(f'OK: {out_dir / "atlas_metadata.json"}')
@@ -64,9 +103,9 @@ def main() -> int:
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         raise SystemExit(main())
     except Exception as exc:
-        print(f'ERROR: {exc}', file=sys.stderr)
+        print(f"ERROR: {exc}", file=sys.stderr)
         raise
