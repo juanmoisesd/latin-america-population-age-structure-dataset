@@ -48,16 +48,16 @@
       "population_total_millions": 37.1,
       "age_groups_pct": {
         "0_14": 26.0,
-        "15_24": 16.0,
-        "25_54": 39.0,
-        "55_64": 11.0,
+        "15_24": 19.0,
+        "25_54": 40.0,
+        "55_64": 7.0,
         "65_plus": 8.0
       },
       "age_groups_thousands": {
         "0_14": 9646.0,
-        "15_24": 5936.0,
-        "25_54": 14469.0,
-        "55_64": 4081.0,
+        "15_24": 7049.0,
+        "25_54": 14840.0,
+        "55_64": 2597.0,
         "65_plus": 2968.0
       },
       "indicators": {
@@ -67,12 +67,12 @@
         "dependency_ratio_older": 12.12,
         "demographic_dividend_index": 1.9412,
         "working_age_pct": 66.0,
-        "youth_pct": 42.0,
+        "youth_pct": 45.0,
         "working_age_thousands": 24486.0,
         "dependent_thousands": 12614.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Argentina",
@@ -83,15 +83,15 @@
       "age_groups_pct": {
         "0_14": 23.0,
         "15_24": 17.0,
-        "25_54": 40.0,
-        "55_64": 10.0,
+        "25_54": 42.0,
+        "55_64": 8.0,
         "65_plus": 10.0
       },
       "age_groups_thousands": {
         "0_14": 9384.0,
         "15_24": 6936.0,
-        "25_54": 16320.0,
-        "55_64": 4080.0,
+        "25_54": 17136.0,
+        "55_64": 3264.0,
         "65_plus": 4080.0
       },
       "indicators": {
@@ -106,7 +106,7 @@
         "dependent_thousands": 13464.0,
         "aging_change_vs_2000": 12.71
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Argentina",
@@ -117,15 +117,15 @@
       "age_groups_pct": {
         "0_14": 21.0,
         "15_24": 15.0,
-        "25_54": 41.0,
-        "55_64": 11.5,
+        "25_54": 43.5,
+        "55_64": 9.0,
         "65_plus": 11.5
       },
       "age_groups_thousands": {
         "0_14": 9534.0,
         "15_24": 6810.0,
-        "25_54": 18614.0,
-        "55_64": 5221.0,
+        "25_54": 19749.0,
+        "55_64": 4086.0,
         "65_plus": 5221.0
       },
       "indicators": {
@@ -140,7 +140,7 @@
         "dependent_thousands": 14755.0,
         "aging_change_vs_2000": 23.99
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Argentina",
@@ -150,16 +150,16 @@
       "population_total_millions": 46.6,
       "age_groups_pct": {
         "0_14": 20.0,
-        "15_24": 15.0,
-        "25_54": 42.0,
-        "55_64": 10.5,
+        "15_24": 14.5,
+        "25_54": 43.5,
+        "55_64": 9.5,
         "65_plus": 12.5
       },
       "age_groups_thousands": {
         "0_14": 9320.0,
-        "15_24": 6990.0,
-        "25_54": 19572.0,
-        "55_64": 4893.0,
+        "15_24": 6757.0,
+        "25_54": 20271.0,
+        "55_64": 4427.0,
         "65_plus": 5825.0
       },
       "indicators": {
@@ -169,12 +169,12 @@
         "dependency_ratio_older": 18.52,
         "demographic_dividend_index": 2.0769,
         "working_age_pct": 67.5,
-        "youth_pct": 35.0,
+        "youth_pct": 34.5,
         "working_age_thousands": 31455.0,
         "dependent_thousands": 15145.0,
         "aging_change_vs_2000": 31.73
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Bolivia",
@@ -183,32 +183,32 @@
       "year": 2000,
       "population_total_millions": 8.3,
       "age_groups_pct": {
-        "0_14": 38.0,
-        "15_24": 21.0,
+        "0_14": 39.0,
+        "15_24": 23.0,
         "25_54": 30.0,
-        "55_64": 6.5,
+        "55_64": 3.5,
         "65_plus": 4.5
       },
       "age_groups_thousands": {
-        "0_14": 3154.0,
-        "15_24": 1743.0,
+        "0_14": 3237.0,
+        "15_24": 1909.0,
         "25_54": 2490.0,
-        "55_64": 540.0,
+        "55_64": 291.0,
         "65_plus": 374.0
       },
       "indicators": {
-        "aging_index": 11.86,
-        "dependency_ratio_total": 73.92,
-        "dependency_ratio_child": 66.08,
-        "dependency_ratio_older": 7.84,
-        "demographic_dividend_index": 1.3529,
-        "working_age_pct": 57.5,
-        "youth_pct": 59.0,
-        "working_age_thousands": 4773.0,
-        "dependent_thousands": 3528.0,
+        "aging_index": 11.55,
+        "dependency_ratio_total": 76.99,
+        "dependency_ratio_child": 69.02,
+        "dependency_ratio_older": 7.97,
+        "demographic_dividend_index": 1.2988,
+        "working_age_pct": 56.5,
+        "youth_pct": 62.0,
+        "working_age_thousands": 4690.0,
+        "dependent_thousands": 3611.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Bolivia",
@@ -217,32 +217,32 @@
       "year": 2010,
       "population_total_millions": 10.0,
       "age_groups_pct": {
-        "0_14": 33.0,
+        "0_14": 34.0,
         "15_24": 21.0,
-        "25_54": 34.0,
-        "55_64": 5.0,
+        "25_54": 33.5,
+        "55_64": 4.5,
         "65_plus": 7.0
       },
       "age_groups_thousands": {
-        "0_14": 3300.0,
+        "0_14": 3400.0,
         "15_24": 2100.0,
-        "25_54": 3400.0,
-        "55_64": 500.0,
+        "25_54": 3350.0,
+        "55_64": 450.0,
         "65_plus": 700.0
       },
       "indicators": {
-        "aging_index": 21.21,
-        "dependency_ratio_total": 66.67,
-        "dependency_ratio_child": 55.0,
-        "dependency_ratio_older": 11.67,
-        "demographic_dividend_index": 1.5,
-        "working_age_pct": 60.0,
-        "youth_pct": 54.0,
-        "working_age_thousands": 6000.0,
-        "dependent_thousands": 4000.0,
-        "aging_change_vs_2000": 9.35
+        "aging_index": 20.59,
+        "dependency_ratio_total": 69.49,
+        "dependency_ratio_child": 57.63,
+        "dependency_ratio_older": 11.86,
+        "demographic_dividend_index": 1.439,
+        "working_age_pct": 59.0,
+        "youth_pct": 55.0,
+        "working_age_thousands": 5900.0,
+        "dependent_thousands": 4100.0,
+        "aging_change_vs_2000": 9.04
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Bolivia",
@@ -251,32 +251,32 @@
       "year": 2020,
       "population_total_millions": 11.7,
       "age_groups_pct": {
-        "0_14": 28.0,
+        "0_14": 30.0,
         "15_24": 19.0,
-        "25_54": 39.0,
+        "25_54": 37.0,
         "55_64": 6.0,
         "65_plus": 8.0
       },
       "age_groups_thousands": {
-        "0_14": 3276.0,
+        "0_14": 3510.0,
         "15_24": 2223.0,
-        "25_54": 4563.0,
+        "25_54": 4329.0,
         "55_64": 702.0,
         "65_plus": 936.0
       },
       "indicators": {
-        "aging_index": 28.57,
-        "dependency_ratio_total": 56.25,
-        "dependency_ratio_child": 43.75,
-        "dependency_ratio_older": 12.5,
-        "demographic_dividend_index": 1.7778,
-        "working_age_pct": 64.0,
-        "youth_pct": 47.0,
-        "working_age_thousands": 7488.0,
-        "dependent_thousands": 4212.0,
-        "aging_change_vs_2000": 16.71
+        "aging_index": 26.67,
+        "dependency_ratio_total": 61.29,
+        "dependency_ratio_child": 48.39,
+        "dependency_ratio_older": 12.9,
+        "demographic_dividend_index": 1.6316,
+        "working_age_pct": 62.0,
+        "youth_pct": 49.0,
+        "working_age_thousands": 7254.0,
+        "dependent_thousands": 4446.0,
+        "aging_change_vs_2000": 15.12
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Bolivia",
@@ -285,100 +285,100 @@
       "year": 2023,
       "population_total_millions": 12.3,
       "age_groups_pct": {
-        "0_14": 26.0,
-        "15_24": 18.0,
-        "25_54": 40.0,
-        "55_64": 7.5,
+        "0_14": 29.0,
+        "15_24": 18.5,
+        "25_54": 37.5,
+        "55_64": 6.5,
         "65_plus": 8.5
       },
       "age_groups_thousands": {
-        "0_14": 3198.0,
-        "15_24": 2214.0,
-        "25_54": 4920.0,
-        "55_64": 923.0,
+        "0_14": 3567.0,
+        "15_24": 2276.0,
+        "25_54": 4613.0,
+        "55_64": 800.0,
         "65_plus": 1046.0
       },
       "indicators": {
-        "aging_index": 32.71,
-        "dependency_ratio_total": 52.67,
-        "dependency_ratio_child": 39.69,
-        "dependency_ratio_older": 12.98,
-        "demographic_dividend_index": 1.8984,
-        "working_age_pct": 65.5,
-        "youth_pct": 44.0,
-        "working_age_thousands": 8057.0,
-        "dependent_thousands": 4244.0,
-        "aging_change_vs_2000": 20.85
+        "aging_index": 29.32,
+        "dependency_ratio_total": 59.99,
+        "dependency_ratio_child": 46.39,
+        "dependency_ratio_older": 13.6,
+        "demographic_dividend_index": 1.6668,
+        "working_age_pct": 62.5,
+        "youth_pct": 47.5,
+        "working_age_thousands": 7689.0,
+        "dependent_thousands": 4613.0,
+        "aging_change_vs_2000": 17.77
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Brasil",
       "iso3": "BRA",
       "region": "Cono Sur",
       "year": 2000,
-      "population_total_millions": 174.5,
+      "population_total_millions": 173.0,
       "age_groups_pct": {
         "0_14": 28.0,
-        "15_24": 18.0,
-        "25_54": 38.0,
-        "55_64": 10.5,
+        "15_24": 20.5,
+        "25_54": 39.5,
+        "55_64": 6.5,
         "65_plus": 5.5
       },
       "age_groups_thousands": {
-        "0_14": 48860.0,
-        "15_24": 31410.0,
-        "25_54": 66310.0,
-        "55_64": 18323.0,
-        "65_plus": 9598.0
+        "0_14": 48440.0,
+        "15_24": 35465.0,
+        "25_54": 68315.0,
+        "55_64": 11245.0,
+        "65_plus": 9515.0
       },
       "indicators": {
         "aging_index": 19.64,
         "dependency_ratio_total": 50.38,
         "dependency_ratio_child": 42.11,
         "dependency_ratio_older": 8.27,
-        "demographic_dividend_index": 1.9851,
+        "demographic_dividend_index": 1.9847,
         "working_age_pct": 66.5,
-        "youth_pct": 46.0,
-        "working_age_thousands": 116043.0,
-        "dependent_thousands": 58458.0,
+        "youth_pct": 48.5,
+        "working_age_thousands": 115025.0,
+        "dependent_thousands": 57955.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Brasil",
       "iso3": "BRA",
       "region": "Cono Sur",
       "year": 2010,
-      "population_total_millions": 195.7,
+      "population_total_millions": 196.8,
       "age_groups_pct": {
-        "0_14": 22.0,
+        "0_14": 24.5,
         "15_24": 18.0,
         "25_54": 42.0,
-        "55_64": 10.0,
+        "55_64": 7.5,
         "65_plus": 8.0
       },
       "age_groups_thousands": {
-        "0_14": 43054.0,
-        "15_24": 35226.0,
-        "25_54": 82194.0,
-        "55_64": 19570.0,
-        "65_plus": 15656.0
+        "0_14": 48216.0,
+        "15_24": 35424.0,
+        "25_54": 82656.0,
+        "55_64": 14760.0,
+        "65_plus": 15744.0
       },
       "indicators": {
-        "aging_index": 36.36,
-        "dependency_ratio_total": 42.86,
-        "dependency_ratio_child": 31.43,
-        "dependency_ratio_older": 11.43,
-        "demographic_dividend_index": 2.3333,
-        "working_age_pct": 70.0,
-        "youth_pct": 40.0,
-        "working_age_thousands": 136990.0,
-        "dependent_thousands": 58710.0,
-        "aging_change_vs_2000": 16.72
+        "aging_index": 32.65,
+        "dependency_ratio_total": 48.15,
+        "dependency_ratio_child": 36.3,
+        "dependency_ratio_older": 11.85,
+        "demographic_dividend_index": 2.0769,
+        "working_age_pct": 67.5,
+        "youth_pct": 42.5,
+        "working_age_thousands": 132840.0,
+        "dependent_thousands": 63960.0,
+        "aging_change_vs_2000": 13.01
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Brasil",
@@ -387,32 +387,32 @@
       "year": 2020,
       "population_total_millions": 213.2,
       "age_groups_pct": {
-        "0_14": 20.0,
+        "0_14": 20.5,
         "15_24": 15.0,
-        "25_54": 43.0,
-        "55_64": 10.5,
+        "25_54": 44.0,
+        "55_64": 9.0,
         "65_plus": 11.5
       },
       "age_groups_thousands": {
-        "0_14": 42640.0,
+        "0_14": 43706.0,
         "15_24": 31980.0,
-        "25_54": 91676.0,
-        "55_64": 22386.0,
+        "25_54": 93808.0,
+        "55_64": 19188.0,
         "65_plus": 24518.0
       },
       "indicators": {
-        "aging_index": 57.5,
-        "dependency_ratio_total": 45.99,
-        "dependency_ratio_child": 29.2,
-        "dependency_ratio_older": 16.79,
-        "demographic_dividend_index": 2.1746,
-        "working_age_pct": 68.5,
-        "youth_pct": 35.0,
-        "working_age_thousands": 146042.0,
-        "dependent_thousands": 67158.0,
-        "aging_change_vs_2000": 37.86
+        "aging_index": 56.1,
+        "dependency_ratio_total": 47.06,
+        "dependency_ratio_child": 30.15,
+        "dependency_ratio_older": 16.91,
+        "demographic_dividend_index": 2.125,
+        "working_age_pct": 68.0,
+        "youth_pct": 35.5,
+        "working_age_thousands": 144976.0,
+        "dependent_thousands": 68224.0,
+        "aging_change_vs_2000": 36.46
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Brasil",
@@ -423,50 +423,50 @@
       "age_groups_pct": {
         "0_14": 19.0,
         "15_24": 14.0,
-        "25_54": 43.0,
-        "55_64": 11.0,
+        "25_54": 44.5,
+        "55_64": 9.5,
         "65_plus": 13.0
       },
       "age_groups_thousands": {
         "0_14": 41002.0,
         "15_24": 30212.0,
-        "25_54": 92794.0,
-        "55_64": 23738.0,
+        "25_54": 96001.0,
+        "55_64": 20501.0,
         "65_plus": 28054.0
       },
       "indicators": {
         "aging_index": 68.42,
-        "dependency_ratio_total": 47.06,
-        "dependency_ratio_child": 27.94,
+        "dependency_ratio_total": 47.07,
+        "dependency_ratio_child": 27.95,
         "dependency_ratio_older": 19.12,
-        "demographic_dividend_index": 2.125,
+        "demographic_dividend_index": 2.1246,
         "working_age_pct": 68.0,
         "youth_pct": 33.0,
-        "working_age_thousands": 146744.0,
+        "working_age_thousands": 146714.0,
         "dependent_thousands": 69056.0,
         "aging_change_vs_2000": 48.78
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Chile",
       "iso3": "CHL",
       "region": "Cono Sur",
       "year": 2000,
-      "population_total_millions": 15.4,
+      "population_total_millions": 15.5,
       "age_groups_pct": {
         "0_14": 26.0,
-        "15_24": 18.0,
+        "15_24": 19.0,
         "25_54": 40.0,
-        "55_64": 8.0,
+        "55_64": 7.0,
         "65_plus": 8.0
       },
       "age_groups_thousands": {
-        "0_14": 4004.0,
-        "15_24": 2772.0,
-        "25_54": 6160.0,
-        "55_64": 1232.0,
-        "65_plus": 1232.0
+        "0_14": 4030.0,
+        "15_24": 2945.0,
+        "25_54": 6200.0,
+        "55_64": 1085.0,
+        "65_plus": 1240.0
       },
       "indicators": {
         "aging_index": 30.77,
@@ -475,12 +475,12 @@
         "dependency_ratio_older": 12.12,
         "demographic_dividend_index": 1.9412,
         "working_age_pct": 66.0,
-        "youth_pct": 44.0,
-        "working_age_thousands": 10164.0,
-        "dependent_thousands": 5236.0,
+        "youth_pct": 45.0,
+        "working_age_thousands": 10230.0,
+        "dependent_thousands": 5270.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Chile",
@@ -489,32 +489,32 @@
       "year": 2010,
       "population_total_millions": 17.1,
       "age_groups_pct": {
-        "0_14": 20.0,
+        "0_14": 22.0,
         "15_24": 17.0,
-        "25_54": 44.0,
-        "55_64": 8.5,
+        "25_54": 42.5,
+        "55_64": 8.0,
         "65_plus": 10.5
       },
       "age_groups_thousands": {
-        "0_14": 3420.0,
+        "0_14": 3762.0,
         "15_24": 2907.0,
-        "25_54": 7524.0,
-        "55_64": 1454.0,
+        "25_54": 7268.0,
+        "55_64": 1368.0,
         "65_plus": 1796.0
       },
       "indicators": {
-        "aging_index": 52.51,
-        "dependency_ratio_total": 43.89,
-        "dependency_ratio_child": 28.78,
-        "dependency_ratio_older": 15.11,
-        "demographic_dividend_index": 2.2786,
-        "working_age_pct": 69.5,
-        "youth_pct": 37.0,
-        "working_age_thousands": 11885.0,
-        "dependent_thousands": 5216.0,
-        "aging_change_vs_2000": 21.74
+        "aging_index": 47.74,
+        "dependency_ratio_total": 48.15,
+        "dependency_ratio_child": 32.59,
+        "dependency_ratio_older": 15.56,
+        "demographic_dividend_index": 2.0768,
+        "working_age_pct": 67.5,
+        "youth_pct": 39.0,
+        "working_age_thousands": 11543.0,
+        "dependent_thousands": 5558.0,
+        "aging_change_vs_2000": 16.97
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Chile",
@@ -523,32 +523,32 @@
       "year": 2020,
       "population_total_millions": 19.1,
       "age_groups_pct": {
-        "0_14": 18.0,
+        "0_14": 19.0,
         "15_24": 14.0,
-        "25_54": 44.0,
-        "55_64": 11.5,
+        "25_54": 45.0,
+        "55_64": 9.5,
         "65_plus": 12.5
       },
       "age_groups_thousands": {
-        "0_14": 3438.0,
+        "0_14": 3629.0,
         "15_24": 2674.0,
-        "25_54": 8404.0,
-        "55_64": 2197.0,
+        "25_54": 8595.0,
+        "55_64": 1815.0,
         "65_plus": 2388.0
       },
       "indicators": {
-        "aging_index": 69.46,
-        "dependency_ratio_total": 43.89,
-        "dependency_ratio_child": 25.9,
-        "dependency_ratio_older": 17.99,
-        "demographic_dividend_index": 2.2786,
-        "working_age_pct": 69.5,
-        "youth_pct": 32.0,
-        "working_age_thousands": 13275.0,
-        "dependent_thousands": 5826.0,
-        "aging_change_vs_2000": 38.69
+        "aging_index": 65.8,
+        "dependency_ratio_total": 45.99,
+        "dependency_ratio_child": 27.74,
+        "dependency_ratio_older": 18.25,
+        "demographic_dividend_index": 2.1745,
+        "working_age_pct": 68.5,
+        "youth_pct": 33.0,
+        "working_age_thousands": 13084.0,
+        "dependent_thousands": 6017.0,
+        "aging_change_vs_2000": 35.03
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Chile",
@@ -557,66 +557,66 @@
       "year": 2023,
       "population_total_millions": 19.6,
       "age_groups_pct": {
-        "0_14": 17.0,
-        "15_24": 13.0,
-        "25_54": 43.0,
-        "55_64": 13.5,
+        "0_14": 18.0,
+        "15_24": 13.5,
+        "25_54": 45.0,
+        "55_64": 10.0,
         "65_plus": 13.5
       },
       "age_groups_thousands": {
-        "0_14": 3332.0,
-        "15_24": 2548.0,
-        "25_54": 8428.0,
-        "55_64": 2646.0,
+        "0_14": 3528.0,
+        "15_24": 2646.0,
+        "25_54": 8820.0,
+        "55_64": 1960.0,
         "65_plus": 2646.0
       },
       "indicators": {
-        "aging_index": 79.41,
-        "dependency_ratio_total": 43.88,
-        "dependency_ratio_child": 24.46,
-        "dependency_ratio_older": 19.42,
-        "demographic_dividend_index": 2.2787,
-        "working_age_pct": 69.5,
-        "youth_pct": 30.0,
-        "working_age_thousands": 13622.0,
-        "dependent_thousands": 5978.0,
-        "aging_change_vs_2000": 48.64
+        "aging_index": 75.0,
+        "dependency_ratio_total": 45.99,
+        "dependency_ratio_child": 26.28,
+        "dependency_ratio_older": 19.71,
+        "demographic_dividend_index": 2.1746,
+        "working_age_pct": 68.5,
+        "youth_pct": 31.5,
+        "working_age_thousands": 13426.0,
+        "dependent_thousands": 6174.0,
+        "aging_change_vs_2000": 44.23
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Colombia",
       "iso3": "COL",
       "region": "Andina",
       "year": 2000,
-      "population_total_millions": 40.4,
+      "population_total_millions": 40.3,
       "age_groups_pct": {
-        "0_14": 31.0,
-        "15_24": 19.0,
+        "0_14": 32.0,
+        "15_24": 21.0,
         "25_54": 37.0,
-        "55_64": 8.5,
+        "55_64": 5.5,
         "65_plus": 4.5
       },
       "age_groups_thousands": {
-        "0_14": 12524.0,
-        "15_24": 7676.0,
-        "25_54": 14948.0,
-        "55_64": 3434.0,
-        "65_plus": 1818.0
+        "0_14": 12896.0,
+        "15_24": 8463.0,
+        "25_54": 14911.0,
+        "55_64": 2217.0,
+        "65_plus": 1814.0
       },
       "indicators": {
-        "aging_index": 14.52,
-        "dependency_ratio_total": 55.04,
-        "dependency_ratio_child": 48.06,
-        "dependency_ratio_older": 6.98,
-        "demographic_dividend_index": 1.8169,
-        "working_age_pct": 64.5,
-        "youth_pct": 50.0,
-        "working_age_thousands": 26058.0,
-        "dependent_thousands": 14342.0,
+        "aging_index": 14.07,
+        "dependency_ratio_total": 57.48,
+        "dependency_ratio_child": 50.39,
+        "dependency_ratio_older": 7.09,
+        "demographic_dividend_index": 1.7397,
+        "working_age_pct": 63.5,
+        "youth_pct": 53.0,
+        "working_age_thousands": 25591.0,
+        "dependent_thousands": 14710.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Colombia",
@@ -625,66 +625,66 @@
       "year": 2010,
       "population_total_millions": 45.5,
       "age_groups_pct": {
-        "0_14": 25.0,
-        "15_24": 18.0,
-        "25_54": 41.0,
-        "55_64": 8.5,
+        "0_14": 27.0,
+        "15_24": 19.0,
+        "25_54": 40.0,
+        "55_64": 6.5,
         "65_plus": 7.5
       },
       "age_groups_thousands": {
-        "0_14": 11375.0,
-        "15_24": 8190.0,
-        "25_54": 18655.0,
-        "55_64": 3868.0,
+        "0_14": 12285.0,
+        "15_24": 8645.0,
+        "25_54": 18200.0,
+        "55_64": 2958.0,
         "65_plus": 3413.0
       },
       "indicators": {
-        "aging_index": 30.0,
-        "dependency_ratio_total": 48.15,
-        "dependency_ratio_child": 37.04,
-        "dependency_ratio_older": 11.11,
-        "demographic_dividend_index": 2.0769,
-        "working_age_pct": 67.5,
-        "youth_pct": 43.0,
-        "working_age_thousands": 30713.0,
-        "dependent_thousands": 14788.0,
-        "aging_change_vs_2000": 15.48
+        "aging_index": 27.78,
+        "dependency_ratio_total": 52.67,
+        "dependency_ratio_child": 41.22,
+        "dependency_ratio_older": 11.45,
+        "demographic_dividend_index": 1.8985,
+        "working_age_pct": 65.5,
+        "youth_pct": 46.0,
+        "working_age_thousands": 29803.0,
+        "dependent_thousands": 15698.0,
+        "aging_change_vs_2000": 13.71
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Colombia",
       "iso3": "COL",
       "region": "Andina",
       "year": 2020,
-      "population_total_millions": 50.8,
+      "population_total_millions": 51.2,
       "age_groups_pct": {
-        "0_14": 21.0,
-        "15_24": 17.0,
+        "0_14": 23.0,
+        "15_24": 16.0,
         "25_54": 43.0,
-        "55_64": 9.0,
+        "55_64": 8.0,
         "65_plus": 10.0
       },
       "age_groups_thousands": {
-        "0_14": 10668.0,
-        "15_24": 8636.0,
-        "25_54": 21844.0,
-        "55_64": 4572.0,
-        "65_plus": 5080.0
+        "0_14": 11776.0,
+        "15_24": 8192.0,
+        "25_54": 22016.0,
+        "55_64": 4096.0,
+        "65_plus": 5120.0
       },
       "indicators": {
-        "aging_index": 47.62,
-        "dependency_ratio_total": 44.93,
-        "dependency_ratio_child": 30.43,
-        "dependency_ratio_older": 14.49,
-        "demographic_dividend_index": 2.2258,
-        "working_age_pct": 69.0,
-        "youth_pct": 38.0,
-        "working_age_thousands": 35052.0,
-        "dependent_thousands": 15748.0,
-        "aging_change_vs_2000": 33.1
+        "aging_index": 43.48,
+        "dependency_ratio_total": 49.25,
+        "dependency_ratio_child": 34.33,
+        "dependency_ratio_older": 14.93,
+        "demographic_dividend_index": 2.0303,
+        "working_age_pct": 67.0,
+        "youth_pct": 39.0,
+        "working_age_thousands": 34304.0,
+        "dependent_thousands": 16896.0,
+        "aging_change_vs_2000": 29.41
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Colombia",
@@ -693,100 +693,100 @@
       "year": 2023,
       "population_total_millions": 52.2,
       "age_groups_pct": {
-        "0_14": 19.0,
-        "15_24": 16.0,
-        "25_54": 44.0,
-        "55_64": 10.5,
+        "0_14": 22.0,
+        "15_24": 15.5,
+        "25_54": 43.5,
+        "55_64": 8.5,
         "65_plus": 10.5
       },
       "age_groups_thousands": {
-        "0_14": 9918.0,
-        "15_24": 8352.0,
-        "25_54": 22968.0,
-        "55_64": 5481.0,
+        "0_14": 11484.0,
+        "15_24": 8091.0,
+        "25_54": 22707.0,
+        "55_64": 4437.0,
         "65_plus": 5481.0
       },
       "indicators": {
-        "aging_index": 55.26,
-        "dependency_ratio_total": 41.84,
-        "dependency_ratio_child": 26.95,
-        "dependency_ratio_older": 14.89,
-        "demographic_dividend_index": 2.3898,
-        "working_age_pct": 70.5,
-        "youth_pct": 35.0,
-        "working_age_thousands": 36801.0,
-        "dependent_thousands": 15399.0,
-        "aging_change_vs_2000": 40.74
+        "aging_index": 47.73,
+        "dependency_ratio_total": 48.15,
+        "dependency_ratio_child": 32.59,
+        "dependency_ratio_older": 15.56,
+        "demographic_dividend_index": 2.0769,
+        "working_age_pct": 67.5,
+        "youth_pct": 37.5,
+        "working_age_thousands": 35235.0,
+        "dependent_thousands": 16965.0,
+        "aging_change_vs_2000": 33.66
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Ecuador",
       "iso3": "ECU",
       "region": "Andina",
       "year": 2000,
-      "population_total_millions": 12.3,
+      "population_total_millions": 12.6,
       "age_groups_pct": {
-        "0_14": 33.0,
-        "15_24": 21.0,
-        "25_54": 34.0,
-        "55_64": 7.0,
+        "0_14": 36.0,
+        "15_24": 22.0,
+        "25_54": 33.0,
+        "55_64": 4.0,
         "65_plus": 5.0
       },
       "age_groups_thousands": {
-        "0_14": 4059.0,
-        "15_24": 2583.0,
-        "25_54": 4182.0,
-        "55_64": 861.0,
-        "65_plus": 615.0
+        "0_14": 4536.0,
+        "15_24": 2772.0,
+        "25_54": 4158.0,
+        "55_64": 504.0,
+        "65_plus": 630.0
       },
       "indicators": {
-        "aging_index": 15.15,
-        "dependency_ratio_total": 61.29,
-        "dependency_ratio_child": 53.23,
-        "dependency_ratio_older": 8.06,
-        "demographic_dividend_index": 1.6316,
-        "working_age_pct": 62.0,
-        "youth_pct": 54.0,
-        "working_age_thousands": 7626.0,
-        "dependent_thousands": 4674.0,
+        "aging_index": 13.89,
+        "dependency_ratio_total": 69.49,
+        "dependency_ratio_child": 61.02,
+        "dependency_ratio_older": 8.47,
+        "demographic_dividend_index": 1.439,
+        "working_age_pct": 59.0,
+        "youth_pct": 58.0,
+        "working_age_thousands": 7434.0,
+        "dependent_thousands": 5166.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Ecuador",
       "iso3": "ECU",
       "region": "Andina",
       "year": 2010,
-      "population_total_millions": 14.5,
+      "population_total_millions": 15.0,
       "age_groups_pct": {
-        "0_14": 28.0,
-        "15_24": 19.0,
-        "25_54": 38.0,
-        "55_64": 8.5,
+        "0_14": 31.0,
+        "15_24": 20.5,
+        "25_54": 36.5,
+        "55_64": 5.5,
         "65_plus": 6.5
       },
       "age_groups_thousands": {
-        "0_14": 4060.0,
-        "15_24": 2755.0,
-        "25_54": 5510.0,
-        "55_64": 1233.0,
-        "65_plus": 943.0
+        "0_14": 4650.0,
+        "15_24": 3075.0,
+        "25_54": 5475.0,
+        "55_64": 825.0,
+        "65_plus": 975.0
       },
       "indicators": {
-        "aging_index": 23.23,
-        "dependency_ratio_total": 52.67,
-        "dependency_ratio_child": 42.75,
-        "dependency_ratio_older": 9.93,
-        "demographic_dividend_index": 1.8985,
-        "working_age_pct": 65.5,
-        "youth_pct": 47.0,
-        "working_age_thousands": 9498.0,
-        "dependent_thousands": 5003.0,
-        "aging_change_vs_2000": 8.08
+        "aging_index": 20.97,
+        "dependency_ratio_total": 60.0,
+        "dependency_ratio_child": 49.6,
+        "dependency_ratio_older": 10.4,
+        "demographic_dividend_index": 1.6667,
+        "working_age_pct": 62.5,
+        "youth_pct": 51.5,
+        "working_age_thousands": 9375.0,
+        "dependent_thousands": 5625.0,
+        "aging_change_vs_2000": 7.08
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Ecuador",
@@ -795,32 +795,32 @@
       "year": 2020,
       "population_total_millions": 17.6,
       "age_groups_pct": {
-        "0_14": 26.0,
+        "0_14": 27.0,
         "15_24": 18.0,
-        "25_54": 39.0,
-        "55_64": 9.0,
+        "25_54": 40.0,
+        "55_64": 7.0,
         "65_plus": 8.0
       },
       "age_groups_thousands": {
-        "0_14": 4576.0,
+        "0_14": 4752.0,
         "15_24": 3168.0,
-        "25_54": 6864.0,
-        "55_64": 1584.0,
+        "25_54": 7040.0,
+        "55_64": 1232.0,
         "65_plus": 1408.0
       },
       "indicators": {
-        "aging_index": 30.77,
-        "dependency_ratio_total": 51.52,
-        "dependency_ratio_child": 39.39,
-        "dependency_ratio_older": 12.12,
-        "demographic_dividend_index": 1.9412,
-        "working_age_pct": 66.0,
-        "youth_pct": 44.0,
-        "working_age_thousands": 11616.0,
-        "dependent_thousands": 5984.0,
-        "aging_change_vs_2000": 15.62
+        "aging_index": 29.63,
+        "dependency_ratio_total": 53.85,
+        "dependency_ratio_child": 41.54,
+        "dependency_ratio_older": 12.31,
+        "demographic_dividend_index": 1.8571,
+        "working_age_pct": 65.0,
+        "youth_pct": 45.0,
+        "working_age_thousands": 11440.0,
+        "dependent_thousands": 6160.0,
+        "aging_change_vs_2000": 15.74
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Ecuador",
@@ -829,324 +829,52 @@
       "year": 2023,
       "population_total_millions": 18.0,
       "age_groups_pct": {
-        "0_14": 24.0,
-        "15_24": 17.0,
-        "25_54": 41.0,
-        "55_64": 9.5,
+        "0_14": 26.0,
+        "15_24": 17.5,
+        "25_54": 40.5,
+        "55_64": 7.5,
         "65_plus": 8.5
       },
       "age_groups_thousands": {
-        "0_14": 4320.0,
-        "15_24": 3060.0,
-        "25_54": 7380.0,
-        "55_64": 1710.0,
+        "0_14": 4680.0,
+        "15_24": 3150.0,
+        "25_54": 7290.0,
+        "55_64": 1350.0,
         "65_plus": 1530.0
       },
       "indicators": {
-        "aging_index": 35.42,
-        "dependency_ratio_total": 48.15,
-        "dependency_ratio_child": 35.56,
-        "dependency_ratio_older": 12.59,
-        "demographic_dividend_index": 2.0769,
-        "working_age_pct": 67.5,
-        "youth_pct": 41.0,
-        "working_age_thousands": 12150.0,
-        "dependent_thousands": 5850.0,
-        "aging_change_vs_2000": 20.27
+        "aging_index": 32.69,
+        "dependency_ratio_total": 52.67,
+        "dependency_ratio_child": 39.69,
+        "dependency_ratio_older": 12.98,
+        "demographic_dividend_index": 1.8986,
+        "working_age_pct": 65.5,
+        "youth_pct": 43.5,
+        "working_age_thousands": 11790.0,
+        "dependent_thousands": 6210.0,
+        "aging_change_vs_2000": 18.8
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "México",
       "iso3": "MEX",
       "region": "Norteamérica",
       "year": 2000,
-      "population_total_millions": 99.9,
-      "age_groups_pct": {
-        "0_14": 31.0,
-        "15_24": 20.0,
-        "25_54": 36.0,
-        "55_64": 8.5,
-        "65_plus": 4.5
-      },
-      "age_groups_thousands": {
-        "0_14": 30969.0,
-        "15_24": 19980.0,
-        "25_54": 35964.0,
-        "55_64": 8492.0,
-        "65_plus": 4496.0
-      },
-      "indicators": {
-        "aging_index": 14.52,
-        "dependency_ratio_total": 55.04,
-        "dependency_ratio_child": 48.06,
-        "dependency_ratio_older": 6.98,
-        "demographic_dividend_index": 1.8169,
-        "working_age_pct": 64.5,
-        "youth_pct": 51.0,
-        "working_age_thousands": 64436.0,
-        "dependent_thousands": 35465.0,
-        "aging_change_vs_2000": 0.0
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "México",
-      "iso3": "MEX",
-      "region": "Norteamérica",
-      "year": 2010,
-      "population_total_millions": 114.3,
-      "age_groups_pct": {
-        "0_14": 27.0,
-        "15_24": 18.0,
-        "25_54": 39.0,
-        "55_64": 9.5,
-        "65_plus": 6.5
-      },
-      "age_groups_thousands": {
-        "0_14": 30861.0,
-        "15_24": 20574.0,
-        "25_54": 44577.0,
-        "55_64": 10859.0,
-        "65_plus": 7430.0
-      },
-      "indicators": {
-        "aging_index": 24.08,
-        "dependency_ratio_total": 50.38,
-        "dependency_ratio_child": 40.6,
-        "dependency_ratio_older": 9.78,
-        "demographic_dividend_index": 1.9851,
-        "working_age_pct": 66.5,
-        "youth_pct": 45.0,
-        "working_age_thousands": 76010.0,
-        "dependent_thousands": 38291.0,
-        "aging_change_vs_2000": 9.56
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "México",
-      "iso3": "MEX",
-      "region": "Norteamérica",
-      "year": 2020,
-      "population_total_millions": 126.7,
-      "age_groups_pct": {
-        "0_14": 24.0,
-        "15_24": 17.0,
-        "25_54": 41.0,
-        "55_64": 10.0,
-        "65_plus": 8.5
-      },
-      "age_groups_thousands": {
-        "0_14": 30408.0,
-        "15_24": 21539.0,
-        "25_54": 51947.0,
-        "55_64": 12670.0,
-        "65_plus": 10770.0
-      },
-      "indicators": {
-        "aging_index": 35.42,
-        "dependency_ratio_total": 47.79,
-        "dependency_ratio_child": 35.29,
-        "dependency_ratio_older": 12.5,
-        "demographic_dividend_index": 2.0923,
-        "working_age_pct": 68.0,
-        "youth_pct": 41.0,
-        "working_age_thousands": 86156.0,
-        "dependent_thousands": 41178.0,
-        "aging_change_vs_2000": 20.9
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "México",
-      "iso3": "MEX",
-      "region": "Norteamérica",
-      "year": 2023,
-      "population_total_millions": 129.0,
-      "age_groups_pct": {
-        "0_14": 22.0,
-        "15_24": 16.0,
-        "25_54": 42.0,
-        "55_64": 11.0,
-        "65_plus": 9.0
-      },
-      "age_groups_thousands": {
-        "0_14": 28380.0,
-        "15_24": 20640.0,
-        "25_54": 54180.0,
-        "55_64": 14190.0,
-        "65_plus": 11610.0
-      },
-      "indicators": {
-        "aging_index": 40.91,
-        "dependency_ratio_total": 44.93,
-        "dependency_ratio_child": 31.88,
-        "dependency_ratio_older": 13.04,
-        "demographic_dividend_index": 2.2258,
-        "working_age_pct": 69.0,
-        "youth_pct": 38.0,
-        "working_age_thousands": 89010.0,
-        "dependent_thousands": 39990.0,
-        "aging_change_vs_2000": 26.39
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "Paraguay",
-      "iso3": "PRY",
-      "region": "Cono Sur",
-      "year": 2000,
-      "population_total_millions": 5.4,
-      "age_groups_pct": {
-        "0_14": 37.0,
-        "15_24": 22.0,
-        "25_54": 30.0,
-        "55_64": 6.5,
-        "65_plus": 4.5
-      },
-      "age_groups_thousands": {
-        "0_14": 1998.0,
-        "15_24": 1188.0,
-        "25_54": 1620.0,
-        "55_64": 351.0,
-        "65_plus": 243.0
-      },
-      "indicators": {
-        "aging_index": 12.16,
-        "dependency_ratio_total": 70.94,
-        "dependency_ratio_child": 63.25,
-        "dependency_ratio_older": 7.69,
-        "demographic_dividend_index": 1.4096,
-        "working_age_pct": 58.5,
-        "youth_pct": 59.0,
-        "working_age_thousands": 3159.0,
-        "dependent_thousands": 2241.0,
-        "aging_change_vs_2000": 0.0
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "Paraguay",
-      "iso3": "PRY",
-      "region": "Cono Sur",
-      "year": 2010,
-      "population_total_millions": 6.5,
-      "age_groups_pct": {
-        "0_14": 32.0,
-        "15_24": 20.0,
-        "25_54": 36.0,
-        "55_64": 5.0,
-        "65_plus": 7.0
-      },
-      "age_groups_thousands": {
-        "0_14": 2080.0,
-        "15_24": 1300.0,
-        "25_54": 2340.0,
-        "55_64": 325.0,
-        "65_plus": 455.0
-      },
-      "indicators": {
-        "aging_index": 21.88,
-        "dependency_ratio_total": 63.93,
-        "dependency_ratio_child": 52.46,
-        "dependency_ratio_older": 11.48,
-        "demographic_dividend_index": 1.5641,
-        "working_age_pct": 61.0,
-        "youth_pct": 52.0,
-        "working_age_thousands": 3965.0,
-        "dependent_thousands": 2535.0,
-        "aging_change_vs_2000": 9.72
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "Paraguay",
-      "iso3": "PRY",
-      "region": "Cono Sur",
-      "year": 2020,
-      "population_total_millions": 7.1,
-      "age_groups_pct": {
-        "0_14": 28.0,
-        "15_24": 19.0,
-        "25_54": 38.0,
-        "55_64": 6.5,
-        "65_plus": 8.5
-      },
-      "age_groups_thousands": {
-        "0_14": 1988.0,
-        "15_24": 1349.0,
-        "25_54": 2698.0,
-        "55_64": 462.0,
-        "65_plus": 604.0
-      },
-      "indicators": {
-        "aging_index": 30.38,
-        "dependency_ratio_total": 57.49,
-        "dependency_ratio_child": 44.09,
-        "dependency_ratio_older": 13.4,
-        "demographic_dividend_index": 1.7396,
-        "working_age_pct": 63.5,
-        "youth_pct": 47.0,
-        "working_age_thousands": 4509.0,
-        "dependent_thousands": 2592.0,
-        "aging_change_vs_2000": 18.22
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "Paraguay",
-      "iso3": "PRY",
-      "region": "Cono Sur",
-      "year": 2023,
-      "population_total_millions": 7.5,
-      "age_groups_pct": {
-        "0_14": 26.0,
-        "15_24": 18.0,
-        "25_54": 39.0,
-        "55_64": 8.0,
-        "65_plus": 9.0
-      },
-      "age_groups_thousands": {
-        "0_14": 1950.0,
-        "15_24": 1350.0,
-        "25_54": 2925.0,
-        "55_64": 600.0,
-        "65_plus": 675.0
-      },
-      "indicators": {
-        "aging_index": 34.62,
-        "dependency_ratio_total": 53.85,
-        "dependency_ratio_child": 40.0,
-        "dependency_ratio_older": 13.85,
-        "demographic_dividend_index": 1.8571,
-        "working_age_pct": 65.0,
-        "youth_pct": 44.0,
-        "working_age_thousands": 4875.0,
-        "dependent_thousands": 2625.0,
-        "aging_change_vs_2000": 22.46
-      },
-      "source": "CEPALSTAT"
-    },
-    {
-      "country": "Perú",
-      "iso3": "PER",
-      "region": "Andina",
-      "year": 2000,
-      "population_total_millions": 25.6,
+      "population_total_millions": 97.5,
       "age_groups_pct": {
         "0_14": 33.0,
         "15_24": 20.0,
-        "25_54": 35.0,
-        "55_64": 7.5,
+        "25_54": 37.5,
+        "55_64": 5.0,
         "65_plus": 4.5
       },
       "age_groups_thousands": {
-        "0_14": 8448.0,
-        "15_24": 5120.0,
-        "25_54": 8960.0,
-        "55_64": 1920.0,
-        "65_plus": 1152.0
+        "0_14": 32175.0,
+        "15_24": 19500.0,
+        "25_54": 36563.0,
+        "55_64": 4875.0,
+        "65_plus": 4388.0
       },
       "indicators": {
         "aging_index": 13.64,
@@ -1156,31 +884,303 @@
         "demographic_dividend_index": 1.6667,
         "working_age_pct": 62.5,
         "youth_pct": 53.0,
-        "working_age_thousands": 16000.0,
-        "dependent_thousands": 9600.0,
+        "working_age_thousands": 60938.0,
+        "dependent_thousands": 36563.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/BBVA Research"
+    },
+    {
+      "country": "México",
+      "iso3": "MEX",
+      "region": "Norteamérica",
+      "year": 2010,
+      "population_total_millions": 112.3,
+      "age_groups_pct": {
+        "0_14": 28.5,
+        "15_24": 19.0,
+        "25_54": 40.0,
+        "55_64": 6.0,
+        "65_plus": 6.5
+      },
+      "age_groups_thousands": {
+        "0_14": 32006.0,
+        "15_24": 21337.0,
+        "25_54": 44920.0,
+        "55_64": 6738.0,
+        "65_plus": 7300.0
+      },
+      "indicators": {
+        "aging_index": 22.81,
+        "dependency_ratio_total": 53.85,
+        "dependency_ratio_child": 43.85,
+        "dependency_ratio_older": 10.0,
+        "demographic_dividend_index": 1.8571,
+        "working_age_pct": 65.0,
+        "youth_pct": 47.5,
+        "working_age_thousands": 72995.0,
+        "dependent_thousands": 39306.0,
+        "aging_change_vs_2000": 9.17
+      },
+      "source": "CEPAL/BBVA Research"
+    },
+    {
+      "country": "México",
+      "iso3": "MEX",
+      "region": "Norteamérica",
+      "year": 2020,
+      "population_total_millions": 126.0,
+      "age_groups_pct": {
+        "0_14": 25.0,
+        "15_24": 16.5,
+        "25_54": 42.5,
+        "55_64": 7.5,
+        "65_plus": 8.5
+      },
+      "age_groups_thousands": {
+        "0_14": 31500.0,
+        "15_24": 20790.0,
+        "25_54": 53550.0,
+        "55_64": 9450.0,
+        "65_plus": 10710.0
+      },
+      "indicators": {
+        "aging_index": 34.0,
+        "dependency_ratio_total": 50.38,
+        "dependency_ratio_child": 37.59,
+        "dependency_ratio_older": 12.78,
+        "demographic_dividend_index": 1.9851,
+        "working_age_pct": 66.5,
+        "youth_pct": 41.5,
+        "working_age_thousands": 83790.0,
+        "dependent_thousands": 42210.0,
+        "aging_change_vs_2000": 20.36
+      },
+      "source": "CEPAL/BBVA Research"
+    },
+    {
+      "country": "México",
+      "iso3": "MEX",
+      "region": "Norteamérica",
+      "year": 2023,
+      "population_total_millions": 129.0,
+      "age_groups_pct": {
+        "0_14": 24.0,
+        "15_24": 16.0,
+        "25_54": 43.0,
+        "55_64": 8.0,
+        "65_plus": 9.0
+      },
+      "age_groups_thousands": {
+        "0_14": 30960.0,
+        "15_24": 20640.0,
+        "25_54": 55470.0,
+        "55_64": 10320.0,
+        "65_plus": 11610.0
+      },
+      "indicators": {
+        "aging_index": 37.5,
+        "dependency_ratio_total": 49.25,
+        "dependency_ratio_child": 35.82,
+        "dependency_ratio_older": 13.43,
+        "demographic_dividend_index": 2.0303,
+        "working_age_pct": 67.0,
+        "youth_pct": 40.0,
+        "working_age_thousands": 86430.0,
+        "dependent_thousands": 42570.0,
+        "aging_change_vs_2000": 23.86
+      },
+      "source": "CEPAL/BBVA Research"
+    },
+    {
+      "country": "Paraguay",
+      "iso3": "PRY",
+      "region": "Cono Sur",
+      "year": 2000,
+      "population_total_millions": 5.1,
+      "age_groups_pct": {
+        "0_14": 38.0,
+        "15_24": 23.0,
+        "25_54": 31.0,
+        "55_64": 3.5,
+        "65_plus": 4.5
+      },
+      "age_groups_thousands": {
+        "0_14": 1938.0,
+        "15_24": 1173.0,
+        "25_54": 1581.0,
+        "55_64": 179.0,
+        "65_plus": 230.0
+      },
+      "indicators": {
+        "aging_index": 11.87,
+        "dependency_ratio_total": 73.92,
+        "dependency_ratio_child": 66.08,
+        "dependency_ratio_older": 7.84,
+        "demographic_dividend_index": 1.3529,
+        "working_age_pct": 57.5,
+        "youth_pct": 61.0,
+        "working_age_thousands": 2933.0,
+        "dependent_thousands": 2168.0,
+        "aging_change_vs_2000": 0.0
+      },
+      "source": "CEPAL/Banco Mundial"
+    },
+    {
+      "country": "Paraguay",
+      "iso3": "PRY",
+      "region": "Cono Sur",
+      "year": 2010,
+      "population_total_millions": 6.2,
+      "age_groups_pct": {
+        "0_14": 33.0,
+        "15_24": 21.0,
+        "25_54": 34.5,
+        "55_64": 4.5,
+        "65_plus": 7.0
+      },
+      "age_groups_thousands": {
+        "0_14": 2046.0,
+        "15_24": 1302.0,
+        "25_54": 2139.0,
+        "55_64": 279.0,
+        "65_plus": 434.0
+      },
+      "indicators": {
+        "aging_index": 21.21,
+        "dependency_ratio_total": 66.67,
+        "dependency_ratio_child": 55.0,
+        "dependency_ratio_older": 11.67,
+        "demographic_dividend_index": 1.5,
+        "working_age_pct": 60.0,
+        "youth_pct": 54.0,
+        "working_age_thousands": 3720.0,
+        "dependent_thousands": 2480.0,
+        "aging_change_vs_2000": 9.34
+      },
+      "source": "CEPAL/Banco Mundial"
+    },
+    {
+      "country": "Paraguay",
+      "iso3": "PRY",
+      "region": "Cono Sur",
+      "year": 2020,
+      "population_total_millions": 7.1,
+      "age_groups_pct": {
+        "0_14": 29.0,
+        "15_24": 19.0,
+        "25_54": 37.5,
+        "55_64": 6.0,
+        "65_plus": 8.5
+      },
+      "age_groups_thousands": {
+        "0_14": 2059.0,
+        "15_24": 1349.0,
+        "25_54": 2663.0,
+        "55_64": 426.0,
+        "65_plus": 604.0
+      },
+      "indicators": {
+        "aging_index": 29.33,
+        "dependency_ratio_total": 60.0,
+        "dependency_ratio_child": 46.39,
+        "dependency_ratio_older": 13.61,
+        "demographic_dividend_index": 1.6665,
+        "working_age_pct": 62.5,
+        "youth_pct": 48.0,
+        "working_age_thousands": 4438.0,
+        "dependent_thousands": 2663.0,
+        "aging_change_vs_2000": 17.46
+      },
+      "source": "CEPAL/Banco Mundial"
+    },
+    {
+      "country": "Paraguay",
+      "iso3": "PRY",
+      "region": "Cono Sur",
+      "year": 2023,
+      "population_total_millions": 7.5,
+      "age_groups_pct": {
+        "0_14": 28.0,
+        "15_24": 18.5,
+        "25_54": 38.0,
+        "55_64": 6.5,
+        "65_plus": 9.0
+      },
+      "age_groups_thousands": {
+        "0_14": 2100.0,
+        "15_24": 1388.0,
+        "25_54": 2850.0,
+        "55_64": 488.0,
+        "65_plus": 675.0
+      },
+      "indicators": {
+        "aging_index": 32.14,
+        "dependency_ratio_total": 58.72,
+        "dependency_ratio_child": 44.44,
+        "dependency_ratio_older": 14.28,
+        "demographic_dividend_index": 1.7031,
+        "working_age_pct": 63.0,
+        "youth_pct": 46.5,
+        "working_age_thousands": 4726.0,
+        "dependent_thousands": 2775.0,
+        "aging_change_vs_2000": 20.27
+      },
+      "source": "CEPAL/Banco Mundial"
+    },
+    {
+      "country": "Perú",
+      "iso3": "PER",
+      "region": "Andina",
+      "year": 2000,
+      "population_total_millions": 25.9,
+      "age_groups_pct": {
+        "0_14": 34.0,
+        "15_24": 22.0,
+        "25_54": 35.0,
+        "55_64": 4.5,
+        "65_plus": 4.5
+      },
+      "age_groups_thousands": {
+        "0_14": 8806.0,
+        "15_24": 5698.0,
+        "25_54": 9065.0,
+        "55_64": 1166.0,
+        "65_plus": 1166.0
+      },
+      "indicators": {
+        "aging_index": 13.24,
+        "dependency_ratio_total": 62.6,
+        "dependency_ratio_child": 55.28,
+        "dependency_ratio_older": 7.32,
+        "demographic_dividend_index": 1.5974,
+        "working_age_pct": 61.5,
+        "youth_pct": 56.0,
+        "working_age_thousands": 15929.0,
+        "dependent_thousands": 9972.0,
+        "aging_change_vs_2000": 0.0
+      },
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Perú",
       "iso3": "PER",
       "region": "Andina",
       "year": 2010,
-      "population_total_millions": 29.1,
+      "population_total_millions": 29.5,
       "age_groups_pct": {
         "0_14": 28.0,
-        "15_24": 19.0,
+        "15_24": 20.0,
         "25_54": 39.0,
-        "55_64": 7.0,
+        "55_64": 6.0,
         "65_plus": 7.0
       },
       "age_groups_thousands": {
-        "0_14": 8148.0,
-        "15_24": 5529.0,
-        "25_54": 11349.0,
-        "55_64": 2037.0,
-        "65_plus": 2037.0
+        "0_14": 8260.0,
+        "15_24": 5900.0,
+        "25_54": 11505.0,
+        "55_64": 1770.0,
+        "65_plus": 2065.0
       },
       "indicators": {
         "aging_index": 25.0,
@@ -1189,46 +1189,46 @@
         "dependency_ratio_older": 10.77,
         "demographic_dividend_index": 1.8571,
         "working_age_pct": 65.0,
-        "youth_pct": 47.0,
-        "working_age_thousands": 18915.0,
-        "dependent_thousands": 10185.0,
-        "aging_change_vs_2000": 11.36
+        "youth_pct": 48.0,
+        "working_age_thousands": 19175.0,
+        "dependent_thousands": 10325.0,
+        "aging_change_vs_2000": 11.76
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Perú",
       "iso3": "PER",
       "region": "Andina",
       "year": 2020,
-      "population_total_millions": 32.9,
+      "population_total_millions": 33.0,
       "age_groups_pct": {
-        "0_14": 25.0,
+        "0_14": 24.0,
         "15_24": 17.0,
-        "25_54": 41.0,
-        "55_64": 8.0,
+        "25_54": 42.5,
+        "55_64": 7.5,
         "65_plus": 9.0
       },
       "age_groups_thousands": {
-        "0_14": 8225.0,
-        "15_24": 5593.0,
-        "25_54": 13489.0,
-        "55_64": 2632.0,
-        "65_plus": 2961.0
+        "0_14": 7920.0,
+        "15_24": 5610.0,
+        "25_54": 14025.0,
+        "55_64": 2475.0,
+        "65_plus": 2970.0
       },
       "indicators": {
-        "aging_index": 36.0,
-        "dependency_ratio_total": 51.52,
-        "dependency_ratio_child": 37.88,
-        "dependency_ratio_older": 13.64,
-        "demographic_dividend_index": 1.9412,
-        "working_age_pct": 66.0,
-        "youth_pct": 42.0,
-        "working_age_thousands": 21714.0,
-        "dependent_thousands": 11186.0,
-        "aging_change_vs_2000": 22.36
+        "aging_index": 37.5,
+        "dependency_ratio_total": 49.25,
+        "dependency_ratio_child": 35.82,
+        "dependency_ratio_older": 13.43,
+        "demographic_dividend_index": 2.0303,
+        "working_age_pct": 67.0,
+        "youth_pct": 41.0,
+        "working_age_thousands": 22110.0,
+        "dependent_thousands": 10890.0,
+        "aging_change_vs_2000": 24.26
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Perú",
@@ -1238,16 +1238,16 @@
       "population_total_millions": 34.0,
       "age_groups_pct": {
         "0_14": 23.0,
-        "15_24": 16.0,
-        "25_54": 42.0,
-        "55_64": 9.5,
+        "15_24": 16.5,
+        "25_54": 43.0,
+        "55_64": 8.0,
         "65_plus": 9.5
       },
       "age_groups_thousands": {
         "0_14": 7820.0,
-        "15_24": 5440.0,
-        "25_54": 14280.0,
-        "55_64": 3230.0,
+        "15_24": 5610.0,
+        "25_54": 14620.0,
+        "55_64": 2720.0,
         "65_plus": 3230.0
       },
       "indicators": {
@@ -1257,12 +1257,12 @@
         "dependency_ratio_older": 14.07,
         "demographic_dividend_index": 2.0769,
         "working_age_pct": 67.5,
-        "youth_pct": 39.0,
+        "youth_pct": 39.5,
         "working_age_thousands": 22950.0,
         "dependent_thousands": 11050.0,
-        "aging_change_vs_2000": 27.66
+        "aging_change_vs_2000": 28.06
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Uruguay",
@@ -1271,32 +1271,32 @@
       "year": 2000,
       "population_total_millions": 3.3,
       "age_groups_pct": {
-        "0_14": 23.0,
-        "15_24": 16.0,
-        "25_54": 37.0,
-        "55_64": 15.5,
+        "0_14": 25.0,
+        "15_24": 18.0,
+        "25_54": 41.0,
+        "55_64": 7.5,
         "65_plus": 8.5
       },
       "age_groups_thousands": {
-        "0_14": 759.0,
-        "15_24": 528.0,
-        "25_54": 1221.0,
-        "55_64": 512.0,
+        "0_14": 825.0,
+        "15_24": 594.0,
+        "25_54": 1353.0,
+        "55_64": 248.0,
         "65_plus": 281.0
       },
       "indicators": {
-        "aging_index": 37.02,
-        "dependency_ratio_total": 46.0,
-        "dependency_ratio_child": 33.57,
-        "dependency_ratio_older": 12.43,
-        "demographic_dividend_index": 2.174,
-        "working_age_pct": 68.5,
-        "youth_pct": 39.0,
-        "working_age_thousands": 2261.0,
-        "dependent_thousands": 1040.0,
+        "aging_index": 34.06,
+        "dependency_ratio_total": 50.39,
+        "dependency_ratio_child": 37.59,
+        "dependency_ratio_older": 12.8,
+        "demographic_dividend_index": 1.9846,
+        "working_age_pct": 66.5,
+        "youth_pct": 43.0,
+        "working_age_thousands": 2195.0,
+        "dependent_thousands": 1106.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Uruguay",
@@ -1305,32 +1305,32 @@
       "year": 2010,
       "population_total_millions": 3.4,
       "age_groups_pct": {
-        "0_14": 20.0,
-        "15_24": 15.0,
-        "25_54": 38.0,
-        "55_64": 16.0,
+        "0_14": 21.0,
+        "15_24": 16.0,
+        "25_54": 43.0,
+        "55_64": 9.0,
         "65_plus": 11.0
       },
       "age_groups_thousands": {
-        "0_14": 680.0,
-        "15_24": 510.0,
-        "25_54": 1292.0,
-        "55_64": 544.0,
+        "0_14": 714.0,
+        "15_24": 544.0,
+        "25_54": 1462.0,
+        "55_64": 306.0,
         "65_plus": 374.0
       },
       "indicators": {
-        "aging_index": 55.0,
-        "dependency_ratio_total": 44.93,
-        "dependency_ratio_child": 28.99,
-        "dependency_ratio_older": 15.94,
-        "demographic_dividend_index": 2.2258,
-        "working_age_pct": 69.0,
-        "youth_pct": 35.0,
-        "working_age_thousands": 2346.0,
-        "dependent_thousands": 1054.0,
-        "aging_change_vs_2000": 17.98
+        "aging_index": 52.38,
+        "dependency_ratio_total": 47.06,
+        "dependency_ratio_child": 30.88,
+        "dependency_ratio_older": 16.18,
+        "demographic_dividend_index": 2.125,
+        "working_age_pct": 68.0,
+        "youth_pct": 37.0,
+        "working_age_thousands": 2312.0,
+        "dependent_thousands": 1088.0,
+        "aging_change_vs_2000": 18.32
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Uruguay",
@@ -1339,32 +1339,32 @@
       "year": 2020,
       "population_total_millions": 3.5,
       "age_groups_pct": {
-        "0_14": 18.0,
+        "0_14": 19.0,
         "15_24": 14.0,
-        "25_54": 38.0,
-        "55_64": 17.5,
+        "25_54": 44.5,
+        "55_64": 10.0,
         "65_plus": 12.5
       },
       "age_groups_thousands": {
-        "0_14": 630.0,
+        "0_14": 665.0,
         "15_24": 490.0,
-        "25_54": 1330.0,
-        "55_64": 613.0,
+        "25_54": 1558.0,
+        "55_64": 350.0,
         "65_plus": 438.0
       },
       "indicators": {
-        "aging_index": 69.52,
-        "dependency_ratio_total": 43.9,
-        "dependency_ratio_child": 25.89,
-        "dependency_ratio_older": 18.0,
-        "demographic_dividend_index": 2.2781,
-        "working_age_pct": 69.5,
-        "youth_pct": 32.0,
-        "working_age_thousands": 2433.0,
-        "dependent_thousands": 1068.0,
-        "aging_change_vs_2000": 32.5
+        "aging_index": 65.86,
+        "dependency_ratio_total": 46.0,
+        "dependency_ratio_child": 27.73,
+        "dependency_ratio_older": 18.27,
+        "demographic_dividend_index": 2.1741,
+        "working_age_pct": 68.5,
+        "youth_pct": 33.0,
+        "working_age_thousands": 2398.0,
+        "dependent_thousands": 1103.0,
+        "aging_change_vs_2000": 31.8
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Uruguay",
@@ -1373,134 +1373,134 @@
       "year": 2023,
       "population_total_millions": 3.5,
       "age_groups_pct": {
-        "0_14": 17.0,
-        "15_24": 13.0,
-        "25_54": 38.0,
-        "55_64": 18.5,
+        "0_14": 18.0,
+        "15_24": 13.5,
+        "25_54": 44.5,
+        "55_64": 10.5,
         "65_plus": 13.5
       },
       "age_groups_thousands": {
-        "0_14": 595.0,
-        "15_24": 455.0,
-        "25_54": 1330.0,
-        "55_64": 648.0,
+        "0_14": 630.0,
+        "15_24": 473.0,
+        "25_54": 1558.0,
+        "55_64": 368.0,
         "65_plus": 473.0
       },
       "indicators": {
-        "aging_index": 79.5,
-        "dependency_ratio_total": 43.9,
-        "dependency_ratio_child": 24.46,
-        "dependency_ratio_older": 19.44,
-        "demographic_dividend_index": 2.2781,
-        "working_age_pct": 69.5,
-        "youth_pct": 30.0,
-        "working_age_thousands": 2433.0,
-        "dependent_thousands": 1068.0,
-        "aging_change_vs_2000": 42.48
+        "aging_index": 75.08,
+        "dependency_ratio_total": 45.98,
+        "dependency_ratio_child": 26.26,
+        "dependency_ratio_older": 19.72,
+        "demographic_dividend_index": 2.175,
+        "working_age_pct": 68.5,
+        "youth_pct": 31.5,
+        "working_age_thousands": 2399.0,
+        "dependent_thousands": 1103.0,
+        "aging_change_vs_2000": 41.02
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Venezuela",
       "iso3": "VEN",
       "region": "Andina",
       "year": 2000,
-      "population_total_millions": 24.3,
+      "population_total_millions": 24.0,
       "age_groups_pct": {
-        "0_14": 32.0,
-        "15_24": 20.0,
-        "25_54": 36.0,
-        "55_64": 7.5,
+        "0_14": 34.0,
+        "15_24": 22.0,
+        "25_54": 35.0,
+        "55_64": 4.5,
         "65_plus": 4.5
       },
       "age_groups_thousands": {
-        "0_14": 7776.0,
-        "15_24": 4860.0,
-        "25_54": 8748.0,
-        "55_64": 1823.0,
-        "65_plus": 1094.0
+        "0_14": 8160.0,
+        "15_24": 5280.0,
+        "25_54": 8400.0,
+        "55_64": 1080.0,
+        "65_plus": 1080.0
       },
       "indicators": {
-        "aging_index": 14.07,
-        "dependency_ratio_total": 57.48,
-        "dependency_ratio_child": 50.39,
-        "dependency_ratio_older": 7.09,
-        "demographic_dividend_index": 1.7397,
-        "working_age_pct": 63.5,
-        "youth_pct": 52.0,
-        "working_age_thousands": 15431.0,
-        "dependent_thousands": 8870.0,
+        "aging_index": 13.24,
+        "dependency_ratio_total": 62.6,
+        "dependency_ratio_child": 55.28,
+        "dependency_ratio_older": 7.32,
+        "demographic_dividend_index": 1.5974,
+        "working_age_pct": 61.5,
+        "youth_pct": 56.0,
+        "working_age_thousands": 14760.0,
+        "dependent_thousands": 9240.0,
         "aging_change_vs_2000": 0.0
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Venezuela",
       "iso3": "VEN",
       "region": "Andina",
       "year": 2010,
-      "population_total_millions": 28.8,
+      "population_total_millions": 28.0,
       "age_groups_pct": {
-        "0_14": 27.0,
-        "15_24": 19.0,
-        "25_54": 39.0,
-        "55_64": 8.5,
+        "0_14": 29.0,
+        "15_24": 20.0,
+        "25_54": 38.5,
+        "55_64": 6.0,
         "65_plus": 6.5
       },
       "age_groups_thousands": {
-        "0_14": 7776.0,
-        "15_24": 5472.0,
-        "25_54": 11232.0,
-        "55_64": 2448.0,
-        "65_plus": 1872.0
+        "0_14": 8120.0,
+        "15_24": 5600.0,
+        "25_54": 10780.0,
+        "55_64": 1680.0,
+        "65_plus": 1820.0
       },
       "indicators": {
-        "aging_index": 24.07,
-        "dependency_ratio_total": 50.38,
-        "dependency_ratio_child": 40.6,
-        "dependency_ratio_older": 9.77,
-        "demographic_dividend_index": 1.9851,
-        "working_age_pct": 66.5,
-        "youth_pct": 46.0,
-        "working_age_thousands": 19152.0,
-        "dependent_thousands": 9648.0,
-        "aging_change_vs_2000": 10.0
+        "aging_index": 22.41,
+        "dependency_ratio_total": 55.04,
+        "dependency_ratio_child": 44.96,
+        "dependency_ratio_older": 10.08,
+        "demographic_dividend_index": 1.8169,
+        "working_age_pct": 64.5,
+        "youth_pct": 49.0,
+        "working_age_thousands": 18060.0,
+        "dependent_thousands": 9940.0,
+        "aging_change_vs_2000": 9.17
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Venezuela",
       "iso3": "VEN",
       "region": "Andina",
       "year": 2020,
-      "population_total_millions": 28.4,
+      "population_total_millions": 28.5,
       "age_groups_pct": {
-        "0_14": 24.0,
-        "15_24": 17.0,
+        "0_14": 26.0,
+        "15_24": 18.0,
         "25_54": 41.0,
-        "55_64": 10.0,
+        "55_64": 7.0,
         "65_plus": 8.0
       },
       "age_groups_thousands": {
-        "0_14": 6816.0,
-        "15_24": 4828.0,
-        "25_54": 11644.0,
-        "55_64": 2840.0,
-        "65_plus": 2272.0
+        "0_14": 7410.0,
+        "15_24": 5130.0,
+        "25_54": 11685.0,
+        "55_64": 1995.0,
+        "65_plus": 2280.0
       },
       "indicators": {
-        "aging_index": 33.33,
-        "dependency_ratio_total": 47.06,
-        "dependency_ratio_child": 35.29,
-        "dependency_ratio_older": 11.76,
-        "demographic_dividend_index": 2.125,
-        "working_age_pct": 68.0,
-        "youth_pct": 41.0,
-        "working_age_thousands": 19312.0,
-        "dependent_thousands": 9088.0,
-        "aging_change_vs_2000": 19.26
+        "aging_index": 30.77,
+        "dependency_ratio_total": 51.52,
+        "dependency_ratio_child": 39.39,
+        "dependency_ratio_older": 12.12,
+        "demographic_dividend_index": 1.9412,
+        "working_age_pct": 66.0,
+        "youth_pct": 44.0,
+        "working_age_thousands": 18810.0,
+        "dependent_thousands": 9690.0,
+        "aging_change_vs_2000": 17.53
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     },
     {
       "country": "Venezuela",
@@ -1509,32 +1509,32 @@
       "year": 2023,
       "population_total_millions": 28.8,
       "age_groups_pct": {
-        "0_14": 22.0,
-        "15_24": 16.0,
-        "25_54": 42.0,
-        "55_64": 11.5,
+        "0_14": 25.0,
+        "15_24": 17.5,
+        "25_54": 41.5,
+        "55_64": 7.5,
         "65_plus": 8.5
       },
       "age_groups_thousands": {
-        "0_14": 6336.0,
-        "15_24": 4608.0,
-        "25_54": 12096.0,
-        "55_64": 3312.0,
+        "0_14": 7200.0,
+        "15_24": 5040.0,
+        "25_54": 11952.0,
+        "55_64": 2160.0,
         "65_plus": 2448.0
       },
       "indicators": {
-        "aging_index": 38.64,
-        "dependency_ratio_total": 43.88,
-        "dependency_ratio_child": 31.65,
-        "dependency_ratio_older": 12.23,
-        "demographic_dividend_index": 2.2787,
-        "working_age_pct": 69.5,
-        "youth_pct": 38.0,
-        "working_age_thousands": 20016.0,
-        "dependent_thousands": 8784.0,
-        "aging_change_vs_2000": 24.57
+        "aging_index": 34.0,
+        "dependency_ratio_total": 50.38,
+        "dependency_ratio_child": 37.59,
+        "dependency_ratio_older": 12.78,
+        "demographic_dividend_index": 1.9851,
+        "working_age_pct": 66.5,
+        "youth_pct": 42.5,
+        "working_age_thousands": 19152.0,
+        "dependent_thousands": 9648.0,
+        "aging_change_vs_2000": 20.76
       },
-      "source": "CEPALSTAT"
+      "source": "CEPAL/Banco Mundial"
     }
   ]
 }
