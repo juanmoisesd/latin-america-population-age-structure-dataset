@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import html, itertools, json, sys
+import html
+import itertools
+import json
+import sys
 from pathlib import Path
 
-from common import (add_indicators, ensure_dir, latest_by_country, parse_args, read_dataset, slugify)
+from common import (
+    add_indicators,
+    ensure_dir,
+    latest_by_country,
+    parse_args,
+    read_dataset,
+    slugify,
+)
 
 BASE_URL = "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset"
-AUTHOR = "Juan Moises de la Serna"
+AUTHOR = "Juan Moisés de la Serna"
 ZENODO_DOI = "https://doi.org/10.5281/zenodo.18891177"
 ZENODO_RECORD = "https://zenodo.org/records/18891177"
 OSF_DOI = "https://doi.org/10.17605/OSF.IO/3WAEU"
@@ -15,13 +25,8 @@ ORCID = "https://orcid.org/0000-0002-8401-8018"
 RESEARCHGATE = "https://www.researchgate.net/profile/Juan_Moises_De_La_Serna"
 AUTHOR_URL = "https://juanmoisesdelaserna.es/"
 CITATION_YEAR = "2026"
-CITATION_TITLE = "Evolucion Poblacional por Grupos de Edad en Iberoamerica (1995-2025): Dataset Demografico por Pais"
+CITATION_TITLE = "Evolución Poblacional por Grupos de Edad en América Latina (2000–2023): Dataset Demográfico por País"
 
-# Nombres reales de columnas en el dataset
-COL_PAIS = "País"
-COL_ANO = "Año"
-COL_P65 = "Pct_65_más"
-COL_PTOT = "Población_Total_Millones"
 
 def fmt(value, decimals=2):
     try:
@@ -32,50 +37,68 @@ def fmt(value, decimals=2):
     except Exception:
         return ''
 
+
 def ld_json(title, description, page_url):
-    return json.dumps({
-        "@context": "https://schema.org", "@type": "Dataset", "name": title,
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": title,
         "description": description,
-        "creator": {"@type": "Person", "name": AUTHOR, "url": AUTHOR_URL,
-                    "sameAs": [ORCID, RESEARCHGATE]},
-        "url": page_url, "identifier": [ZENODO_DOI, OSF_DOI],
-        "license": "https://creativecommons.org/licenses/by/4.0/"
-    }, ensure_ascii=False)
+        "creator": {
+            "@type": "Person",
+            "name": AUTHOR,
+            "url": AUTHOR_URL,
+            "sameAs": [ORCID, RESEARCHGATE],
+        },
+        "url": page_url,
+        "identifier": [ZENODO_DOI, OSF_DOI],
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+    }
+    return json.dumps(data, ensure_ascii=False)
+
 
 def nav(prefix='../'):
-    return (f'<nav class="navlinks">'
-            f'<a href="{prefix}index.html">Inicio</a>'
-            f'<a href="{prefix}pages/countries.html">Paises</a>'
-            f'<a href="{prefix}pages/years.html">Anos</a>'
-            f'<a href="{prefix}pages/indicators.html">Indicadores</a>'
-            f'<a href="{prefix}pages/comparisons.html">Comparaciones</a>'
-            f'<a href="{prefix}pages/research-questions/index.html">Preguntas de investigacion</a>'
-            f'<a href="{prefix}pages/about.html">Acerca del dataset</a>'
-            f'<a href="{ZENODO_RECORD}">Zenodo</a></nav>')
+    return f"""<nav class="navlinks">
+<a href="{prefix}index.html">Inicio</a>
+<a href="{prefix}pages/countries.html">Países</a>
+<a href="{prefix}pages/years.html">Años</a>
+<a href="{prefix}pages/indicators.html">Indicadores</a>
+<a href="{prefix}pages/comparisons.html">Comparaciones</a>
+<a href="{prefix}pages/research-questions/index.html">Preguntas de investigación</a>
+<a href="{prefix}pages/about.html">Acerca del dataset</a>
+<a href="{ZENODO_RECORD}">Zenodo</a>
+</nav>"""
+
 
 def footer():
-    return (f'<div class="footer">'
-            f'<p><strong>Autor:</strong> <a href="{AUTHOR_URL}">{AUTHOR}</a>'
-            f' - <a href="{ORCID}">ORCID</a> - <a href="{RESEARCHGATE}">ResearchGate</a></p>'
-            f'<p><strong>Repositorios:</strong> <a href="{ZENODO_DOI}">Zenodo DOI</a>'
-            f' - <a href="{ZENODO_RECORD}">Zenodo registro</a>'
-            f' - <a href="{OSF_DOI}">OSF DOI</a></p>'
-            f'<p><strong>Como citar:</strong> de la Serna, J. M. ({CITATION_YEAR}).'
-            f' <em>{CITATION_TITLE}</em>. Zenodo. <a href="{ZENODO_DOI}">{ZENODO_DOI}</a></p>'
-            f'</div>')
+    return f"""<div class="footer">
+<p><strong>Autor:</strong> <a href="{AUTHOR_URL}">{AUTHOR}</a>
+ · <a href="{ORCID}">ORCID</a>
+ · <a href="{RESEARCHGATE}">ResearchGate</a></p>
+<p><strong>Repositorios:</strong> <a href="{ZENODO_DOI}">Zenodo DOI</a>
+ · <a href="{ZENODO_RECORD}">Zenodo registro</a>
+ · <a href="{OSF_DOI}">OSF DOI</a></p>
+<p><strong>Cómo citar:</strong> de la Serna, J. M. ({CITATION_YEAR}).
+ <em>{CITATION_TITLE}</em>. Zenodo.
+ <a href="{ZENODO_DOI}">{ZENODO_DOI}</a></p>
+</div>"""
+
 
 def render_page(title, description, body, page_url, css_prefix='../'):
-    return (f'<!doctype html><html lang="es"><head>'
-            f'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            f'<title>{html.escape(title)}</title>'
-            f'<meta name="description" content="{html.escape(description)}">'
-            f'<link rel="canonical" href="{page_url}">'
-            f'<link rel="stylesheet" href="{css_prefix}assets/style.css">'
-            f'<script defer src="{css_prefix}assets/app.js"></script>'
-            f'<script type="application/ld+json">{ld_json(title, description, page_url)}</script>'
-            f'</head><body><div class="wrap">'
-            + nav(css_prefix) + body + footer()
-            + '</div></body></html>')
+    return f"""<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{'{'}html.escape(title){'}'}</title>
+<meta name="description" content="{'{'}html.escape(description){'}'}">
+<link rel="canonical" href="{page_url}">
+<link rel="stylesheet" href="{css_prefix}assets/style.css"><script defer src="{css_prefix}assets/app.js"></script>
+<script type="application/ld+json">{'{'}ld_json(title, description, page_url){'}'}</script>
+</head><body><div class="wrap">
+{'{'}nav(css_prefix){'}'}
+{body}
+{'{'}footer(){'}'}
+</div></body></html>"""
+
 
 def line_chart(series, color='#61dafb', h=260):
     if not series:
@@ -89,17 +112,22 @@ def line_chart(series, color='#61dafb', h=260):
     xs = [px + i * (W - 2 * px) / max(n - 1, 1) for i in range(n)]
     ys = [H - pb - py - (v - lo) / rng * (H - pb - 2 * py) for _, v in series]
     mid_y = H - pb - py - 0.5 * (H - pb - 2 * py)
-    lines = (f'<line x1="{px}" y1="{py}" x2="{W-px}" y2="{py}" stroke="#20344c" stroke-width="1"/>'
-             f'<line x1="{px}" y1="{mid_y}" x2="{W-px}" y2="{mid_y}" stroke="#20344c" stroke-width="1"/>'
-             f'<line x1="{px}" y1="{H-pb}" x2="{W-px}" y2="{H-pb}" stroke="#20344c" stroke-width="1"/>')
+    lines = (
+        f'<line x1="{px}" y1="{py}" x2="{W-px}" y2="{py}" stroke="#20344c" stroke-width="1"/>'
+        f'<line x1="{px}" y1="{mid_y}" x2="{W-px}" y2="{mid_y}" stroke="#20344c" stroke-width="1"/>'
+        f'<line x1="{px}" y1="{H-pb}" x2="{W-px}" y2="{H-pb}" stroke="#20344c" stroke-width="1"/>'
+    )
     pts = ' '.join(f'{x:.1f},{y:.1f}' for x, y in zip(xs, ys))
     poly = f'<polyline fill="none" stroke="{color}" stroke-width="3" points="{pts}"/>'
     circles = ''
     for (label, val), x, y in zip(series, xs, ys):
-        circles += (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="{color}"/>'
-                    f'<text x="{x:.1f}" y="{y-10:.1f}" fill="#dbeafe" text-anchor="middle" font-size="11">{fmt(val)}</text>'
-                    f'<text x="{x:.1f}" y="{H-pb+16}" fill="#a9bdd3" text-anchor="middle" font-size="11">{label}</text>')
+        circles += (
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="{color}"/>'
+            f'<text x="{x:.1f}" y="{y-10:.1f}" fill="#dbeafe" text-anchor="middle" font-size="11">{fmt(val)}</text>'
+            f'<text x="{x:.1f}" y="{H-pb+16}" fill="#a9bdd3" text-anchor="middle" font-size="11">{label}</text>'
+        )
     return f'<svg class="chart" viewBox="0 0 {W} {H}">{lines}{poly}{circles}</svg>'
+
 
 def bar_chart(items, color='#61dafb', h=280):
     if not items:
@@ -117,115 +145,135 @@ def bar_chart(items, color='#61dafb', h=280):
         x = px + i * slot + (slot - bw) / 2
         bh = (val - lo) / rng * (H - pb - 2 * py)
         y = H - pb - py - bh
-        bars += (f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{bh:.1f}" rx="6" fill="{color}"/>'
-                 f'<text x="{x+bw/2:.1f}" y="{y-7:.1f}" fill="#dbeafe" text-anchor="middle" font-size="11">{fmt(val)}</text>'
-                 f'<text x="{x+bw/2:.1f}" y="{H-pb+16}" fill="#a9bdd3" text-anchor="middle" font-size="11">{label}</text>')
+        bars += (
+            f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{bh:.1f}" rx="6" fill="{color}"/>'
+            f'<text x="{x+bw/2:.1f}" y="{y-7:.1f}" fill="#dbeafe" text-anchor="middle" font-size="11">{fmt(val)}</text>'
+            f'<text x="{x+bw/2:.1f}" y="{H-pb+16}" fill="#a9bdd3" text-anchor="middle" font-size="11">{label}</text>'
+        )
     mid_y = H - pb - py - 0.5 * (H - pb - 2 * py)
-    lines = (f'<line x1="{px}" y1="{py}" x2="{W-px}" y2="{py}" stroke="#20344c" stroke-width="1"/>'
-             f'<line x1="{px}" y1="{mid_y}" x2="{W-px}" y2="{mid_y}" stroke="#20344c" stroke-width="1"/>'
-             f'<line x1="{px}" y1="{H-pb}" x2="{W-px}" y2="{H-pb}" stroke="#20344c" stroke-width="1"/>')
+    lines = (
+        f'<line x1="{px}" y1="{py}" x2="{W-px}" y2="{py}" stroke="#20344c" stroke-width="1"/>'
+        f'<line x1="{px}" y1="{mid_y}" x2="{W-px}" y2="{mid_y}" stroke="#20344c" stroke-width="1"/>'
+        f'<line x1="{px}" y1="{H-pb}" x2="{W-px}" y2="{H-pb}" stroke="#20344c" stroke-width="1"/>'
+    )
     return f'<svg class="chart" viewBox="0 0 {W} {H}">{lines}{bars}</svg>'
 
+
 INDICATORS = [
-    ('Pct_65_más', 'pct-65-mas', '65+ anos (%)'),
-    ('Pct_0_14', 'pct-0-14', '0-14 anos (%)'),
-    ('Pct_15_24', 'pct-15-24', '15-24 anos (%)'),
-    ('Pct_25_54', 'pct-25-54', '25-54 anos (%)'),
-    ('Pct_55_64', 'pct-55-64', '55-64 anos (%)'),
-    ('Indice_Envejecimiento', 'indice-envejecimiento', 'Indice de envejecimiento'),
-    ('Razon_Dependencia_Total', 'razon-dependencia-total', 'Razon de dependencia total'),
-    ('Razon_Dependencia_Juvenil', 'razon-dependencia-juvenil', 'Razon de dependencia juvenil'),
-    ('Razon_Dependencia_Vejez', 'razon-dependencia-vejez', 'Razon de dependencia vejez'),
-    ('Indice_Bono_Demografico', 'indice-bono-demografico', 'Indice bono demografico'),
-    ('Población_Total_Millones', 'poblacion-total-millones', 'Poblacion total (millones)'),
-    ('Pct_Edad_Laboral', 'pct-edad-laboral', 'Edad laboral (%)'),
+    ('Pct_65_más', 'pct_65_mas', '65+ años (%)'),
+    ('Pct_0_14', 'pct_0_14', '0–14 años (%)'),
+    ('Pct_15_24', 'pct_15_24', '15–24 años (%)'),
+    ('Pct_25_54', 'pct_25_54', '25–54 años (%)'),
+    ('Pct_55_64', 'pct_55_64', '55–64 años (%)'),
+    ('Indice_Envejecimiento', 'indice_envejecimiento', 'Índice de envejecimiento'),
+    ('Razon_Dependencia_Total', 'razon_dependencia_total', 'Razón de dependencia total'),
+    ('Razon_Dependencia_Juvenil', 'razon_dependencia_juvenil', 'Razón de dependencia juvenil'),
+    ('Razon_Dependencia_Vejez', 'razon_dependencia_vejez', 'Razón de dependencia vejez'),
+    ('Indice_Bono_Demografico', 'indice_bono_demografico', 'Índice bono demográfico'),
+    ('Población_Total_Millones', 'poblacion_total_millones', 'Población total (millones)'),
+    ('Pct_Edad_Laboral', 'pct_edad_laboral', 'Edad laboral (%)'),
 ]
+
 
 def country_intro(country, sub):
     first, last = sub.iloc[0], sub.iloc[-1]
-    return (f'Entre {int(first[COL_ANO])} y {int(last[COL_ANO])}, {country} muestra una evolucion '
-            f'en la que la poblacion de 65 anos o mas aumenta, mientras que la proporcion de '
-            f'0 a 14 anos disminuye, dentro del proceso regional de transicion demografica iberoamericana.')
+    return (
+        f'Entre {int(first["Año"])} y {int(last["Año"])}, {country} muestra una evolución '
+        f'en la que la población de 65 años o más aumenta, mientras que la proporción de '
+        f'0 a 14 años disminuye. Esta combinación sitúa al país dentro del proceso regional '
+        f'de transición demográfica.'
+    )
+
 
 def build_country_page(country, sub, latest, all_countries, docs_dir):
     slug = slugify(country)
-    years = list(sub[COL_ANO].astype(int))
-    idx = 'Indice_Envejecimiento'
-    series_65 = [(str(y), float(r[COL_P65])) for y, (_, r) in zip(years, sub.iterrows())]
-    series_pop = [(str(y), float(r[COL_PTOT])) for y, (_, r) in zip(years, sub.iterrows())]
+    years = list(sub['Año'].astype(int))
+    series_65 = [(str(y), float(r['Pct_65_más'])) for y, (_, r) in zip(years, sub.iterrows())]
+    series_pop = [(str(y), float(r['Población_Total_Millones'])) for y, (_, r) in zip(years, sub.iterrows())]
     intro = country_intro(country, sub)
-    kpis = (f'<div class="kpis">'
-            f'<div class="kpi"><strong>Ultimo ano</strong><div>{int(latest[COL_ANO])}</div></div>'
-            f'<div class="kpi"><strong>Poblacion total</strong><div>{fmt(latest[COL_PTOT])} M</div></div>'
-            f'<div class="kpi"><strong>65+ anos</strong><div>{fmt(latest[COL_P65])}%</div></div>'
-            f'<div class="kpi"><strong>Indice de envejecimiento</strong><div>{fmt(latest[idx])}</div></div>'
-            f'</div>')
+    kpis = f"""<div class="kpis">
+<div class="kpi"><strong>Último año</strong><div>{int(latest['Año'])}</div></div>
+<div class="kpi"><strong>Población total</strong><div>{fmt(latest['Población_Total_Millones'])} M</div></div>
+<div class="kpi"><strong>65+ años</strong><div>{fmt(latest['Pct_65_más'])}%</div></div>
+<div class="kpi"><strong>Índice de envejecimiento</strong><div>{fmt(latest['Indice_Envejecimiento'])}</div></div>
+</div>"""
     table_rows = ''
     for _, r in sub.iterrows():
-        yr = int(r[COL_ANO])
-        table_rows += (f"<tr><td>{yr}</td><td>{fmt(r[COL_PTOT])}</td>"
-                       f"<td>{fmt(r['Pct_0_14'])}%</td><td>{fmt(r[COL_P65])}%</td>"
-                       f"<td>{fmt(r[idx])}</td>"
-                       f"<td><a href='country-{slug}-year-{yr}.html'>Ficha completa</a></td></tr>")
+        yr = int(r['Año'])
+        table_rows += (
+            f"<tr><td>{yr}</td><td>{fmt(r['Población_Total_Millones'])}</td>"
+            f"<td>{fmt(r['Pct_0_14'])}%</td><td>{fmt(r['Pct_65_más'])}%</td>"
+            f"<td>{fmt(r['Indice_Envejecimiento'])}</td>"
+            f"<td><a href='country-{slug}-year-{yr}.html'>Ficha completa</a></td></tr>"
+        )
     related = [c for c in all_countries if c != country][:3]
     rel_links = ''.join([f"<a href='country-{slugify(c)}.html'>{html.escape(c)}</a>" for c in related])
-    body = (f'<div class="hero"><h1>{html.escape(country)}</h1><p class="sub">{intro}</p>{kpis}</div>'
-            f'<div class="section grid">'
-            f'<div class="card"><h2>Evolucion de 65+ anos</h2>{line_chart(series_65)}</div>'
-            f'<div class="card"><h2>Evolucion de la poblacion total</h2>{line_chart(series_pop, "#fbbf24")}</div>'
-            f'</div>'
-            f'<div class="section card"><h2>Tabla de resumen por ano</h2>'
-            f'<table><thead><tr><th>Ano</th><th>Poblacion total</th><th>0-14</th><th>65+</th><th>Indice envejecimiento</th><th>Detalle</th></tr></thead>'
-            f'<tbody>{table_rows}</tbody></table></div>'
-            f'<div class="section card"><h2>Tambien te puede interesar</h2><div class="related">{rel_links}</div></div>')
+    rel_links += (
+        f"<a href='research-questions/como-cambio-la-estructura-por-edades-en-{slug}.html'>Estructura en {html.escape(country)}</a>"
+        f"<a href='research-questions/como-evoluciono-la-poblacion-de-65-anos-o-mas-en-{slug}.html'>65+ en {html.escape(country)}</a>"
+        f"<a href='research-questions/como-cambio-la-poblacion-de-0-a-14-anos-en-{slug}.html'>0–14 en {html.escape(country)}</a>"
+    )
+    body = f"""<div class="hero"><h1>{html.escape(country)}</h1><p class="sub">{intro}</p>{kpis}</div>
+<div class="section grid">
+<div class="card"><h2>Evolución de 65+ años</h2>{line_chart(series_65)}<p class="small">Comentario: una trayectoria ascendente sugiere una mayor presencia relativa de población mayor.</p></div>
+<div class="card"><h2>Evolución de la población total</h2>{line_chart(series_pop, '#fbbf24')}<p class="small">Comentario: esta serie permite interpretar el envejecimiento junto con el tamaño poblacional total.</p></div>
+</div>
+<div class="section card"><h2>Tabla de resumen por año</h2>
+<table><thead><tr><th>Año</th><th>Población total</th><th>0–14</th><th>65+</th><th>Índice envejecimiento</th><th>Detalle</th></tr></thead>
+<tbody>{table_rows}</tbody></table>
+<p class="small">Comentario: la tabla resume el desplazamiento de la estructura por edades y enlaza a la ficha detallada de cada corte temporal.</p></div>
+<div class='section card'><h2>También te puede interesar</h2><div class='related'>{rel_links}</div></div>"""
     page_url = f"{BASE_URL}/pages/country-{slug}.html"
     (docs_dir / 'pages' / f'country-{slug}.html').write_text(
-        render_page(f'{country} | estructura demografica',
-                    f'Serie temporal demografica de {country} 1995-2025.',
-                    body, page_url),
+        render_page(
+            f'{country} | estructura demográfica',
+            f'Serie temporal y detalle demográfico de {country} dentro del dataset de América Latina 2000–2023.',
+            body, page_url),
         encoding='utf-8')
+
 
 def build_country_year_page(country, row, docs_dir):
     slug = slugify(country)
-    yr = int(row[COL_ANO])
-    kpis = (f'<div class="kpis">'
-            f'<div class="kpi"><strong>Ano</strong><div>{yr}</div></div>'
-            f'<div class="kpi"><strong>Poblacion total</strong><div>{fmt(row[COL_PTOT])} M</div></div>'
-            f'<div class="kpi"><strong>65+ anos</strong><div>{fmt(row[COL_P65])}%</div></div>'
-            f'<div class="kpi"><strong>0-14 anos</strong><div>{fmt(row["Pct_0_14"])}%</div></div>'
-            f'</div>')
-    def sex_row(label, pct, ph, pm):
-        return (f"<tr><td>{label}</td><td>{fmt(row.get(pct, ''))}%</td>"
-                f"<td>{fmt(row.get(ph, ''))}%</td><td>{fmt(row.get(pm, ''))}%</td></tr>")
-    groups = (sex_row('0-14', 'Pct_0_14', 'Pct_0_14_H', 'Pct_0_14_M')
-              + sex_row('15-24', 'Pct_15_24', 'Pct_15_24_H', 'Pct_15_24_M')
-              + sex_row('25-54', 'Pct_25_54', 'Pct_25_54_H', 'Pct_25_54_M')
-              + sex_row('55-64', 'Pct_55_64', 'Pct_55_64_H', 'Pct_55_64_M')
-              + sex_row('65+', COL_P65, 'Pct_65_H', 'Pct_65_M'))
-    indicators = (f"<tr><td>Indice de envejecimiento</td><td>{fmt(row.get('Indice_Envejecimiento', ''))}</td></tr>"
-                  f"<tr><td>Razon dependencia total</td><td>{fmt(row.get('Razon_Dependencia_Total', ''))}</td></tr>"
-                  f"<tr><td>Razon dependencia juvenil</td><td>{fmt(row.get('Razon_Dependencia_Juvenil', ''))}</td></tr>"
-                  f"<tr><td>Razon dependencia vejez</td><td>{fmt(row.get('Razon_Dependencia_Vejez', ''))}</td></tr>"
-                  f"<tr><td>Indice bono demografico</td><td>{fmt(row.get('Indice_Bono_Demografico', ''), 4)}</td></tr>")
-    body = (f'<div class="hero"><h1>{html.escape(country)} - {yr}</h1>'
-            f'<p class="sub">Ficha detallada del corte {yr} para {html.escape(country)}.</p>{kpis}</div>'
-            f'<div class="section card"><h2>Grupos de edad con desglose por sexo</h2>'
-            f'<table><thead><tr><th>Grupo</th><th>Total</th><th>Hombres</th><th>Mujeres</th></tr></thead>'
-            f'<tbody>{groups}</tbody></table></div>'
-            f'<div class="section card"><h2>Indicadores derivados</h2>'
-            f'<table><thead><tr><th>Indicador</th><th>Valor</th></tr></thead>'
-            f'<tbody>{indicators}</tbody></table></div>'
-            f'<div class="section card"><div class="related">'
-            f"<a href='country-{slug}.html'>Volver a {html.escape(country)}</a>"
-            f"<a href='countries.html'>Todos los paises</a>"
-            f'</div></div>')
+    yr = int(row['Año'])
+    kpis = f"""<div class="kpis">
+<div class="kpi"><strong>Año</strong><div>{yr}</div></div>
+<div class="kpi"><strong>Población total</strong><div>{fmt(row['Población_Total_Millones'])} M</div></div>
+<div class="kpi"><strong>65+ años</strong><div>{fmt(row['Pct_65_más'])}%</div></div>
+<div class="kpi"><strong>0–14 años</strong><div>{fmt(row['Pct_0_14'])}%</div></div>
+</div>"""
+    groups = (
+        f"<tr><td>0–14</td><td>{fmt(row['Pct_0_14'])}%</td><td>{fmt(row['Pob_0_14_Miles'])} miles</td></tr>"
+        f"<tr><td>15–24</td><td>{fmt(row['Pct_15_24'])}%</td><td>{fmt(row['Pob_15_24_Miles'])} miles</td></tr>"
+        f"<tr><td>25–54</td><td>{fmt(row['Pct_25_54'])}%</td><td>{fmt(row['Pob_25_54_Miles'])} miles</td></tr>"
+        f"<tr><td>55–64</td><td>{fmt(row['Pct_55_64'])}%</td><td>{fmt(row['Pob_55_64_Miles'])} miles</td></tr>"
+        f"<tr><td>65+</td><td>{fmt(row['Pct_65_más'])}%</td><td>{fmt(row['Pob_65_más_Miles'])} miles</td></tr>"
+    )
+    indicators = (
+        f"<tr><td>Índice de envejecimiento</td><td>{fmt(row['Indice_Envejecimiento'])}</td></tr>"
+        f"<tr><td>Razón dependencia total</td><td>{fmt(row['Razon_Dependencia_Total'])}</td></tr>"
+        f"<tr><td>Razón dependencia juvenil</td><td>{fmt(row['Razon_Dependencia_Juvenil'])}</td></tr>"
+        f"<tr><td>Razón dependencia vejez</td><td>{fmt(row['Razon_Dependencia_Vejez'])}</td></tr>"
+        f"<tr><td>Índice bono demográfico</td><td>{fmt(row['Indice_Bono_Demografico'], 4)}</td></tr>"
+    )
+    body = f"""<div class='hero'><h1>{html.escape(country)} — {yr}</h1>
+<p class='sub'>Ficha detallada del corte {yr} para {html.escape(country)}.</p>{kpis}</div>
+<div class='section card'><h2>Grupos de edad</h2>
+<table><thead><tr><th>Grupo</th><th>Porcentaje</th><th>Absoluto</th></tr></thead><tbody>{groups}</tbody></table></div>
+<div class='section card'><h2>Indicadores derivados</h2>
+<table><thead><tr><th>Indicador</th><th>Valor</th></tr></thead><tbody>{indicators}</tbody></table></div>
+<div class='section card'><h2>También te puede interesar</h2><div class='related'>
+<a href='country-{slug}.html'>Volver a {html.escape(country)}</a>
+<a href='countries.html'>Todos los países</a></div></div>"""
     page_url = f"{BASE_URL}/pages/country-{slug}-year-{yr}.html"
     (docs_dir / 'pages' / f'country-{slug}-year-{yr}.html').write_text(
-        render_page(f'{country} {yr} | ficha demografica',
-                    f'Detalle demografico de {country} en {yr}.', body, page_url),
+        render_page(
+            f'{country} {yr} | ficha demográfica',
+            f'Detalle de la estructura por edades de {country} en {yr}.',
+            body, page_url),
         encoding='utf-8')
 
-def build_compare_page(ca, cb, row_a, row_b, col, label, slug_label, docs_dir):
+
+def build_compare_page(ca, cb, row_a, row_b, col, label, docs_dir):
     sa, sb = slugify(ca), slugify(cb)
     def v(x):
         try:
@@ -241,161 +289,165 @@ def build_compare_page(ca, cb, row_a, row_b, col, label, slug_label, docs_dir):
         bar_data.append((cb, float(row_b[col])))
     except Exception:
         pass
-    body = (f'<div class="hero"><h1>Comparativa: {html.escape(ca)} vs {html.escape(cb)}</h1>'
-            f'<p class="sub">Indicador: {html.escape(label)} - Ultimo ano disponible.</p></div>'
-            f'<div class="section card">{bar_chart(bar_data)}'
-            f'<table><thead><tr><th>Indicador</th><th>{html.escape(ca)}</th><th>{html.escape(cb)}</th></tr></thead>'
-            f'<tbody>'
-            f'<tr><td>{html.escape(label)}</td><td>{v(row_a[col])}</td><td>{v(row_b[col])}</td></tr>'
-            f'<tr><td>Ultimo ano</td><td>{int(row_a[COL_ANO])}</td><td>{int(row_b[COL_ANO])}</td></tr>'
-            f'<tr><td>Poblacion (M)</td><td>{fmt(row_a[COL_PTOT])}</td><td>{fmt(row_b[COL_PTOT])}</td></tr>'
-            f'<tr><td>65+ anos (%)</td><td>{fmt(row_a[COL_P65])}</td><td>{fmt(row_b[COL_P65])}</td></tr>'
-            f'<tr><td>0-14 anos (%)</td><td>{fmt(row_a["Pct_0_14"])}</td><td>{fmt(row_b["Pct_0_14"])}</td></tr>'
-            f'<tr><td>Indice envejecimiento</td><td>{fmt(row_a.get("Indice_Envejecimiento", ""))}</td>'
-            f'<td>{fmt(row_b.get("Indice_Envejecimiento", ""))}</td></tr>'
-            f'</tbody></table></div>'
-            f'<div class="section card"><div class="related">'
-            f"<a href='country-{sa}.html'>{html.escape(ca)}</a>"
-            f"<a href='country-{sb}.html'>{html.escape(cb)}</a>"
-            f"<a href='comparisons.html'>Todas las comparaciones</a>"
-            f'</div></div>')
-    fname = f'compare-{sa}-vs-{sb}-{slug_label}.html'
+    body = f"""<div class="hero">
+<h1>Comparativa: {html.escape(ca)} vs {html.escape(cb)}</h1>
+<p class="sub">Indicador: {html.escape(label)} · Último año disponible por país.</p></div>
+<div class="section card">
+{bar_chart(bar_data)}
+<table><thead><tr><th>Indicador</th><th>{html.escape(ca)}</th><th>{html.escape(cb)}</th></tr></thead>
+<tbody>
+<tr><td>{html.escape(label)}</td><td>{v(row_a[col])}</td><td>{v(row_b[col])}</td></tr>
+<tr><td>Último año</td><td>{int(row_a['Año'])}</td><td>{int(row_b['Año'])}</td></tr>
+<tr><td>Población total (M)</td><td>{fmt(row_a['Población_Total_Millones'])}</td><td>{fmt(row_b['Población_Total_Millones'])}</td></tr>
+<tr><td>65+ años (%)</td><td>{fmt(row_a['Pct_65_más'])}</td><td>{fmt(row_b['Pct_65_más'])}</td></tr>
+<tr><td>0–14 años (%)</td><td>{fmt(row_a['Pct_0_14'])}</td><td>{fmt(row_b['Pct_0_14'])}</td></tr>
+<tr><td>Índice envejecimiento</td><td>{fmt(row_a['Indice_Envejecimiento'])}</td><td>{fmt(row_b['Indice_Envejecimiento'])}</td></tr>
+</tbody></table></div>
+<div class='section card'><h2>También te puede interesar</h2><div class='related'>
+<a href='country-{sa}.html'>{html.escape(ca)}</a>
+<a href='country-{sb}.html'>{html.escape(cb)}</a>
+<a href='comparisons.html'>Todas las comparaciones</a></div></div>"""
+    fname = f'compare-{sa}-vs-{sb}-{slugify(label)}.html'
     page_url = f"{BASE_URL}/pages/{fname}"
     (docs_dir / 'pages' / fname).write_text(
         render_page(f'{ca} vs {cb} | {label}', f'Comparativa de {label} entre {ca} y {cb}.',
                     body, page_url),
         encoding='utf-8')
 
+
 def build_countries_index(df, countries, docs_dir):
     latest = latest_by_country(df)
-    lm = {r[COL_PAIS]: r for _, r in latest.iterrows()}
+    lm = {r['País']: r for _, r in latest.iterrows()}
     cards = ''
     for country in countries:
         slug = slugify(country)
         row = lm[country]
-        sub = df[df[COL_PAIS] == country].sort_values(COL_ANO)
-        series = [(str(int(r[COL_ANO])), float(r[COL_P65])) for _, r in sub.iterrows()]
+        sub = df[df['País'] == country].sort_values('Año')
+        series = [(str(int(r['Año'])), float(r['Pct_65_más'])) for _, r in sub.iterrows()]
         intro = country_intro(country, sub)
-        cards += (f'<div class="card" data-search="{html.escape(country)}">'
-                  f'<h3><a href="country-{slug}.html">{html.escape(country)}</a></h3>'
-                  f'<p class="small">{intro}</p>'
-                  f'<p class="small">Ultimo corte: {int(row[COL_ANO])} - Poblacion: {fmt(row[COL_PTOT])} M - 65+: {fmt(row[COL_P65])}%</p>'
-                  f'{line_chart(series, h=200)}</div>')
-    body = (f'<div class="hero"><h1>Paises incluidos en el dataset</h1>'
-            f'<p class="sub">Paises de America Latina. Datos 2000-2023.</p>'
-            f'<input id="searchBox" class="search" placeholder="Buscar pais..."></div>'
-            f'<div class="section grid">{cards}</div>')
+        cards += f"""<div class='card' data-search='{html.escape(country)}'>
+<h3><a href='country-{slug}.html'>{html.escape(country)}</a></h3>
+<p class='small'>{intro}</p>
+<p class='small'>Último corte: {int(row['Año'])} · Población total: {fmt(row['Población_Total_Millones'])} millones · 65+ años: {fmt(row['Pct_65_más'])}%</p>
+{line_chart(series, h=260)}
+</div>"""
+    body = f"""<div class='hero'><h1>Países incluidos en el dataset</h1><p class='sub'>Cada país dispone de una página principal con narrativa introductoria, gráficos, tabla resumen y bloques de navegación cruzada.</p><input id='searchBox' class='search' placeholder='Buscar país...'></div><div class='section grid'>{cards}</div>"""
     page_url = f"{BASE_URL}/pages/countries.html"
     (docs_dir / 'pages' / 'countries.html').write_text(
-        render_page('Paises del dataset', 'Paises de America Latina 2000-2023.', body, page_url),
+        render_page('Países del dataset', 'Listado de países incluidos con vista previa del envejecimiento y enlaces a fichas detalladas.',
+                    body, page_url),
         encoding='utf-8')
 
+
 def build_years_index(df, docs_dir):
-    years = sorted(df[COL_ANO].unique().astype(int).tolist())
+    years = sorted(df['Año'].unique().astype(int).tolist())
     cards = ''.join([
         f"<div class='card'><h3><a href='year-{y}.html'>{y}</a></h3>"
-        f"<p class='small'>Paises: {len(df[df[COL_ANO] == y])} - "
-        f"65+ promedio: {fmt(df[df[COL_ANO] == y][COL_P65].mean())}% - "
-        f"Indice envej. promedio: {fmt(df[df[COL_ANO] == y]['Indice_Envejecimiento'].mean())}</p></div>"
-        for y in years])
-    body = (f"<div class='hero'><h1>Anos del dataset</h1>"
-            f"<p class='sub'>Cortes temporales: {', '.join(str(y) for y in years)}.</p></div>"
-            f"<div class='section grid'>{cards}</div>")
+        f"<p class='small'>Países: {'{'}len(df[df['Año']==y]){'}'} · 65+ promedio: {fmt(df[df['Año']==y]['Pct_65_más'].mean())}% · Índice envej. promedio: {fmt(df[df['Año']==y]['Indice_Envejecimiento'].mean())}</p></div>"
+        for y in years
+    ])
+    body = f"""<div class='hero'><h1>Años del dataset</h1><p class='sub'>Cortes temporales: {', '.join(str(y) for y in years)}.</p></div><div class='section grid'>{cards}</div>"""
     page_url = f"{BASE_URL}/pages/years.html"
     (docs_dir / 'pages' / 'years.html').write_text(
-        render_page('Anos del dataset', 'Cortes temporales 2000-2023.', body, page_url),
+        render_page('Años del dataset', 'Cortes temporales del dataset demográfico de América Latina.',
+                    body, page_url),
         encoding='utf-8')
+
 
 def build_year_page(yr, sub, docs_dir):
     rows = ''.join([
-        f"<tr><td><a href='country-{slugify(r[COL_PAIS])}.html'>{html.escape(r[COL_PAIS])}</a></td>"
-        f"<td>{fmt(r[COL_PTOT])}</td><td>{fmt(r['Pct_0_14'])}%</td>"
-        f"<td>{fmt(r[COL_P65])}%</td><td>{fmt(r['Indice_Envejecimiento'])}</td></tr>"
-        for _, r in sub.sort_values('Indice_Envejecimiento', ascending=False).iterrows()])
-    body = (f"<div class='hero'><h1>Ano {yr}</h1><p class='sub'>Resumen de {len(sub)} paises en {yr}.</p></div>"
-            f"<div class='section card'><table><thead><tr><th>Pais</th><th>Poblacion (M)</th>"
-            f"<th>0-14 (%)</th><th>65+ (%)</th><th>Indice envej.</th></tr></thead><tbody>{rows}</tbody></table></div>"
-            f"<div class='section card'><div class='related'><a href='years.html'>Todos los anos</a></div></div>")
+        f"<tr><td><a href='country-{slugify(r['País'])}.html'>{html.escape(r['País'])}</a></td>"
+        f"<td>{fmt(r['Población_Total_Millones'])}</td><td>{fmt(r['Pct_0_14'])}%</td>"
+        f"<td>{fmt(r['Pct_65_más'])}%</td><td>{fmt(r['Indice_Envejecimiento'])}</td></tr>"
+        for _, r in sub.sort_values('Indice_Envejecimiento', ascending=False).iterrows()
+    ])
+    body = f"""<div class='hero'><h1>Año {yr}</h1><p class='sub'>Resumen de {len(sub)} países en {yr}.</p></div>
+<div class='section card'><table><thead><tr><th>País</th><th>Población (M)</th><th>0–14 (%)</th><th>65+ (%)</th><th>Índice envej.</th></tr></thead><tbody>{rows}</tbody></table></div>
+<div class='section card'><div class='related'><a href='years.html'>Todos los años</a></div></div>"""
     page_url = f"{BASE_URL}/pages/year-{yr}.html"
     (docs_dir / 'pages' / f'year-{yr}.html').write_text(
-        render_page(f'Ano {yr} | demografia regional', f'Estructura demografica en {yr}.',
+        render_page(f'Año {yr} | demografía regional', f'Estructura demográfica de América Latina en {yr}.',
                     body, page_url),
         encoding='utf-8')
+
 
 def build_indicators_index(docs_dir):
     items = ''.join([f"<li><a href='indicator-{s}.html'>{html.escape(l)}</a></li>"
                      for _, s, l in INDICATORS])
-    body = (f"<div class='hero'><h1>Indicadores del dataset</h1>"
-            f"<p class='sub'>Indicadores disponibles con ranking regional.</p></div>"
-            f"<div class='section card'><ul class='cols'>{items}</ul></div>")
+    body = f"""<div class='hero'><h1>Indicadores del dataset</h1><p class='sub'>Doce indicadores disponibles con ranking regional.</p></div>
+<div class='section card'><ul class='cols'>{items}</ul></div>"""
     page_url = f"{BASE_URL}/pages/indicators.html"
     (docs_dir / 'pages' / 'indicators.html').write_text(
-        render_page('Indicadores del dataset', 'Indicadores demograficos.', body, page_url),
+        render_page('Indicadores del dataset', 'Indicadores demográficos disponibles en el dataset de América Latina.',
+                    body, page_url),
         encoding='utf-8')
+
 
 def build_indicator_page(col, ind_slug, label, latest, docs_dir):
     ranked = latest.sort_values(col, ascending=False)
     rows = ''.join([
-        f"<tr><td>{i}</td><td><a href='country-{slugify(r[COL_PAIS])}.html'>{html.escape(r[COL_PAIS])}</a></td>"
-        f"<td>{fmt(r[col])}</td></tr>"
-        for i, (_, r) in enumerate(ranked.iterrows(), 1)])
-    bar_data = [(r[COL_PAIS], float(r[col])) for _, r in ranked.iterrows() if str(r[col]) not in ('nan', '')]
-    body = (f"<div class='hero'><h1>{html.escape(label)}</h1><p class='sub'>Ranking regional - ultimo ano por pais.</p></div>"
-            f"<div class='section card'>{bar_chart(bar_data)}"
-            f"<table><thead><tr><th>Pos.</th><th>Pais</th><th>{html.escape(label)}</th></tr></thead>"
-            f"<tbody>{rows}</tbody></table></div>"
-            f"<div class='section card'><div class='related'><a href='indicators.html'>Todos los indicadores</a></div></div>")
+        f"<tr><td>{i}</td><td><a href='country-{slugify(r['País'])}.html'>{html.escape(r['País'])}</a></td><td>{fmt(r[col])}</td></tr>"
+        for i, (_, r) in enumerate(ranked.iterrows(), 1)
+    ])
+    bar_data = [(r['País'], float(r[col])) for _, r in ranked.iterrows() if str(r[col]) not in ('nan', '')]
+    body = f"""<div class='hero'><h1>{html.escape(label)}</h1><p class='sub'>Ranking regional · último año por país.</p></div>
+<div class='section card'>{bar_chart(bar_data)}
+<table><thead><tr><th>Pos.</th><th>País</th><th>{html.escape(label)}</th></tr></thead><tbody>{rows}</tbody></table></div>
+<div class='section card'><div class='related'><a href='indicators.html'>Todos los indicadores</a></div></div>"""
     page_url = f"{BASE_URL}/pages/indicator-{ind_slug}.html"
     (docs_dir / 'pages' / f'indicator-{ind_slug}.html').write_text(
-        render_page(f'{label} | comparacion regional', f'Ranking de {label}.',
+        render_page(f'{label} | comparación regional', f'Ranking de {label} en América Latina.',
                     body, page_url),
         encoding='utf-8')
+
 
 def build_comparisons_index(countries, docs_dir):
     items = ''.join([
-        f"<li><a href='compare-{slugify(ca)}-vs-{slugify(cb)}-{slug}.html'>"
-        f"{html.escape(ca)} vs {html.escape(cb)} - {html.escape(label)}</a></li>"
+        f"<li><a href='compare-{slugify(ca)}-vs-{slugify(cb)}-{slugify(label)}.html'>{html.escape(ca)} vs {html.escape(cb)} · {html.escape(label)}</a></li>"
         for ca, cb in itertools.combinations(countries, 2)
-        for _, slug, label in INDICATORS])
-    body = (f"<div class='hero'><h1>Comparaciones bilaterales</h1>"
-            f"<p class='sub'>Comparativas entre pares de paises para cada indicador.</p>"
-            f"<input id='searchBox' class='search' placeholder='Buscar comparacion...'></div>"
-            f"<div class='section card'><ul class='cols'>{items}</ul></div>")
+        for _, _, label in INDICATORS
+    ])
+    body = f"""<div class='hero'><h1>Comparaciones bilaterales</h1>
+<p class='sub'>Comparativas entre pares de países para cada indicador.</p>
+<input id='searchBox' class='search' placeholder='Buscar comparación...'></div>
+<div class='section card'><ul class='cols'>{items}</ul></div>"""
     page_url = f"{BASE_URL}/pages/comparisons.html"
     (docs_dir / 'pages' / 'comparisons.html').write_text(
-        render_page('Comparaciones bilaterales', 'Comparativas entre pares de paises.',
+        render_page('Comparaciones bilaterales', 'Comparativas entre pares de países del dataset de América Latina.',
                     body, page_url),
         encoding='utf-8')
 
+
 def main():
-    parser = parse_args('Genera el sitio HTML estatico a partir del dataset.')
+    parser = parse_args('Genera el sitio HTML estático a partir del dataset.')
     args = parser.parse_args()
     docs_dir = args.docs_dir
     ensure_dir(docs_dir / 'pages')
     ensure_dir(docs_dir / 'pages' / 'research-questions')
-    df = add_indicators(read_dataset(args.input)).sort_values([COL_PAIS, COL_ANO]).reset_index(drop=True)
+    df = add_indicators(read_dataset(args.input)).sort_values(['País', 'Año']).reset_index(drop=True)
     latest = latest_by_country(df)
-    lm = {r[COL_PAIS]: r for _, r in latest.iterrows()}
-    countries = sorted(df[COL_PAIS].unique().tolist())
-    years = sorted(df[COL_ANO].unique().astype(int).tolist())
+    lm = {r['País']: r for _, r in latest.iterrows()}
+    countries = sorted(df['País'].unique().tolist())
+    years = sorted(df['Año'].unique().astype(int).tolist())
     for country in countries:
-        sub = df[df[COL_PAIS] == country].copy().sort_values(COL_ANO)
+        sub = df[df['País'] == country].copy().sort_values('Año')
         build_country_page(country, sub, lm[country], countries, docs_dir)
         for _, row in sub.iterrows():
             build_country_year_page(country, row, docs_dir)
     for ca, cb in itertools.combinations(countries, 2):
-        for col, slug_label, label in INDICATORS:
-            build_compare_page(ca, cb, lm[ca], lm[cb], col, label, slug_label, docs_dir)
+        for col, ind_slug, label in INDICATORS:
+            build_compare_page(ca, cb, lm[ca], lm[cb], col, label, docs_dir)
     build_countries_index(df, countries, docs_dir)
     build_years_index(df, docs_dir)
     for yr in years:
-        build_year_page(yr, df[df[COL_ANO] == yr], docs_dir)
+        build_year_page(yr, df[df['Año'] == yr], docs_dir)
     build_indicators_index(docs_dir)
-    for col, slug_label, label in INDICATORS:
-        build_indicator_page(col, slug_label, label, latest, docs_dir)
+    for col, ind_slug, label in INDICATORS:
+        build_indicator_page(col, ind_slug, label, latest, docs_dir)
     build_comparisons_index(countries, docs_dir)
-    print(f'OK: {len(countries)} paises - {len(years)} anos - {len(INDICATORS)} indicadores')
+    print(f'OK: {len(countries)} países · {len(years)} años · {len(INDICATORS)} indicadores')
     return 0
+
 
 if __name__ == '__main__':
     try:
