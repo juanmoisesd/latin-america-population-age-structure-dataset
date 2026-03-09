@@ -1,245 +1,105 @@
 #!/usr/bin/env python3
-"""
-build_indicators.py
--------------------
-Enriquece el dataset demográfico de América Latina con indicadores derivados,
-texto interpretativo básico y campos preparados para SEO, citación y generación
-de páginas científicas.
-
-Entradas esperadas:
-    data/dataset.csv
-
-Salidas:
-    data/dataset_with_indicators.csv
-    data/indicators_summary_by_country.csv
-    data/indicators_summary_by_year.csv
-    data/research_question_catalog.csv
-"""
-
 from __future__ import annotations
 
-import math
 import sys
-from pathlib import Path
-from typing import Dict, List
+from typing import Any
 
 import pandas as pd
 
-REQUIRED_COLUMNS = [
-    "País", "Año", "Población_Total_Millones",
-    "Pct_0_14", "Pct_15_24", "Pct_25_54", "Pct_55_64", "Pct_65_más",
-    "Pob_0_14_Miles", "Pob_15_24_Miles", "Pob_25_54_Miles", "Pob_55_64_Miles", "Pob_65_más_Miles",
-    "Fuente",
-]
-
-PCT_COLS = ["Pct_0_14", "Pct_15_24", "Pct_25_54", "Pct_55_64", "Pct_65_más"]
-POP_COLS = ["Pob_0_14_Miles", "Pob_15_24_Miles", "Pob_25_54_Miles", "Pob_55_64_Miles", "Pob_65_más_Miles"]
+from common import add_indicators, ensure_dir, parse_args, read_dataset, save_json
 
 
-def slugify(text: str) -> str:
-    replacements = str.maketrans("áéíóúüñÁÉÍÓÚÜÑ", "aeiouunAEIOUUN")
-    text = text.translate(replacements).lower()
-    out = []
-    for ch in text:
-        out.append(ch if ch.isalnum() else "-")
-    slug = "".join(out)
-    while "--" in slug:
-        slug = slug.replace("--", "-")
-    return slug.strip("-")
+def safe_float(value: Any) -> float | None:
+    return None if pd.isna(value) else float(value)
 
 
-def validate_columns(df: pd.DataFrame) -> None:
-    missing = [col for col in REQUIRED_COLUMNS if col not in df.columns]
-    if missing:
-        raise ValueError(f"Faltan columnas obligatorias: {missing}")
-
-
-def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
-    return (a / b.replace({0: pd.NA})).astype("float64")
-
-
-def classify_transition(row: pd.Series) -> str:
-    pct_old = float(row["Pct_65_más"])
-    pct_young = float(row["Pct_0_14"])
-    aging_index = float(row["Indice_Envejecimiento"]) if pd.notna(row["Indice_Envejecimiento"]) else math.nan
-
-    if pct_old >= 12 or aging_index >= 60:
-        return "envejecimiento avanzado"
-    if pct_old >= 8 or aging_index >= 35:
-        return "transición demográfica intermedia"
-    return "estructura relativamente joven"
-
-
-def classify_priority(row: pd.Series) -> str:
-    if row["Razon_Dependencia_Total"] >= 60:
-        return "alta presión demográfica"
-    if row["Razon_Dependencia_Total"] >= 50:
-        return "presión demográfica moderada"
-    return "ventana demográfica relativamente favorable"
-
-
-def narrative_change(start: float, end: float, higher_text: str, lower_text: str, neutral_text: str) -> str:
-    diff = round(end - start, 2)
-    if diff > 0.2:
-        return higher_text.format(diff=diff, end=end, start=start)
-    if diff < -0.2:
-        return lower_text.format(diff=abs(diff), end=end, start=start)
-    return neutral_text.format(diff=diff, end=end, start=start)
-
-
-def build_country_snapshot(sub: pd.DataFrame) -> Dict[str, str]:
-    sub = sub.sort_values("Año")
-    first = sub.iloc[0]
-    last = sub.iloc[-1]
-
-    old_comment = narrative_change(
-        float(first["Pct_65_más"]),
-        float(last["Pct_65_más"]),
-        "La población de 65 años o más aumentó {diff} puntos porcentuales entre {start}% y {end}%.",
-        "La población de 65 años o más descendió {diff} puntos porcentuales entre {start}% y {end}%.",
-        "La proporción de población de 65 años o más se mantuvo relativamente estable.",
-    )
-    young_comment = narrative_change(
-        float(first["Pct_0_14"]),
-        float(last["Pct_0_14"]),
-        "La población de 0 a 14 años aumentó {diff} puntos porcentuales, lo que sugiere un mayor peso relativo de la infancia.",
-        "La población de 0 a 14 años disminuyó {diff} puntos porcentuales, un patrón compatible con la caída de la fecundidad.",
-        "La proporción de población de 0 a 14 años apenas cambió en el periodo analizado.",
-    )
-    work_comment = narrative_change(
-        float(first["Pct_Edad_Laboral"]),
-        float(last["Pct_Edad_Laboral"]),
-        "La población en edad potencialmente activa aumentó {diff} puntos porcentuales.",
-        "La población en edad potencialmente activa disminuyó {diff} puntos porcentuales.",
-        "La población en edad potencialmente activa se mantuvo prácticamente estable.",
-    )
-
-    return {
-        "country_slug": slugify(str(last["País"])),
-        "country_transition_type": classify_transition(last),
-        "country_priority_type": classify_priority(last),
-        "country_summary_short": (
-            f"{last['País']} presenta en {int(last['Año'])} una {classify_transition(last)} "
-            f"y una {classify_priority(last)}."
-        ),
-        "country_summary_long": (
-            f"Entre {int(first['Año'])} y {int(last['Año'])}, {last['País']} mostró un cambio en su estructura por edades. "
-            f"{old_comment} {young_comment} {work_comment} "
-            f"El índice de envejecimiento pasó de {round(float(first['Indice_Envejecimiento']), 2)} a "
-            f"{round(float(last['Indice_Envejecimiento']), 2)}, mientras que la razón de dependencia total se situó en "
-            f"{round(float(last['Razon_Dependencia_Total']), 2)} en el último año disponible."
-        ),
-    }
-
-
-def build_question_catalog(country_summary: pd.DataFrame) -> pd.DataFrame:
-    rows: List[Dict[str, str]] = []
-
-    for _, row in country_summary.iterrows():
-        country = row["País"]
-        slug = slugify(country)
-        rows.append({
-            "question_slug": f"como-cambio-la-estructura-por-edades-en-{slug}-entre-2000-y-2023",
-            "page_type": "country_change",
-            "country_a": country,
-            "country_b": "",
-            "question_title": f"¿Cómo cambió la estructura por edades en {country} entre 2000 y 2023?",
-            "meta_title": f"{country}: estructura por edades 2000-2023 | análisis demográfico y científico",
-            "meta_description": (
-                f"Análisis demográfico de {country} entre 2000 y 2023 con resultados, contexto científico, "
-                f"referencias bibliográficas, indicadores de envejecimiento y notas metodológicas."
-            ),
-            "primary_keyword": f"estructura por edades {country}",
-            "secondary_keywords": (
-                f"envejecimiento poblacional {country}; transición demográfica {country}; "
-                f"pirámide poblacional {country}; índice de envejecimiento {country}"
-            ),
-        })
-
-    return pd.DataFrame(rows)
+def safe_int(value: Any) -> int | None:
+    return None if pd.isna(value) else int(value)
 
 
 def main() -> int:
-    base_dir = Path(__file__).resolve().parent.parent
-    data_dir = base_dir / "data"
-    input_file = data_dir / "dataset.csv"
+    parser = parse_args("Genera los archivos consumidos por el atlas interactivo.")
+    args = parser.parse_args()
 
-    if not input_file.exists():
-        raise FileNotFoundError(f"No existe el archivo de entrada: {input_file}")
-
-    df = pd.read_csv(input_file)
-    validate_columns(df)
-
-    df["Año"] = pd.to_numeric(df["Año"], errors="raise").astype(int)
-    for col in PCT_COLS + POP_COLS + ["Población_Total_Millones"]:
-        df[col] = pd.to_numeric(df[col], errors="raise")
-
-    df["Country_Slug"] = df["País"].map(slugify)
-    df["Pct_Edad_Laboral"] = (df["Pct_15_24"] + df["Pct_25_54"] + df["Pct_55_64"]).round(2)
-    df["Pct_Joven_Total"] = (df["Pct_0_14"] + df["Pct_15_24"]).round(2)
-    df["Pob_Edad_Laboral_Miles"] = (df["Pob_15_24_Miles"] + df["Pob_25_54_Miles"] + df["Pob_55_64_Miles"]).round(2)
-    df["Pob_Dependiente_Miles"] = (df["Pob_0_14_Miles"] + df["Pob_65_más_Miles"]).round(2)
-
-    df["Indice_Envejecimiento"] = (safe_divide(df["Pob_65_más_Miles"], df["Pob_0_14_Miles"]) * 100).round(2)
-    df["Razon_Dependencia_Total"] = (safe_divide(df["Pob_Dependiente_Miles"], df["Pob_Edad_Laboral_Miles"]) * 100).round(2)
-    df["Razon_Dependencia_Mayores"] = (safe_divide(df["Pob_65_más_Miles"], df["Pob_Edad_Laboral_Miles"]) * 100).round(2)
-    df["Razon_Dependencia_Infantil"] = (safe_divide(df["Pob_0_14_Miles"], df["Pob_Edad_Laboral_Miles"]) * 100).round(2)
-    df["Indice_Bono_Demografico"] = safe_divide(df["Pob_Edad_Laboral_Miles"], df["Pob_Dependiente_Miles"]).round(4)
-
-    df["Suma_Pct_Grupos"] = df[PCT_COLS].sum(axis=1).round(2)
-    df["Pct_Grupos_Validos"] = df["Suma_Pct_Grupos"].between(99.5, 100.5)
-
-    # Cambios intertemporales por país
-    df = df.sort_values(["País", "Año"]).copy()
-    df["Cambio_Pct_65_más"] = df.groupby("País")["Pct_65_más"].diff().round(2)
-    df["Cambio_Pct_0_14"] = df.groupby("País")["Pct_0_14"].diff().round(2)
-    df["Cambio_Indice_Envejecimiento"] = df.groupby("País")["Indice_Envejecimiento"].diff().round(2)
-
-    country_last = df.groupby("País", as_index=False).tail(1).copy()
-    country_last["Ranking_Envejecimiento_Regional"] = country_last["Indice_Envejecimiento"].rank(method="min", ascending=False).astype(int)
-    country_last["Ranking_Dependencia_Regional"] = country_last["Razon_Dependencia_Total"].rank(method="min", ascending=False).astype(int)
-    country_last["Ranking_Juventud_Regional"] = country_last["Pct_0_14"].rank(method="min", ascending=False).astype(int)
-
-    snapshots = []
-    for country, sub in df.groupby("País"):
-        snap = build_country_snapshot(sub)
-        snapshots.append({"País": country, **snap})
-    snapshot_df = pd.DataFrame(snapshots)
-
-    country_last = country_last.merge(snapshot_df, on="País", how="left")
-
-    year_summary = (
-        df.groupby("Año", as_index=False)[
-            ["Indice_Envejecimiento", "Razon_Dependencia_Total", "Indice_Bono_Demografico", "Pct_65_más", "Pct_0_14"]
-        ]
-        .mean(numeric_only=True)
-        .round(2)
-        .sort_values("Año")
+    df = (
+        add_indicators(read_dataset(args.input))
+        .sort_values(["País", "Año"])
+        .reset_index(drop=True)
     )
 
-    country_summary = country_last[[
-        "País", "Country_Slug", "Año", "Población_Total_Millones", "Pct_0_14", "Pct_65_más",
-        "Indice_Envejecimiento", "Razon_Dependencia_Total", "Indice_Bono_Demografico",
-        "Ranking_Envejecimiento_Regional", "Ranking_Dependencia_Regional", "Ranking_Juventud_Regional",
-        "country_transition_type", "country_priority_type", "country_summary_short", "country_summary_long",
-    ]].sort_values("Indice_Envejecimiento", ascending=False)
+    out_dir = args.docs_dir / "atlas" / "data"
+    ensure_dir(out_dir)
 
-    question_catalog = build_question_catalog(country_summary)
+    records = []
+    for _, r in df.iterrows():
+        record = {
+            "country": r["País"],
+            "year": int(r["Año"]),
+            "population_total_millions": safe_float(r["Población_Total_Millones"]),
+            "age_groups_pct": {
+                "0_14": safe_float(r["Pct_0_14"]),
+                "15_24": safe_float(r["Pct_15_24"]),
+                "25_54": safe_float(r["Pct_25_54"]),
+                "55_64": safe_float(r["Pct_55_64"]),
+                "65_plus": safe_float(r["Pct_65_más"]),
+            },
+            "age_groups_thousands": {
+                "0_14": safe_float(r["Pob_0_14_Miles"]),
+                "15_24": safe_float(r["Pob_15_24_Miles"]),
+                "25_54": safe_float(r["Pob_25_54_Miles"]),
+                "55_64": safe_float(r["Pob_55_64_Miles"]),
+                "65_plus": safe_float(r["Pob_65_más_Miles"]),
+            },
+            "indicators": {
+                "aging_index": safe_float(r.get("Indice_Envejecimiento")),
+                "youth_index": safe_float(r.get("Indice_Juventud")),
+                "dependency_ratio_total": safe_float(r.get("Razon_Dependencia_Total")),
+                "dependency_ratio_youth": safe_float(r.get("Razon_Dependencia_Juvenil")),
+                "dependency_ratio_old_age": safe_float(r.get("Razon_Dependencia_Vejez")),
+                "demographic_dividend_index": safe_float(r.get("Indice_Bono_Demografico")),
+                "working_age_pct": safe_float(r.get("Pct_Edad_Laboral")),
+                "youth_pct": safe_float(r.get("Pct_Joven_Total")),
+                "older_pct": safe_float(r.get("Pct_65_más")),
+                "working_age_thousands": safe_float(r.get("Pob_Edad_Laboral_Miles")),
+                "dependent_thousands": safe_float(r.get("Pob_Dependiente_Miles")),
+                "youth_to_older_ratio": safe_float(r.get("Relacion_Jovenes_Mayores")),
+                "aging_change_vs_2000": safe_float(r.get("Cambio_Envejecimiento_vs_2000")),
+            },
+            "source": r["Fuente"],
+        }
 
-    out_main = data_dir / "dataset_with_indicators.csv"
-    out_country = data_dir / "indicators_summary_by_country.csv"
-    out_year = data_dir / "indicators_summary_by_year.csv"
-    out_questions = data_dir / "research_question_catalog.csv"
+        # Solo incluir estas claves si existen en el dataset procesado
+        if "ISO3" in df.columns:
+            record["iso3"] = r["ISO3"]
+        if "Región" in df.columns:
+            record["region"] = r["Región"]
 
-    df.to_csv(out_main, index=False, encoding="utf-8-sig")
-    country_summary.to_csv(out_country, index=False, encoding="utf-8-sig")
-    year_summary.to_csv(out_year, index=False, encoding="utf-8-sig")
-    question_catalog.to_csv(out_questions, index=False, encoding="utf-8-sig")
+        records.append(record)
 
-    print(f"OK: {out_main}")
-    print(f"OK: {out_country}")
-    print(f"OK: {out_year}")
-    print(f"OK: {out_questions}")
+    metadata = {
+        "title": "Atlas Demográfico Interactivo de América Latina",
+        "author": "Juan Moisés de la Serna",
+        "record_count": int(len(df)),
+        "country_count": int(df["País"].nunique()),
+        "year_range": [int(df["Año"].min()), int(df["Año"].max())],
+        "years": sorted(int(y) for y in df["Año"].dropna().unique()),
+        "countries": sorted(str(c) for c in df["País"].dropna().unique()),
+        "variables": list(df.columns),
+        "source_column": "Fuente",
+        "dataset_description": (
+            "Dataset demográfico comparativo con población total, estructura "
+            "por grupos de edad en porcentaje y población por grupos de edad "
+            "en miles."
+        ),
+    }
+
+    save_json(out_dir / "atlas_data.json", {"metadata": metadata, "records": records})
+    save_json(out_dir / "atlas_metadata.json", metadata)
+    df.to_csv(out_dir / "atlas_data_with_indicators.csv", index=False, encoding="utf-8-sig")
+
+    print(f'OK: {out_dir / "atlas_data.json"}')
+    print(f'OK: {out_dir / "atlas_metadata.json"}')
+    print(f'OK: {out_dir / "atlas_data_with_indicators.csv"}')
     return 0
 
 
