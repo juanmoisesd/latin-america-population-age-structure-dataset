@@ -1,30 +1,58 @@
 cff-version: 1.2.0
-message: "Si usas este dataset, citalo con los metadatos de este archivo."
+message: "Si utilizas este dataset, por favor cítalo utilizando los metadatos de este archivo."
 type: dataset
-title: "Evolucion Poblacional por Grupos de Edad en America Latina (2000-2023): Dataset Demografico por Pais"
+title: "Estructura Poblacional por Grupos de Edad en América Latina (2000–2023): Dataset Demográfico Comparativo"
+
 authors:
   - family-names: "de la Serna"
-    given-names: "Juan Moises"
+    given-names: "Juan Moisés"
     orcid: "https://orcid.org/0000-0002-8401-8018"
     website: "https://juanmoisesdelaserna.es/"
+
 doi: "10.5281/zenodo.18891177"
 date-released: "2026-03-07"
-version: "1.0.0"
+version: "1.1.0"
+
 license: "CC-BY-4.0"
+
 repository-code: "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
 url: "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/"
 repository-artifact: "https://zenodo.org/records/18891177"
+
 abstract: >
-  Dataset demografico longitudinal con estructura de edad de la poblacion para
-  11 paises de America Latina en 4 cortes temporales (2000, 2010, 2020, 2023).
-  14 variables. Fuente: CEPALSTAT (CEPAL / ECLAC, Naciones Unidas).
+  Dataset demográfico longitudinal que describe la estructura de edad de la
+  población en países de América Latina entre 2000 y 2023. Incluye población
+  total, distribución porcentual por grupos de edad y estimaciones absolutas
+  de población por grupo etario (en miles). El dataset permite analizar
+  procesos de transición demográfica, envejecimiento poblacional y cambios en
+  la estructura de la población en edad de trabajar. Los datos proceden de
+  fuentes institucionales como CEPALSTAT, Banco Mundial y BBVA Research.
+
 keywords:
-  - demografia
-  - America Latina
-  - estructura de edad
+  - demografía
+  - América Latina
+  - estructura por edad
   - envejecimiento poblacional
-  - CEPAL
+  - transición demográfica
+  - población
   - open data
+  - CEPAL
   - dataset
-  - poblacion
-  - transicion demografica
+
+references:
+  - type: dataset
+    title: "CEPALSTAT Statistical Databases"
+    author: "Economic Commission for Latin America and the Caribbean (ECLAC)"
+    year: 2024
+    url: "https://statistics.cepal.org/portal/cepalstat/"
+
+  - type: dataset
+    title: "World Development Indicators"
+    author: "World Bank"
+    year: 2024
+    url: "https://databank.worldbank.org/source/world-development-indicators"
+
+  - type: report
+    title: "Latin American Demographic Outlook"
+    author: "BBVA Research"
+    year: 2023
