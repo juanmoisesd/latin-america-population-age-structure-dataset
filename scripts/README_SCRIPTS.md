@@ -2,32 +2,58 @@
 
 ## Descripción
 
-Scripts Python para generar el micrositio estático a partir del archivo `data/dataset.csv`.
+Scripts en Python para validar, procesar y transformar el archivo `data/dataset.csv` en un micrositio estático con indicadores demográficos, páginas comparativas y datos preparados para visualizaciones.
+
+El dataset de entrada contiene, para cada país y año:
+
+- población total en millones
+- porcentaje de población por grandes grupos de edad
+- población estimada por grupo de edad en miles
+- fuente de procedencia de los datos
+
+## Dataset de entrada
+
+El archivo `data/dataset.csv` debe incluir las siguientes columnas:
+
+- `País`
+- `Año`
+- `Población_Total_Millones`
+- `Pct_0_14`
+- `Pct_15_24`
+- `Pct_25_54`
+- `Pct_55_64`
+- `Pct_65_más`
+- `Pob_0_14_Miles`
+- `Pob_15_24_Miles`
+- `Pob_25_54_Miles`
+- `Pob_55_64_Miles`
+- `Pob_65_más_Miles`
+- `Fuente`
 
 ## Estructura generada
 
-Al ejecutar el pipeline completo se produce:
+Al ejecutar el pipeline completo se produce una estructura similar a esta:
 
-```
+```text
 docs/
-├── index.html                          # portada del sitio
+├── index.html
 ├── assets/
 │   ├── style.css
 │   └── app.js
 ├── pages/
-│   ├── countries.html                  # índice de países
-│   ├── country-{país}.html             # ficha por país (11)
-│   ├── country-{país}-year-{año}.html  # ficha país×año (44)
-│   ├── years.html                      # índice de años
-│   ├── year-{año}.html                 # ficha por año (4)
-│   ├── indicators.html                 # índice de indicadores
-│   ├── indicator-{ind}.html            # ficha por indicador (12)
-│   ├── comparisons.html               # índice de comparaciones
-│   ├── compare-{a}-vs-{b}-{ind}.html  # comparación bilateral (660)
+│   ├── countries.html
+│   ├── country-{pais}.html
+│   ├── country-{pais}-year-{anio}.html
+│   ├── years.html
+│   ├── year-{anio}.html
+│   ├── indicators.html
+│   ├── indicator-{indicador}.html
+│   ├── comparisons.html
+│   ├── compare-{a}-vs-{b}-{indicador}.html
 │   └── research-questions/
-│       ├── index.html                 # índice de preguntas
-│       ├── que-paises-*.html          # preguntas globales (4)
-│       └── como-*-en-{país}.html      # preguntas por país (33)
+│       ├── index.html
+│       ├── que-paises-*.html
+│       └── como-*-en-{pais}.html
 ├── atlas/
 │   └── data/
 │       ├── atlas_data.json
@@ -38,48 +64,3 @@ docs/
     ├── indicators_summary_by_country.csv
     ├── indicators_summary_by_year.csv
     └── latest_snapshot.csv
-```
-
-## Scripts
-
-| Script | Función |
-|---|---|
-| `validate_dataset.py` | Valida columnas, tipos y coherencia del CSV |
-| `build_indicators.py` | Calcula indicadores y genera CSVs en `data/` |
-| `build_atlas_data.py` | Genera JSON para el atlas interactivo en `docs/atlas/data/` |
-| `build_site.py` | Genera las páginas HTML en `docs/pages/` |
-| `generate_research_pages.py` | Genera las preguntas de investigación en `docs/pages/research-questions/` |
-| `run_all.py` | Ejecuta el pipeline completo en orden |
-| `common.py` | Funciones compartidas (lectura, slugify, indicadores, etc.) |
-
-## Ejecución
-
-### Pipeline completo
-
-```bash
-python scripts/run_all.py
-```
-
-### Scripts individuales
-
-```bash
-python scripts/validate_dataset.py
-python scripts/build_indicators.py
-python scripts/build_atlas_data.py
-python scripts/build_site.py
-python scripts/generate_research_pages.py
-```
-
-## Requisitos
-
-```
-pip install -r requirements.txt
-```
-
-## Notas de diseño
-
-- Todos los scripts leen `data/dataset.csv` por defecto (configurable con `--input`).
-- El directorio de salida por defecto es `docs/` (configurable con `--docs-dir`).
-- Las páginas generadas usan `assets/style.css` y `assets/app.js` del sitio real.
-- La navegación de todas las páginas es consistente con la estructura `docs/pages/`.
-- Las comparaciones bilaterales cubren los 11 países × 12 indicadores = 660 páginas.
