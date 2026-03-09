@@ -7,6 +7,25 @@
     2000,
     2023
   ],
+  "years": [
+    2000,
+    2010,
+    2020,
+    2023
+  ],
+  "countries": [
+    "Argentina",
+    "Bolivia",
+    "Brasil",
+    "Chile",
+    "Colombia",
+    "Ecuador",
+    "México",
+    "Paraguay",
+    "Perú",
+    "Uruguay",
+    "Venezuela"
+  ],
   "variables": [
     "País",
     "Año",
@@ -29,12 +48,21 @@
     "Pob_Edad_Laboral_Miles",
     "Pob_Dependiente_Miles",
     "Indice_Envejecimiento",
+    "Indice_Juventud",
     "Razon_Dependencia_Total",
-    "Razon_Dependencia_Infantil",
-    "Razon_Dependencia_Mayores",
+    "Razon_Dependencia_Juvenil",
+    "Razon_Dependencia_Vejez",
     "Indice_Bono_Demografico",
+    "Relacion_Jovenes_Mayores",
+    "Old_Age_Ratio",
     "Cambio_Envejecimiento_vs_2000",
+    "Cambio_Pct_65_más_vs_2000",
+    "Cambio_Pct_0_14_vs_2000",
     "Suma_Pct_Grupos",
-    "Pct_Grupos_Validos"
-  ]
+    "Pct_Grupos_Validos",
+    "Clasificacion_Envejecimiento",
+    "Clasificacion_Dependencia"
+  ],
+  "source_column": "Fuente",
+  "dataset_description": "Dataset demográfico comparativo con población total, estructura por grupos de edad en porcentaje y población por grupos de edad en miles."
 }
