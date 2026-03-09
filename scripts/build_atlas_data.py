@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import sys
+from pathlib import Path
 from typing import Any
 
 import pandas as pd
@@ -9,23 +10,48 @@ import pandas as pd
 from common import add_indicators, ensure_dir, parse_args, read_dataset, save_json
 
 
+REQUIRED_COLUMNS = [
+    "País",
+    "Año",
+    "Población_Total_Millones",
+    "Pct_0_14",
+    "Pct_15_24",
+    "Pct_25_54",
+    "Pct_55_64",
+    "Pct_65_más",
+    "Pob_0_14_Miles",
+    "Pob_15_24_Miles",
+    "Pob_25_54_Miles",
+    "Pob_55_64_Miles",
+    "Pob_65_más_Miles",
+    "Fuente",
+]
+
+
 def safe_float(value: Any) -> float | None:
     return None if pd.isna(value) else float(value)
 
 
-def safe_int(value: Any) -> int | None:
-    return None if pd.isna(value) else int(value)
+def validate_required_columns(df: pd.DataFrame) -> None:
+    missing = [col for col in REQUIRED_COLUMNS if col not in df.columns]
+    if missing:
+        raise ValueError(
+            "Faltan columnas requeridas para el atlas: " + ", ".join(missing)
+        )
+
+
+def load_processed_dataset(input_path: Path) -> pd.DataFrame:
+    df = read_dataset(input_path)
+    df = add_indicators(df)
+    return df.sort_values(["País", "Año"]).reset_index(drop=True)
 
 
 def main() -> int:
     parser = parse_args("Genera los archivos consumidos por el atlas interactivo.")
     args = parser.parse_args()
 
-    df = (
-        add_indicators(read_dataset(args.input))
-        .sort_values(["País", "Año"])
-        .reset_index(drop=True)
-    )
+    df = load_processed_dataset(args.input)
+    validate_required_columns(df)
 
     out_dir = args.docs_dir / "atlas" / "data"
     ensure_dir(out_dir)
@@ -68,7 +94,6 @@ def main() -> int:
             "source": r["Fuente"],
         }
 
-        # Solo incluir estas claves si existen en el dataset procesado
         if "ISO3" in df.columns:
             record["iso3"] = r["ISO3"]
         if "Región" in df.columns:
@@ -84,7 +109,7 @@ def main() -> int:
         "year_range": [int(df["Año"].min()), int(df["Año"].max())],
         "years": sorted(int(y) for y in df["Año"].dropna().unique()),
         "countries": sorted(str(c) for c in df["País"].dropna().unique()),
-        "variables": list(df.columns),
+        "variables": sorted(df.columns.tolist()),
         "source_column": "Fuente",
         "dataset_description": (
             "Dataset demográfico comparativo con población total, estructura "
