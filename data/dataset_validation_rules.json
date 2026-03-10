@@ -1,0 +1,41 @@
+{
+  "validation_rules": [
+    {
+      "rule": "age_structure_sum",
+      "description": "La suma de los porcentajes de los grupos de edad debe aproximarse a 100",
+      "expression": "Pct014 + Pct1524 + Pct2554 + Pct5564 + Pct65ms",
+      "expected_value": 100,
+      "tolerance": 2
+    },
+    {
+      "rule": "sex_distribution_014",
+      "description": "Distribución por sexo en grupo 0–14",
+      "expression": "Pct014H + Pct014M",
+      "expected_relation": "≈ Pct014"
+    },
+    {
+      "rule": "sex_distribution_1524",
+      "description": "Distribución por sexo en grupo 15–24",
+      "expression": "Pct1524H + Pct1524M",
+      "expected_relation": "≈ Pct1524"
+    },
+    {
+      "rule": "sex_distribution_2554",
+      "description": "Distribución por sexo en grupo 25–54",
+      "expression": "Pct2554H + Pct2554M",
+      "expected_relation": "≈ Pct2554"
+    },
+    {
+      "rule": "sex_distribution_5564",
+      "description": "Distribución por sexo en grupo 55–64",
+      "expression": "Pct5564H + Pct5564M",
+      "expected_relation": "≈ Pct5564"
+    },
+    {
+      "rule": "sex_distribution_65",
+      "description": "Distribución por sexo en grupo 65+",
+      "expression": "Pct65H + Pct65M",
+      "expected_relation": "≈ Pct65ms"
+    }
+  ]
+}
