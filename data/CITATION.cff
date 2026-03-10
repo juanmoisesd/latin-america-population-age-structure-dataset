@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: "Estructura de Edad de la Población en América Latina (1995–2030)"
+message: "Si utilizas este conjunto de datos, por favor cítalo utilizando la referencia siguiente."
+type: dataset
+
+authors:
+  - family-names: "de la Serna"
+    given-names: "Juan Moisés"
+    orcid: "https://orcid.org/0000-0002-8401-8018"
+
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.18883431"
+
+doi: "10.5281/zenodo.18883431"
+
+repository-code: "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
+
+license: "CC-BY-4.0"
+
+abstract: >
+  Conjunto de datos demográficos que describe la estructura poblacional
+  por grupos de edad y sexo en países de América Latina entre 1995 y 2030.
+  Incluye distribución porcentual por cohortes etarias y desagregación por sexo.
+
+keywords:
+  - demografía
+  - estructura de edad
+  - envejecimiento poblacional
+  - América Latina
+  - transición demográfica
+  - análisis demográfico
+
+date-released: 2026
