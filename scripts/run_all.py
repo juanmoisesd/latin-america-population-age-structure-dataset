@@ -9,9 +9,11 @@ from pathlib import Path
 # Orden de ejecución del pipeline
 SCRIPTS = [
     "validate_dataset.py",
-    "build_indicators.py",
-    "build_atlas_data.py",
-    "build_site.py",
+    "build_dataset_with_indicators.py",
+    "build_latest_snapshot.py",
+    "build_indicators_summary_by_country.py",
+    "build_indicators_summary_by_year.py",
+    "build_atlas_exports.py",
     "generate_research_pages.py",
 ]
 
