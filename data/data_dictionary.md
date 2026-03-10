@@ -1,214 +1,257 @@
-# Data Dictionary
+Diccionario de Datos
 
-This document describes the variables included in the demographic dataset used for the Latin America Population Age Structure project.
+Conjunto de Datos de Estructura de Edad de la Población en América Latina (1995–2030)
 
-All variables follow a standardized naming convention compatible with Python, JavaScript, and statistical software.
+Autor: Juan Moisés de la Serna
+ORCID: 0000-0002-8401-8018
 
----
+Licencia: CC BY 4.0
 
-## country
-Type: string  
-Description: Name of the country.
+Este documento describe las variables incluidas en el conjunto de datos utilizado en el proyecto Estructura de Edad de la Población en América Latina.
 
-Example:
-Mexico, Argentina, Chile.
+El conjunto de datos contiene indicadores demográficos para múltiples países latinoamericanos en diferentes años, incluyendo la estructura poblacional por grupos de edad y por sexo.
 
----
+Unidad de Observación del Conjunto de Datos
 
-## year
-Type: integer  
-Description: Reference year of the demographic observation.
+Cada fila corresponde a:
 
-Example:
-1995, 2000, 2005, 2010, 2015, 2020.
+país + año
 
----
+Esto significa que cada registro representa la estructura demográfica de un país específico en un año determinado.
 
-## population_total_millions
-Type: numeric (float)  
-Unit: millions of people  
+Variables
+PasAo
 
-Description:  
-Total population of the country in the specified year, expressed in millions.
+Tipo: texto (string)
 
-Example:
-126.7 = 126.7 million inhabitants.
+Descripción
+Nombre del país.
 
----
+Ejemplos
+Argentina
+Chile
+México
+Perú
 
-## pct_0_14
-Type: numeric (percentage)  
-Unit: percent (%)
+Año
 
-Description:  
-Share of the population aged **0–14 years**.
+Tipo: entero (integer)
 
----
+Descripción
+Año de referencia de la observación demográfica.
 
-## pct_15_24
-Type: numeric (percentage)  
-Unit: percent (%)
+Ejemplos
 
-Description:  
-Share of the population aged **15–24 years**.
+1995
+2000
+2005
+2010
+2015
+2020
 
----
+PoblaciónTotalMillones
 
-## pct_25_54
-Type: numeric (percentage)  
-Unit: percent (%)
+Tipo: numérico (decimal)
+Unidad: millones de habitantes
 
-Description:  
-Share of the population aged **25–54 years**.
+Descripción
+Población total del país en el año indicado.
 
----
+Ejemplo
 
-## pct_55_64
-Type: numeric (percentage)  
-Unit: percent (%)
+126.7 = 126,7 millones de habitantes
 
-Description:  
-Share of the population aged **55–64 years**.
+Variables de estructura por edad
 
----
+Estas variables representan la distribución porcentual de la población por grupos de edad.
 
-## pct_65_plus
-Type: numeric (percentage)  
-Unit: percent (%)
+Pct014
 
-Description:  
-Share of the population aged **65 years or older**.
+Tipo: porcentaje (%)
 
----
+Descripción
+Porcentaje de población con edades entre 0 y 14 años.
 
-## pop_0_14_thousands
-Type: numeric  
-Unit: thousands of people
+Pct1524
 
-Description:  
-Absolute population aged **0–14 years**, expressed in thousands.
+Tipo: porcentaje (%)
 
----
+Descripción
+Porcentaje de población con edades entre 15 y 24 años.
 
-## pop_15_24_thousands
-Type: numeric  
-Unit: thousands of people
+Pct2554
 
-Description:  
-Absolute population aged **15–24 years**, expressed in thousands.
+Tipo: porcentaje (%)
 
----
+Descripción
+Porcentaje de población con edades entre 25 y 54 años.
 
-## pop_25_54_thousands
-Type: numeric  
-Unit: thousands of people
+Pct5564
 
-Description:  
-Absolute population aged **25–54 years**, expressed in thousands.
+Tipo: porcentaje (%)
 
----
+Descripción
+Porcentaje de población con edades entre 55 y 64 años.
 
-## pop_55_64_thousands
-Type: numeric  
-Unit: thousands of people
+Pct65ms
 
-Description:  
-Absolute population aged **55–64 years**, expressed in thousands.
+Tipo: porcentaje (%)
 
----
+Descripción
+Porcentaje de población con 65 años o más.
 
-## pop_65_plus_thousands
-Type: numeric  
-Unit: thousands of people
+Variables por sexo dentro de cada grupo de edad
 
-Description:  
-Absolute population aged **65 years or older**, expressed in thousands.
+Estas variables representan la distribución por sexo dentro de cada grupo de edad.
 
----
+Pct014H
 
-## source
-Type: string  
+Tipo: porcentaje (%)
 
-Description:  
-Primary data source used to compile the dataset.
+Descripción
+Porcentaje de hombres de 0 a 14 años.
 
-Possible values include:
+Pct014M
 
-- CEPAL (Economic Commission for Latin America and the Caribbean)
-- World Bank
-- BBVA Research
-- National statistical institutes
+Tipo: porcentaje (%)
 
----
+Descripción
+Porcentaje de mujeres de 0 a 14 años.
 
-# Internal Consistency Rules
+Pct1524H
 
-The dataset follows these structural constraints.
+Tipo: porcentaje (%)
 
-### Age structure consistency
+Descripción
+Porcentaje de hombres de 15 a 24 años.
 
-The age distribution should sum approximately to 100%.
+Pct1524M
 
+Tipo: porcentaje (%)
 
-pct_0_14
+Descripción
+Porcentaje de mujeres de 15 a 24 años.
 
-pct_15_24
+Pct2554H
 
-pct_25_54
+Tipo: porcentaje (%)
 
-pct_55_64
+Descripción
+Porcentaje de hombres de 25 a 54 años.
 
-pct_65_plus
-≈ 100
+Pct2554M
 
+Tipo: porcentaje (%)
 
-Minor rounding differences may occur.
+Descripción
+Porcentaje de mujeres de 25 a 54 años.
 
----
+Pct5564H
 
-### Population consistency
+Tipo: porcentaje (%)
 
-Absolute age-group populations should approximately match the total population.
+Descripción
+Porcentaje de hombres de 55 a 64 años.
 
+Pct5564M
 
-(pop_0_14_thousands
+Tipo: porcentaje (%)
 
-pop_15_24_thousands
+Descripción
+Porcentaje de mujeres de 55 a 64 años.
 
-pop_25_54_thousands
+Pct65H
 
-pop_55_64_thousands
+Tipo: porcentaje (%)
 
-pop_65_plus_thousands)
-/ 1000
-≈ population_total_millions
+Descripción
+Porcentaje de hombres de 65 años o más.
 
+Pct65M
 
-Small discrepancies may appear due to rounding in source datasets.
+Tipo: porcentaje (%)
 
----
+Descripción
+Porcentaje de mujeres de 65 años o más.
 
-# Dataset Structure
+Fuente
 
-Each row represents:
+Tipo: texto (string)
 
+Descripción
+Fuente principal de los datos utilizados para construir el conjunto de datos.
 
-country + year
+Valores posibles
 
+CEPAL
+CEPAL-BBVA
+Institutos nacionales de estadística
+Banco Mundial
 
-Meaning that each observation corresponds to the demographic structure of a specific country in a specific year.
+Reglas de consistencia interna
 
----
+El conjunto de datos sigue restricciones demográficas básicas.
 
-# Usage
+Consistencia de la estructura por edad
 
-This dataset is designed to support:
+La distribución por edad debe sumar aproximadamente 100 %.
 
-- demographic transition analysis
-- population aging studies
-- dependency ratio calculations
-- demographic bonus analysis
-- population pyramid visualization
-- comparative country analysis
+Pct014
+Pct1524
+Pct2554
+Pct5564
+Pct65ms
 
-The dataset is used by the interactive **Demographic Atlas** included in this repository.
+≈ 100 %
+
+Pequeñas diferencias pueden aparecer debido al redondeo.
+
+Consistencia por sexo
+
+Cada grupo de edad se descompone por sexo.
+
+Pct014 ≈ Pct014H + Pct014M
+Pct1524 ≈ Pct1524H + Pct1524M
+Pct2554 ≈ Pct2554H + Pct2554M
+Pct5564 ≈ Pct5564H + Pct5564M
+Pct65ms ≈ Pct65H + Pct65M
+
+Pequeñas diferencias pueden aparecer debido al redondeo.
+
+Usos del conjunto de datos
+
+Este conjunto de datos está diseñado para análisis de:
+
+transición demográfica
+
+envejecimiento poblacional
+
+índice de dependencia demográfica
+
+bono demográfico
+
+visualización de pirámides poblacionales
+
+comparaciones demográficas entre países
+
+análisis demográfico por sexo
+
+Productos derivados
+
+Este conjunto de datos alimenta:
+
+Atlas Demográfico Interactivo
+
+pirámides de población
+
+cálculos del índice de envejecimiento
+
+paneles comparativos entre países
+
+Cómo citar el conjunto de datos
+
+De la Serna, J. M. (2026).
+Estructura de Edad de la Población en América Latina (1995–2030).
+
+DOI:
+https://doi.org/10.5281/zenodo.18883431
