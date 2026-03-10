@@ -17,14 +17,42 @@ def safe_int(value: Any) -> int | None:
     return None if pd.isna(value) else int(value)
 
 
+def require_columns(df: pd.DataFrame, cols: list[str]) -> None:
+    missing = [c for c in cols if c not in df.columns]
+    if missing:
+        raise ValueError(f"Faltan columnas requeridas: {', '.join(missing)}")
+
+
 def main() -> int:
-    parser = parse_args("Genera los archivos consumidos por el atlas interactivo.")
+    parser = parse_args("Genera los archivos consumidos por el sitio y el atlas interactivo.")
     args = parser.parse_args()
 
-    df = (
-        add_indicators(read_dataset(args.input))
-        .sort_values(["País", "Año"])
-        .reset_index(drop=True)
+    df = read_dataset(args.input).copy()
+
+    # Si existe columna Sexo, usar solo TOTAL para evitar duplicados
+    if "Sexo" in df.columns:
+        df = df[df["Sexo"].astype(str).str.upper() == "TOTAL"].copy()
+
+    df = add_indicators(df).sort_values(["País", "Año"]).reset_index(drop=True)
+
+    require_columns(
+        df,
+        [
+            "País",
+            "Año",
+            "Pob_Total_Millones",
+            "Pct_0_14",
+            "Pct_15_24",
+            "Pct_25_54",
+            "Pct_55_64",
+            "Pct_65_más",
+            "Pob_0_14_Miles",
+            "Pob_15_24_Miles",
+            "Pob_25_54_Miles",
+            "Pob_55_64_Miles",
+            "Pob_65_más_Miles",
+            "Fuente",
+        ],
     )
 
     out_dir = args.docs_dir / "atlas" / "data"
@@ -34,8 +62,8 @@ def main() -> int:
     for _, r in df.iterrows():
         record = {
             "country": r["País"],
-            "year": int(r["Año"]),
-            "population_total_millions": safe_float(r["Población_Total_Millones"]),
+            "year": safe_int(r["Año"]),
+            "population_total_millions": safe_float(r["Pob_Total_Millones"]),
             "age_groups_pct": {
                 "0_14": safe_float(r["Pct_0_14"]),
                 "15_24": safe_float(r["Pct_15_24"]),
@@ -63,12 +91,22 @@ def main() -> int:
                 "working_age_thousands": safe_float(r.get("Pob_Edad_Laboral_Miles")),
                 "dependent_thousands": safe_float(r.get("Pob_Dependiente_Miles")),
                 "youth_to_older_ratio": safe_float(r.get("Relacion_Jovenes_Mayores")),
+                "old_age_ratio": safe_float(r.get("Old_Age_Ratio")),
                 "aging_change_vs_2000": safe_float(r.get("Cambio_Envejecimiento_vs_2000")),
+                "pct_65_plus_change_vs_2000": safe_float(r.get("Cambio_Pct_65_más_vs_2000")),
+                "pct_0_14_change_vs_2000": safe_float(r.get("Cambio_Pct_0_14_vs_2000")),
+                "sum_pct_groups": safe_float(r.get("Suma_Pct_Grupos")),
+                "pct_groups_valid": (
+                    None if pd.isna(r.get("Pct_Grupos_Validos")) else bool(r.get("Pct_Grupos_Validos"))
+                ),
+            },
+            "classification": {
+                "aging": r.get("Clasificacion_Envejecimiento"),
+                "dependency": r.get("Clasificacion_Dependencia"),
             },
             "source": r["Fuente"],
         }
 
-        # Solo incluir estas claves si existen en el dataset procesado
         if "ISO3" in df.columns:
             record["iso3"] = r["ISO3"]
         if "Región" in df.columns:
@@ -88,8 +126,8 @@ def main() -> int:
         "source_column": "Fuente",
         "dataset_description": (
             "Dataset demográfico comparativo con población total, estructura "
-            "por grupos de edad en porcentaje y población por grupos de edad "
-            "en miles."
+            "por grandes grupos de edad, población por grupos de edad en miles "
+            "e indicadores derivados de envejecimiento, dependencia y bono demográfico."
         ),
     }
 
