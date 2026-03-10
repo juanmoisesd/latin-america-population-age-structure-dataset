@@ -1,0 +1,5 @@
+sha256(dataset.csv)= <HASH>
+sha256(dataset_with_indicators.csv)= <HASH>
+sha256(latest_snapshot.csv)= <HASH>
+sha256(indicators_summary_by_country.csv)= <HASH>
+sha256(indicators_summary_by_year.csv)= <HASH>
