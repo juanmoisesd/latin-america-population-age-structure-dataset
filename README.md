@@ -1,34 +1,104 @@
-# GitHub Pages del dataset demográfico de América Latina
+Conjunto de Datos de Estructura de Edad de la Población en América Latina (1995–2030)
+Autor: Juan Moisés de la Serna
+ORCID: 0000-0002-8401-8018
+DOI del dataset:
+https://doi.org/10.5281/zenodo.18883431
+Licencia: CC BY 4.0
 
-Este paquete contiene un sitio estático listo para publicar en GitHub Pages a partir del archivo `dataset_copy.csv`.
+Descripción
+Este conjunto de datos contiene información demográfica sobre la estructura por edad de la población en países de América Latina.
+Incluye variables de distribución poblacional por grupos de edad y desagregación por sexo, permitiendo el análisis de procesos demográficos como:
+transición demográfica
+envejecimiento poblacional
+bono demográfico
+índices de dependencia
+análisis comparado entre países
 
-## Qué genera
+Los datos se presentan en formato CSV estructurado, compatible con software estadístico, Python, R y herramientas de visualización.
+Cobertura del conjunto de datos
+Cobertura geográfica
+Países de América Latina
+Cobertura temporal
+1995–2030
 
-- páginas por país
-- páginas por país y año
-- páginas por país e indicador
-- páginas por año
-- páginas por indicador
-- páginas comparativas entre pares de países e indicador
-- páginas de preguntas de investigación
+Frecuencia temporal
+Observaciones quinquenales o decenales según disponibilidad de datos.
 
-## Total actual
+Unidad de observación
+país-año
+Estructura del conjunto de datos
+Archivo principal
+dataset.csv
+Cada fila representa la estructura demográfica de un país en un año específico.
+Variables principales incluidas:
+PasAo
+Año
+PoblaciónTotalMillones
+Pct014
+Pct1524
+Pct2554
+Pct5564
+Pct65ms
 
-- países: 11
-- años: 4
-- indicadores: 12
-- páginas HTML: 907
+Distribución por sexo:
+Pct014H
+Pct014M
+Pct1524H
+Pct1524M
+Pct2554H
+Pct2554M
+Pct5564H
+Pct5564M
+Pct65H
+Pct65M
 
-## Publicación en GitHub Pages
+Fuente
+Para la descripción detallada de cada variable, consultar el archivo:
 
-1. Crea un repositorio nuevo.
-2. Sube el contenido de este paquete.
-3. En GitHub: Settings → Pages.
-4. En `Source`, elige `Deploy from a branch`.
-5. Selecciona la rama `main` y la carpeta `/docs`.
-6. Guarda los cambios.
+data_dictionary.md
 
-## Dataset de referencia
+Fuentes de datos
+Los datos se han compilado a partir de fuentes demográficas internacionales y regionales, entre ellas:
+CEPAL (Comisión Económica para América Latina y el Caribe)
+Banco Mundial
+BBVA Research
+Institutos nacionales de estadística
 
-- Zenodo: https://doi.org/10.5281/zenodo.18891177
-- OSF: https://doi.org/10.17605/OSF.IO/3WAEU
+Posibles aplicaciones
+Este conjunto de datos permite realizar análisis en áreas como:
+economía demográfica
+gerontología
+sociología de la población
+economía del envejecimiento
+planificación de políticas públicas
+
+También permite generar:
+
+pirámides poblacionales
+indicadores de envejecimiento
+índices de dependencia
+mapas demográficos comparados
+Productos derivados
+
+El dataset alimenta diferentes herramientas analíticas dentro de este proyecto:
+
+Atlas demográfico interactivo
+visualizaciones comparativas entre países
+indicadores de envejecimiento
+series demográficas comparadas
+
+Cómo citar este conjunto de datos
+De la Serna, J. M. (2026).
+Estructura de Edad de la Población en América Latina (1995–2030).
+Zenodo.
+https://doi.org/10.5281/zenodo.18883431
+
+Autor
+Juan Moisés de la Serna
+Investigador en demografía, psicología y ciencias sociales
+
+ORCID
+https://orcid.org/0000-0002-8401-8018
+
+ResearchGate
+https://www.researchgate.net/profile/Juan_Moises_De_La_Serna
