@@ -11,67 +11,132 @@ from typing import Any, Iterable
 
 import pandas as pd
 
-REQUIRED_COLUMNS = [
+# =========================
+# Dataset base esperado
+# =========================
+
+RAW_REQUIRED_COLUMNS = [
     "País",
     "Año",
-    "Población_Total_Millones",
-    "Pct_0_14",
-    "Pct_15_24",
-    "Pct_25_54",
-    "Pct_55_64",
-    "Pct_65_más",
-    "Pob_0_14_Miles",
-    "Pob_15_24_Miles",
-    "Pob_25_54_Miles",
-    "Pob_55_64_Miles",
-    "Pob_65_más_Miles",
+    "Sexo",
+    "Pob_Total_Millones",
+    "Pct_0_4",
+    "Pct_5_9",
+    "Pct_10_14",
+    "Pct_15_19",
+    "Pct_20_24",
+    "Pct_25_29",
+    "Pct_30_34",
+    "Pct_35_39",
+    "Pct_40_44",
+    "Pct_45_49",
+    "Pct_50_54",
+    "Pct_55_59",
+    "Pct_60_64",
+    "Pct_65_69",
+    "Pct_70_mas",
+    "Pob_0_4_k",
+    "Pob_5_9_k",
+    "Pob_10_14_k",
+    "Pob_15_19_k",
+    "Pob_20_24_k",
+    "Pob_25_29_k",
+    "Pob_30_34_k",
+    "Pob_35_39_k",
+    "Pob_40_44_k",
+    "Pob_45_49_k",
+    "Pob_50_54_k",
+    "Pob_55_59_k",
+    "Pob_60_64_k",
+    "Pob_65_69_k",
+    "Pob_70_mas_k",
     "Fuente",
 ]
 
-PCT_COLUMNS = [
-    "Pct_0_14",
-    "Pct_15_24",
-    "Pct_25_54",
-    "Pct_55_64",
-    "Pct_65_más",
+RAW_PCT_COLUMNS = [
+    "Pct_0_4",
+    "Pct_5_9",
+    "Pct_10_14",
+    "Pct_15_19",
+    "Pct_20_24",
+    "Pct_25_29",
+    "Pct_30_34",
+    "Pct_35_39",
+    "Pct_40_44",
+    "Pct_45_49",
+    "Pct_50_54",
+    "Pct_55_59",
+    "Pct_60_64",
+    "Pct_65_69",
+    "Pct_70_mas",
 ]
 
-ABS_COLUMNS = [
-    "Pob_0_14_Miles",
-    "Pob_15_24_Miles",
-    "Pob_25_54_Miles",
-    "Pob_55_64_Miles",
-    "Pob_65_más_Miles",
+RAW_ABS_COLUMNS = [
+    "Pob_0_4_k",
+    "Pob_5_9_k",
+    "Pob_10_14_k",
+    "Pob_15_19_k",
+    "Pob_20_24_k",
+    "Pob_25_29_k",
+    "Pob_30_34_k",
+    "Pob_35_39_k",
+    "Pob_40_44_k",
+    "Pob_45_49_k",
+    "Pob_50_54_k",
+    "Pob_55_59_k",
+    "Pob_60_64_k",
+    "Pob_65_69_k",
+    "Pob_70_mas_k",
 ]
 
-NUMERIC_COLUMNS = ["Población_Total_Millones", *PCT_COLUMNS, *ABS_COLUMNS]
+RAW_NUMERIC_COLUMNS = ["Pob_Total_Millones", *RAW_PCT_COLUMNS, *RAW_ABS_COLUMNS]
+
+# =========================
+# Mapas de dimensión
+# =========================
 
 ISO3_MAP = {
-    "México": "MEX",
-    "Brasil": "BRA",
     "Argentina": "ARG",
-    "Colombia": "COL",
-    "Chile": "CHL",
-    "Perú": "PER",
-    "Venezuela": "VEN",
-    "Ecuador": "ECU",
     "Bolivia": "BOL",
+    "Brasil": "BRA",
+    "Chile": "CHL",
+    "Colombia": "COL",
+    "Costa Rica": "CRI",
+    "Cuba": "CUB",
+    "Ecuador": "ECU",
+    "El Salvador": "SLV",
+    "Guatemala": "GTM",
+    "Honduras": "HND",
+    "México": "MEX",
+    "Nicaragua": "NIC",
+    "Panamá": "PAN",
     "Paraguay": "PRY",
+    "Perú": "PER",
+    "República Dominicana": "DOM",
     "Uruguay": "URY",
+    "Venezuela": "VEN",
 }
 
 REGION_MAP = {
-    "México": "Norteamérica",
-    "Brasil": "Sudamérica",
     "Argentina": "Sudamérica",
-    "Colombia": "Sudamérica",
-    "Chile": "Sudamérica",
-    "Perú": "Sudamérica",
-    "Venezuela": "Sudamérica",
-    "Ecuador": "Sudamérica",
     "Bolivia": "Sudamérica",
+    "Brasil": "Sudamérica",
+    "Chile": "Sudamérica",
+    "Colombia": "Sudamérica",
+    "Costa Rica": "Centroamérica",
+    "Cuba": "Caribe",
+    "Ecuador": "Sudamérica",
+    "El Salvador": "Centroamérica",
+    "Guatemala": "Centroamérica",
+    "Honduras": "Centroamérica",
+    "México": "Norteamérica",
+    "Nicaragua": "Centroamérica",
+    "Panamá": "Centroamérica",
     "Paraguay": "Sudamérica",
+    "Perú": "Sudamérica",
+    "República Dominicana": "Caribe",
     "Uruguay": "Sudamérica",
+    "Venezuela": "Sudamérica",
 }
 
 
@@ -129,16 +194,18 @@ def read_dataset(path: Path) -> pd.DataFrame:
         raise FileNotFoundError(f"No existe el dataset de entrada: {path}")
 
     df = pd.read_csv(path)
-    missing = [c for c in REQUIRED_COLUMNS if c not in df.columns]
+
+    missing = [c for c in RAW_REQUIRED_COLUMNS if c not in df.columns]
     if missing:
         raise ValueError(f"Faltan columnas obligatorias: {missing}")
 
     df = df.copy()
     df["País"] = df["País"].astype(str).str.strip()
     df["Fuente"] = df["Fuente"].astype(str).str.strip()
+    df["Sexo"] = df["Sexo"].astype(str).str.strip()
     df["Año"] = pd.to_numeric(df["Año"], errors="raise").astype(int)
 
-    for col in NUMERIC_COLUMNS:
+    for col in RAW_NUMERIC_COLUMNS:
         df[col] = pd.to_numeric(df[col], errors="raise")
 
     return df
@@ -156,14 +223,53 @@ def add_dimensions(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def add_aggregated_groups(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Reconstruye los grandes grupos etarios a partir de los tramos quinquenales.
+    """
+    df = df.copy()
+
+    # Porcentajes agregados
+    df["Pct_0_14"] = (df["Pct_0_4"] + df["Pct_5_9"] + df["Pct_10_14"]).round(2)
+    df["Pct_15_24"] = (df["Pct_15_19"] + df["Pct_20_24"]).round(2)
+    df["Pct_25_54"] = (
+        df["Pct_25_29"]
+        + df["Pct_30_34"]
+        + df["Pct_35_39"]
+        + df["Pct_40_44"]
+        + df["Pct_45_49"]
+        + df["Pct_50_54"]
+    ).round(2)
+    df["Pct_55_64"] = (df["Pct_55_59"] + df["Pct_60_64"]).round(2)
+    df["Pct_65_más"] = (df["Pct_65_69"] + df["Pct_70_mas"]).round(2)
+
+    # Absolutos agregados
+    df["Pob_0_14_Miles"] = (df["Pob_0_4_k"] + df["Pob_5_9_k"] + df["Pob_10_14_k"]).round(2)
+    df["Pob_15_24_Miles"] = (df["Pob_15_19_k"] + df["Pob_20_24_k"]).round(2)
+    df["Pob_25_54_Miles"] = (
+        df["Pob_25_29_k"]
+        + df["Pob_30_34_k"]
+        + df["Pob_35_39_k"]
+        + df["Pob_40_44_k"]
+        + df["Pob_45_49_k"]
+        + df["Pob_50_54_k"]
+    ).round(2)
+    df["Pob_55_64_Miles"] = (df["Pob_55_59_k"] + df["Pob_60_64_k"]).round(2)
+    df["Pob_65_más_Miles"] = (df["Pob_65_69_k"] + df["Pob_70_mas_k"]).round(2)
+
+    return df
+
+
 def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     df = add_dimensions(df)
+    df = add_aggregated_groups(df)
     df = df.copy()
 
     # Estructura porcentual agregada
     df["Pct_Edad_Laboral"] = (
         df["Pct_15_24"] + df["Pct_25_54"] + df["Pct_55_64"]
     ).round(2)
+
     df["Pct_Joven_Total"] = (
         df["Pct_0_14"] + df["Pct_15_24"]
     ).round(2)
@@ -172,6 +278,7 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     df["Pob_Edad_Laboral_Miles"] = (
         df["Pob_15_24_Miles"] + df["Pob_25_54_Miles"] + df["Pob_55_64_Miles"]
     ).round(2)
+
     df["Pob_Dependiente_Miles"] = (
         df["Pob_0_14_Miles"] + df["Pob_65_más_Miles"]
     ).round(2)
@@ -209,31 +316,58 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
         df["Pob_65_más_Miles"], df["Pob_Edad_Laboral_Miles"]
     ).round(4)
 
-    # Cambios respecto al primer año disponible por país
+    # Cambios respecto al año 2000 si existe; si no, respecto al primer año disponible
+    base = (
+        df.sort_values(["País", "Año"])
+        .groupby("País", as_index=False)
+        .first()[["País", "Indice_Envejecimiento", "Pct_65_más", "Pct_0_14"]]
+        .rename(
+            columns={
+                "Indice_Envejecimiento": "Base_Indice_Envejecimiento",
+                "Pct_65_más": "Base_Pct_65_más",
+                "Pct_0_14": "Base_Pct_0_14",
+            }
+        )
+    )
+
+    if (df["Año"] == 2000).any():
+        base2000 = (
+            df[df["Año"] == 2000][["País", "Indice_Envejecimiento", "Pct_65_más", "Pct_0_14"]]
+            .rename(
+                columns={
+                    "Indice_Envejecimiento": "Base_Indice_Envejecimiento",
+                    "Pct_65_más": "Base_Pct_65_más",
+                    "Pct_0_14": "Base_Pct_0_14",
+                }
+            )
+        )
+        base = base.drop(columns=["Base_Indice_Envejecimiento", "Base_Pct_65_más", "Base_Pct_0_14"])
+        base = base.merge(base2000, on="País", how="left")
+
+    df = df.merge(base, on="País", how="left")
+
     df["Cambio_Envejecimiento_vs_2000"] = (
-        df["Indice_Envejecimiento"]
-        - df.groupby("País")["Indice_Envejecimiento"].transform("first")
+        df["Indice_Envejecimiento"] - df["Base_Indice_Envejecimiento"]
     ).round(2)
 
     df["Cambio_Pct_65_más_vs_2000"] = (
-        df["Pct_65_más"]
-        - df.groupby("País")["Pct_65_más"].transform("first")
+        df["Pct_65_más"] - df["Base_Pct_65_más"]
     ).round(2)
 
     df["Cambio_Pct_0_14_vs_2000"] = (
-        df["Pct_0_14"]
-        - df.groupby("País")["Pct_0_14"].transform("first")
+        df["Pct_0_14"] - df["Base_Pct_0_14"]
     ).round(2)
 
     # Validaciones internas
-    df["Suma_Pct_Grupos"] = df[PCT_COLUMNS].sum(axis=1).round(2)
+    pct_columns = ["Pct_0_14", "Pct_15_24", "Pct_25_54", "Pct_55_64", "Pct_65_más"]
+    df["Suma_Pct_Grupos"] = df[pct_columns].sum(axis=1).round(2)
     df["Pct_Grupos_Validos"] = df["Suma_Pct_Grupos"].between(99.5, 100.5)
 
-    # Clasificaciones útiles para páginas y resúmenes
+    # Clasificaciones
     df["Clasificacion_Envejecimiento"] = pd.cut(
         df["Pct_65_más"],
         bins=[-float("inf"), 7, 14, float("inf")],
-        labels=["joven", "transición", "envejecido"],
+        labels=["joven", "transición", "envejecida"],
     ).astype("object")
 
     df["Clasificacion_Dependencia"] = pd.cut(
@@ -265,7 +399,7 @@ def summarize_by_country(df: pd.DataFrame) -> pd.DataFrame:
         {
             "joven": "estructura relativamente joven",
             "transición": "transición demográfica intermedia",
-            "envejecido": "estructura demográfica más envejecida",
+            "envejecida": "estructura demográfica más envejecida",
         }
     )
 
@@ -285,7 +419,7 @@ def summarize_by_year(df: pd.DataFrame) -> pd.DataFrame:
     grouped = (
         df.groupby("Año", as_index=False)
         .agg(
-            Población_Total_Millones=("Población_Total_Millones", "sum"),
+            Pob_Total_Millones=("Pob_Total_Millones", "sum"),
             Pct_0_14=("Pct_0_14", "mean"),
             Pct_15_24=("Pct_15_24", "mean"),
             Pct_25_54=("Pct_25_54", "mean"),
@@ -293,6 +427,8 @@ def summarize_by_year(df: pd.DataFrame) -> pd.DataFrame:
             Pct_65_más=("Pct_65_más", "mean"),
             Indice_Envejecimiento=("Indice_Envejecimiento", "mean"),
             Razon_Dependencia_Total=("Razon_Dependencia_Total", "mean"),
+            Razon_Dependencia_Juvenil=("Razon_Dependencia_Juvenil", "mean"),
+            Razon_Dependencia_Vejez=("Razon_Dependencia_Vejez", "mean"),
             Indice_Bono_Demografico=("Indice_Bono_Demografico", "mean"),
             Pct_Edad_Laboral=("Pct_Edad_Laboral", "mean"),
         )
