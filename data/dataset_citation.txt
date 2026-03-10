@@ -1,0 +1,9 @@
+Citación recomendada
+
+de la Serna, Juan Moisés (2026).
+Estructura de Edad de la Población en América Latina (1995–2030).
+Zenodo.
+https://doi.org/10.5281/zenodo.18883431
+
+Si utiliza este conjunto de datos en una publicación académica,
+por favor cite el dataset utilizando la referencia anterior.
