@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/"
+  },
+  "@type": "dcat:Dataset",
+  "dct:title": "Estructura de Edad de la Población en América Latina (1995–2030)",
+  "dct:creator": "Juan Moisés de la Serna",
+  "dct:identifier": "https://doi.org/10.5281/zenodo.18883431",
+  "dct:license": "https://creativecommons.org/licenses/by/4.0/",
+  "dct:language": "es",
+  "dct:spatial": "América Latina",
+  "dct:temporal": "1995/2030",
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dct:format": "text/csv",
+    "dcat:downloadURL": "dataset.csv"
+  }
+}
