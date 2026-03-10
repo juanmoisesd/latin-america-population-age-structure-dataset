@@ -1,0 +1,163 @@
+{
+  "dataset": "Estructura de Edad de la Población en América Latina (1995–2030)",
+  "language": "es",
+  "variables": [
+    {
+      "name": "PasAo",
+      "label": "País",
+      "type": "string",
+      "concept": "unidad geográfica",
+      "description": "Nombre del país."
+    },
+    {
+      "name": "Año",
+      "label": "Año",
+      "type": "integer",
+      "concept": "tiempo de observación",
+      "description": "Año de referencia de la observación demográfica."
+    },
+    {
+      "name": "PoblaciónTotalMillones",
+      "label": "Población total",
+      "type": "float",
+      "unit": "millones de personas",
+      "concept": "tamaño poblacional",
+      "description": "Población total estimada del país en el año indicado."
+    },
+    {
+      "name": "Pct014",
+      "label": "Porcentaje de 0 a 14 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad",
+      "description": "Porcentaje de población de 0 a 14 años."
+    },
+    {
+      "name": "Pct1524",
+      "label": "Porcentaje de 15 a 24 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad",
+      "description": "Porcentaje de población de 15 a 24 años."
+    },
+    {
+      "name": "Pct2554",
+      "label": "Porcentaje de 25 a 54 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad",
+      "description": "Porcentaje de población de 25 a 54 años."
+    },
+    {
+      "name": "Pct5564",
+      "label": "Porcentaje de 55 a 64 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad",
+      "description": "Porcentaje de población de 55 a 64 años."
+    },
+    {
+      "name": "Pct65ms",
+      "label": "Porcentaje de 65 años o más",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "envejecimiento poblacional",
+      "description": "Porcentaje de población de 65 años o más."
+    },
+    {
+      "name": "Pct014H",
+      "label": "Hombres de 0 a 14 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de hombres de 0 a 14 años."
+    },
+    {
+      "name": "Pct014M",
+      "label": "Mujeres de 0 a 14 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de mujeres de 0 a 14 años."
+    },
+    {
+      "name": "Pct1524H",
+      "label": "Hombres de 15 a 24 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de hombres de 15 a 24 años."
+    },
+    {
+      "name": "Pct1524M",
+      "label": "Mujeres de 15 a 24 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de mujeres de 15 a 24 años."
+    },
+    {
+      "name": "Pct2554H",
+      "label": "Hombres de 25 a 54 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de hombres de 25 a 54 años."
+    },
+    {
+      "name": "Pct2554M",
+      "label": "Mujeres de 25 a 54 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de mujeres de 25 a 54 años."
+    },
+    {
+      "name": "Pct5564H",
+      "label": "Hombres de 55 a 64 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de hombres de 55 a 64 años."
+    },
+    {
+      "name": "Pct5564M",
+      "label": "Mujeres de 55 a 64 años",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "estructura por edad y sexo",
+      "description": "Porcentaje de mujeres de 55 a 64 años."
+    },
+    {
+      "name": "Pct65H",
+      "label": "Hombres de 65 años o más",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "envejecimiento por sexo",
+      "description": "Porcentaje de hombres de 65 años o más."
+    },
+    {
+      "name": "Pct65M",
+      "label": "Mujeres de 65 años o más",
+      "type": "float",
+      "unit": "porcentaje",
+      "concept": "envejecimiento por sexo",
+      "description": "Porcentaje de mujeres de 65 años o más."
+    },
+    {
+      "name": "Fuente",
+      "label": "Fuente",
+      "type": "string",
+      "concept": "proveniencia de datos",
+      "description": "Fuente principal utilizada para construir el registro."
+    }
+  ],
+  "consistency_rules": [
+    "Pct014 + Pct1524 + Pct2554 + Pct5564 + Pct65ms ≈ 100",
+    "Pct014 ≈ Pct014H + Pct014M",
+    "Pct1524 ≈ Pct1524H + Pct1524M",
+    "Pct2554 ≈ Pct2554H + Pct2554M",
+    "Pct5564 ≈ Pct5564H + Pct5564M",
+    "Pct65ms ≈ Pct65H + Pct65M"
+  ]
+}
