@@ -2,57 +2,24 @@
   "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Estructura de Edad de la Población en América Latina (1995–2030)",
-  "description": "Conjunto de datos demográficos que describe la estructura poblacional por grupos de edad y sexo en países de América Latina. Incluye distribución porcentual por cohortes etarias y desagregación por sexo.",
+  "description": "Dataset demográfico con estructura poblacional por edad y sexo.",
   "url": "https://doi.org/10.5281/zenodo.18883431",
-  "identifier": "https://doi.org/10.5281/zenodo.18883431",
   "creator": {
     "@type": "Person",
     "name": "Juan Moisés de la Serna",
     "identifier": "https://orcid.org/0000-0002-8401-8018"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Zenodo"
   },
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "keywords": [
     "demografía",
     "estructura de edad",
     "envejecimiento poblacional",
-    "América Latina",
-    "transición demográfica",
-    "estructura poblacional",
-    "análisis demográfico"
+    "América Latina"
   ],
   "temporalCoverage": "1995/2030",
-  "spatialCoverage": {
-    "@type": "Place",
-    "name": "América Latina"
-  },
   "distribution": {
     "@type": "DataDownload",
     "encodingFormat": "text/csv",
     "contentUrl": "dataset.csv"
-  },
-  "variableMeasured": [
-    "PasAo",
-    "Año",
-    "PoblaciónTotalMillones",
-    "Pct014",
-    "Pct1524",
-    "Pct2554",
-    "Pct5564",
-    "Pct65ms",
-    "Pct014H",
-    "Pct014M",
-    "Pct1524H",
-    "Pct1524M",
-    "Pct2554H",
-    "Pct2554M",
-    "Pct5564H",
-    "Pct5564M",
-    "Pct65H",
-    "Pct65M",
-    "Fuente"
-  ]
+  }
 }
