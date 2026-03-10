@@ -1,0 +1,163 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pandas as pd
+
+INPUT = Path("data/dataset_with_indicators.csv")
+OUTPUT_JSON = Path("atlas/data/atlas_data.json")
+OUTPUT_CSV = Path("atlas/data/atlas_indicators.csv")
+
+
+def ensure_dir(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+
+def safe_float(value):
+    if pd.isna(value):
+        return None
+    return round(float(value), 4)
+
+
+def safe_int(value):
+    if pd.isna(value):
+        return None
+    return int(round(float(value)))
+
+
+def main() -> None:
+    df = pd.read_csv(INPUT)
+
+    # Orden estable
+    df = df.sort_values(["País", "Año"]).reset_index(drop=True)
+
+    # -----------------------------
+    # 1) atlas/data/atlas_data.json
+    # -----------------------------
+    records = []
+    for _, r in df.iterrows():
+        records.append(
+            {
+                "country": r["País"],
+                "year": safe_int(r["Año"]),
+                "iso3": r.get("ISO3"),
+                "region": r.get("Región"),
+                "source": r.get("Fuente"),
+                "population_total_millions": safe_float(r["Población_Total_Millones"]),
+                "age_structure": {
+                    "pct_0_14": safe_float(r["Pct_0_14"]),
+                    "pct_15_24": safe_float(r["Pct_15_24"]),
+                    "pct_25_54": safe_float(r["Pct_25_54"]),
+                    "pct_55_64": safe_float(r["Pct_55_64"]),
+                    "pct_65_plus": safe_float(r["Pct_65_más"]),
+                },
+                "population_thousands": {
+                    "pop_0_14": safe_int(r["Pob_0_14_Miles"]),
+                    "pop_15_24": safe_int(r["Pob_15_24_Miles"]),
+                    "pop_25_54": safe_int(r["Pob_25_54_Miles"]),
+                    "pop_55_64": safe_int(r["Pob_55_64_Miles"]),
+                    "pop_65_plus": safe_int(r["Pob_65_más_Miles"]),
+                    "working_age": safe_int(r["Pob_Edad_Laboral_Miles"]),
+                    "dependent": safe_int(r["Pob_Dependiente_Miles"]),
+                },
+                "derived": {
+                    "pct_working_age": safe_float(r["Pct_Edad_Laboral"]),
+                    "pct_young_total": safe_float(r["Pct_Joven_Total"]),
+                    "aging_index": safe_float(r["Indice_Envejecimiento"]),
+                    "youth_index": safe_float(r["Indice_Juventud"]),
+                    "dependency_total": safe_float(r["Razon_Dependencia_Total"]),
+                    "dependency_youth": safe_float(r["Razon_Dependencia_Juvenil"]),
+                    "dependency_old_age": safe_float(r["Razon_Dependencia_Vejez"]),
+                    "demographic_bonus_index": safe_float(r["Indice_Bono_Demografico"]),
+                    "young_old_ratio": safe_float(r["Relacion_Jovenes_Mayores"]),
+                    "old_age_ratio": safe_float(r["Old_Age_Ratio"]),
+                    "aging_change_vs_2000": safe_float(r["Cambio_Envejecimiento_vs_2000"]),
+                    "pct_65_plus_change_vs_2000": safe_float(r["Cambio_Pct_65_más_vs_2000"]),
+                    "pct_0_14_change_vs_2000": safe_float(r["Cambio_Pct_0_14_vs_2000"]),
+                    "sum_pct_groups": safe_float(r["Suma_Pct_Grupos"]),
+                    "pct_groups_valid": bool(r["Pct_Grupos_Validos"]),
+                },
+                "classification": {
+                    "aging": r["Clasificacion_Envejecimiento"],
+                    "dependency": r["Clasificacion_Dependencia"],
+                },
+            }
+        )
+
+    ensure_dir(OUTPUT_JSON)
+    with OUTPUT_JSON.open("w", encoding="utf-8") as f:
+        json.dump(records, f, ensure_ascii=False, indent=2)
+
+    # -----------------------------------
+    # 2) atlas/data/atlas_indicators.csv
+    # -----------------------------------
+    atlas_indicators = df[
+        [
+            "País",
+            "Año",
+            "ISO3",
+            "Región",
+            "Indice_Envejecimiento",
+            "Indice_Juventud",
+            "Razon_Dependencia_Total",
+            "Razon_Dependencia_Juvenil",
+            "Razon_Dependencia_Vejez",
+            "Indice_Bono_Demografico",
+            "Relacion_Jovenes_Mayores",
+            "Old_Age_Ratio",
+            "Pct_Edad_Laboral",
+            "Pct_Joven_Total",
+            "Pct_0_14",
+            "Pct_15_24",
+            "Pct_25_54",
+            "Pct_55_64",
+            "Pct_65_más",
+            "Cambio_Envejecimiento_vs_2000",
+            "Cambio_Pct_65_más_vs_2000",
+            "Cambio_Pct_0_14_vs_2000",
+            "Clasificacion_Envejecimiento",
+            "Clasificacion_Dependencia",
+            "Fuente",
+        ]
+    ].copy()
+
+    atlas_indicators = atlas_indicators.rename(
+        columns={
+            "País": "country",
+            "Año": "year",
+            "ISO3": "iso3",
+            "Región": "region",
+            "Indice_Envejecimiento": "aging_index",
+            "Indice_Juventud": "youth_index",
+            "Razon_Dependencia_Total": "dependency_total",
+            "Razon_Dependencia_Juvenil": "dependency_youth",
+            "Razon_Dependencia_Vejez": "dependency_old_age",
+            "Indice_Bono_Demografico": "demographic_bonus_index",
+            "Relacion_Jovenes_Mayores": "young_old_ratio",
+            "Old_Age_Ratio": "old_age_ratio",
+            "Pct_Edad_Laboral": "pct_working_age",
+            "Pct_Joven_Total": "pct_young_total",
+            "Pct_0_14": "pct_0_14",
+            "Pct_15_24": "pct_15_24",
+            "Pct_25_54": "pct_25_54",
+            "Pct_55_64": "pct_55_64",
+            "Pct_65_más": "pct_65_plus",
+            "Cambio_Envejecimiento_vs_2000": "aging_change_vs_2000",
+            "Cambio_Pct_65_más_vs_2000": "pct_65_plus_change_vs_2000",
+            "Cambio_Pct_0_14_vs_2000": "pct_0_14_change_vs_2000",
+            "Clasificacion_Envejecimiento": "aging_classification",
+            "Clasificacion_Dependencia": "dependency_classification",
+            "Fuente": "source",
+        }
+    )
+
+    ensure_dir(OUTPUT_CSV)
+    atlas_indicators.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
+
+    print(f"Archivo generado: {OUTPUT_JSON}")
+    print(f"Archivo generado: {OUTPUT_CSV}")
+
+
+if __name__ == "__main__":
+    main()
