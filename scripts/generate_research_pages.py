@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import html
 import json
-import math
 import sys
 import unicodedata
 from pathlib import Path
@@ -15,12 +14,12 @@ from typing import Any
 
 import pandas as pd
 
-SITE_TITLE = "Latin America Population Age Structure Dataset"
+SITE_TITLE = "Estructura de Edad de la Población en América Latina (1995–2030)"
 SITE_BASE_URL = "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset"
 AUTHOR_NAME = "Juan Moisés de la Serna"
 AUTHOR_ORCID = "https://orcid.org/0000-0002-8401-8018"
-DOI_DATASET = "https://doi.org/10.5281/zenodo.18891177"
-ZENODO_RECORD = "https://zenodo.org/records/18891177"
+DOI_DATASET = "https://doi.org/10.5281/zenodo.18883431"
+ZENODO_RECORD = "https://zenodo.org/records/18883431"
 RESEARCHGATE = "https://www.researchgate.net/profile/Juan_Moises_De_La_Serna"
 AUTHOR_URL = "https://juanmoisesdelaserna.es/"
 
@@ -64,19 +63,18 @@ def ensure_dir(path: Path) -> None:
 
 def load_data(base_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     enriched = base_dir / "data" / "dataset_with_indicators.csv"
-    raw = base_dir / "data" / "dataset.csv"
     summary = base_dir / "data" / "indicators_summary_by_country.csv"
     questions = base_dir / "data" / "research_question_catalog.csv"
 
-    if enriched.exists():
-        df = pd.read_csv(enriched)
-    elif raw.exists():
-        df = pd.read_csv(raw)
-    else:
-        raise FileNotFoundError("No se encontró ni data/dataset_with_indicators.csv ni data/dataset.csv")
+    if not enriched.exists():
+        raise FileNotFoundError("No se encontró data/dataset_with_indicators.csv")
 
+    df = pd.read_csv(enriched)
     summary_df = pd.read_csv(summary) if summary.exists() else pd.DataFrame()
     questions_df = pd.read_csv(questions) if questions.exists() else pd.DataFrame()
+
+    if "Sexo" in df.columns:
+        df = df[df["Sexo"].astype(str).str.upper() == "TOTAL"].copy()
 
     df["Año"] = pd.to_numeric(df["Año"], errors="raise").astype(int)
     return df.sort_values(["País", "Año"]).reset_index(drop=True), summary_df, questions_df
@@ -212,10 +210,10 @@ def build_page(df: pd.DataFrame, summary_df: pd.DataFrame, country: str) -> dict
     d65 = float(last["Pct_65_más"]) - float(first["Pct_65_más"])
     d014 = float(last["Pct_0_14"]) - float(first["Pct_0_14"])
 
-    aging_first = get_value(first, "Indice_Envejecimiento", "aging_index")
-    aging_last = get_value(last, "Indice_Envejecimiento", "aging_index")
-    dep_last = get_value(last, "Razon_Dependencia_Total", "dependency_ratio_total")
-    dividend_last = get_value(last, "Indice_Bono_Demografico", "demographic_dividend_index")
+    aging_first = get_value(first, "Indice_Envejecimiento")
+    aging_last = get_value(last, "Indice_Envejecimiento")
+    dep_last = get_value(last, "Razon_Dependencia_Total")
+    dividend_last = get_value(last, "Indice_Bono_Demografico")
 
     transition_label = get_value(
         sr,
@@ -269,8 +267,8 @@ def build_page(df: pd.DataFrame, summary_df: pd.DataFrame, country: str) -> dict
         f"<td>{fmt(r['Pct_25_54'])}</td>"
         f"<td>{fmt(r['Pct_55_64'])}</td>"
         f"<td>{fmt(r['Pct_65_más'])}</td>"
-        f"<td>{fmt(get_value(r, 'Indice_Envejecimiento', 'aging_index'))}</td>"
-        f"<td>{fmt(get_value(r, 'Razon_Dependencia_Total', 'dependency_ratio_total'))}</td>"
+        f"<td>{fmt(get_value(r, 'Indice_Envejecimiento'))}</td>"
+        f"<td>{fmt(get_value(r, 'Razon_Dependencia_Total'))}</td>"
         "</tr>"
         for _, r in sub.iterrows()
     )
