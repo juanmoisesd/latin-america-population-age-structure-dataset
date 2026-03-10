@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Esquema legible por máquina del dataset demográfico de América Latina",
+  "type": "object",
+  "properties": {
+    "PasAo": {
+      "type": "string"
+    },
+    "Año": {
+      "type": "integer"
+    },
+    "PoblaciónTotalMillones": {
+      "type": "number",
+      "minimum": 0
+    },
+    "Pct014": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct1524": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct2554": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct5564": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct65ms": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct014H": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct014M": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct1524H": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct1524M": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct2554H": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct2554M": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct5564H": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct5564M": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct65H": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Pct65M": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Fuente": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "PasAo",
+    "Año",
+    "PoblaciónTotalMillones",
+    "Pct014",
+    "Pct1524",
+    "Pct2554",
+    "Pct5564",
+    "Pct65ms",
+    "Pct014H",
+    "Pct014M",
+    "Pct1524H",
+    "Pct1524M",
+    "Pct2554H",
+    "Pct2554M",
+    "Pct5564H",
+    "Pct5564M",
+    "Pct65H",
+    "Pct65M",
+    "Fuente"
+  ],
+  "additionalProperties": false
+}
