@@ -1,0 +1,28 @@
+{
+  "title": "Estructura de Edad de la Población en América Latina (1995–2030)",
+  "type": "dataset",
+  "author": {
+    "name": "Juan Moisés de la Serna",
+    "orcid": "0000-0002-8401-8018"
+  },
+  "doi": "10.5281/zenodo.18883431",
+  "publication_year": 2026,
+  "description": "Dataset demográfico que describe la estructura de edad de la población en países de América Latina con distribución por sexo y grupos etarios.",
+  "keywords": [
+    "demography",
+    "population age structure",
+    "latin america",
+    "population aging",
+    "demographic transition"
+  ],
+  "subjects": [
+    "Demography",
+    "Population Studies",
+    "Social Sciences",
+    "Regional Studies"
+  ],
+  "temporal_coverage": "1995-2030",
+  "geographic_coverage": "Latin America",
+  "file_format": "CSV",
+  "license": "CC-BY-4.0"
+}
