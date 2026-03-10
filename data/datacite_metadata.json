@@ -1,0 +1,54 @@
+{
+  "identifier": {
+    "identifier": "10.5281/zenodo.18883431",
+    "identifierType": "DOI"
+  },
+  "creators": [
+    {
+      "name": "de la Serna, Juan Moisés",
+      "nameType": "Personal",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://orcid.org/0000-0002-8401-8018",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "title": "Estructura de Edad de la Población en América Latina (1995–2030)"
+    }
+  ],
+  "publisher": "Zenodo",
+  "publicationYear": "2026",
+  "resourceType": {
+    "resourceTypeGeneral": "Dataset",
+    "resourceType": "Demographic dataset"
+  },
+  "subjects": [
+    { "subject": "Demografía" },
+    { "subject": "Estructura de edad" },
+    { "subject": "Envejecimiento poblacional" },
+    { "subject": "Transición demográfica" },
+    { "subject": "América Latina" }
+  ],
+  "descriptions": [
+    {
+      "description": "Conjunto de datos demográficos que describe la estructura de edad de la población en países de América Latina, incluyendo distribución por sexo y grupos etarios.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "language": "es",
+  "rightsList": [
+    {
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationPlace": "América Latina"
+    }
+  ]
+}
