@@ -1,0 +1,148 @@
+{
+  "datasetVersion": {
+    "title": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
+    "description": "<p>Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1</p>",
+    "subject": [
+      "Computer and Information Science",
+      "Social Sciences",
+      "Medicine, Health and Life Sciences"
+    ],
+    "keyword": [
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "age-structure"
+          }
+        }
+      },
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "cepal"
+          }
+        }
+      },
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "dataset"
+          }
+        }
+      },
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "demographics"
+          }
+        }
+      },
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "github-pages"
+          }
+        }
+      },
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "latin-america"
+          }
+        }
+      },
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "open-data"
+          }
+        }
+      },
+      {
+        "typeName": "keyword",
+        "value": {
+          "keywordValue": {
+            "typeName": "keywordValue",
+            "value": "population"
+          }
+        }
+      }
+    ],
+    "author": [
+      {
+        "authorName": {
+          "typeName": "authorName",
+          "value": "de la Serna Tuya, Juan"
+        },
+        "authorAffiliation": {
+          "typeName": "authorAffiliation",
+          "value": "Universidad Internacional de La Rioja (UNIR)"
+        },
+        "authorIdentifierScheme": {
+          "typeName": "authorIdentifierScheme",
+          "value": "ORCID"
+        },
+        "authorIdentifier": {
+          "typeName": "authorIdentifier",
+          "value": "0000-0002-8401-8018"
+        }
+      }
+    ],
+    "datasetContact": [
+      {
+        "datasetContactEmail": {
+          "typeName": "datasetContactEmail",
+          "value": "juanmoises.delaserna@unir.net"
+        },
+        "datasetContactName": {
+          "typeName": "datasetContactName",
+          "value": "Juan Moisés de la Serna Tuya"
+        }
+      }
+    ],
+    "dsDescription": [
+      {
+        "dsDescriptionValue": {
+          "typeName": "dsDescriptionValue",
+          "value": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1"
+        }
+      }
+    ],
+    "language": [
+      "Spanish",
+      "English"
+    ],
+    "kindOfData": [
+      "Dataset"
+    ],
+    "license": "CC0 1.0",
+    "distributor": [
+      {
+        "distributorName": {
+          "typeName": "distributorName",
+          "value": "GitHub"
+        },
+        "distributorURL": {
+          "typeName": "distributorURL",
+          "value": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
+        }
+      }
+    ],
+    "distributionDate": "2026-03-20",
+    "depositor": "Juan Moisés de la Serna Tuya",
+    "dateOfDeposit": "2026-03-20"
+  }
+}
