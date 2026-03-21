@@ -1,25 +1,21 @@
 cff-version: 1.2.0
-message: "If you use this software or data, please cite it using the metadata below."
+message: "If you use this software/dataset, please cite it as below."
 type: dataset
-title: "Latin America Population Age Structure Dataset"
+title: "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1"
 authors:
   - family-names: "de la Serna Tuya"
     given-names: "Juan Moisés"
     orcid: "https://orcid.org/0000-0002-8401-8018"
     affiliation: "Universidad Internacional de La Rioja (UNIR)"
     email: "juanmoises.delaserna@unir.net"
-doi: 10.17632/ygkmshr5fv.1
-url: https://doi.org/10.17632/ygkmshr5fv.1
 repository-code: "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
-license: CC0-1.0
-date-released: "2026-03-20"
-keywords:
-  - "demographics"
-  - "latin-america"
-  - "population"
-  - "open-data"
-  - "dataset"
-  - "age-structure"
-  - "cepal"
-  - "github-pages"
+url: "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/"
 abstract: "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1"
+keywords:
+  - open-data
+  - dataset
+  - research
+  - science
+license: CC0-1.0
+version: "1.0.0"
+date-released: "2026-03-20"
