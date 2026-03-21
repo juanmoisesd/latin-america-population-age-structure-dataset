@@ -1,0 +1,16 @@
+{
+  "orcid": "0000-0002-8401-8018",
+  "name": "Juan Moisés de la Serna Tuya",
+  "affiliation": "Universidad Internacional de La Rioja (UNIR)",
+  "email": "juanmoises.delaserna@unir.net",
+  "website": "https://juanmoisesdelaserna.es",
+  "profile": "https://orcid.org/0000-0002-8401-8018",
+  "works": [
+    {
+      "title": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
+      "type": "dataset",
+      "url": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
+      "year": "2026"
+    }
+  ]
+}
