@@ -12,9 +12,9 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  validate:
+    name: Validate dataset
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,8 +27,24 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Validate dataset (warning only)
-        run: python scripts/validate_dataset.py || true
+      - name: Validate dataset (strict)
+        run: python scripts/validate_dataset.py
+
+  build:
+    name: Build and publish site
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Build indicators
         run: python scripts/build_indicators.py
@@ -46,7 +62,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
-          git add data/
+          git add docs/ data/
           git diff --cached --quiet || git commit -m "chore: regenerar sitio [skip ci]"
           git push
