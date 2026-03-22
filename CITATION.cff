@@ -2,44 +2,38 @@ cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below."
 type: dataset
 title: "Latin America Population Age Structure Dataset"
-abstract: "Harmonized demographic dataset covering population age structure for 19 Latin American countries across 4 time points (2000, 2005, 2010, 2015). Includes 15 quinquennial age groups, sex disaggregation, and key demographic indicators."
+abstract: "Harmonized demographic dataset describing the population age structure and key demographic indicators for 19 Latin American countries over the period 1995-2030. Contains 456 observations and 42 variables. DOI: 10.17632/ygkmshr5fv.1"
 authors:
   - family-names: "de la Serna Tuya"
-    given-names: "Juan Moisés"
-    orcid: "https://orcid.org/0000-0002-8401-8018"
-    affiliation: "Universidad Internacional de La Rioja (UNIR)"
-    email: "juanmoises.delaserna@unir.net"
-repository-code: "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
-url: "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/"
-identifiers:
-  - type: doi
-    value: "10.17632/ygkmshr5fv.1"
-    description: "Mendeley Data DOI"
-  - type: doi
-    value: "10.5281/zenodo.18891177"
-    description: "Zenodo DOI"
-keywords:
-  - latin-america
-  - demographics
-  - age-structure
-  - population
-  - demographic-transition
-  - population-aging
-  - dependency-ratio
-  - cepal
-  - open-data
-  - dataset
-  - iberoamerica
-license: CC0-1.0
-version: "1.0.0"
-date-released: "2026-03-20"
-references:
-  - type: dataset
-    title: "Open Research Collection - Juan Moises de la Serna Tuya"
-    doi: "10.5281/zenodo.19145316"
-    url: "https://doi.org/10.5281/zenodo.19145316"
-    authors:
-      - family-names: "De la Serna Tuya"
-        given-names: "Juan Moises"
-        orcid: "https://orcid.org/0000-0002-8401-8018"
-    notes: "Master collection of 1273+ open research datasets"
+      given-names: "Juan Moisés"
+          orcid: "https://orcid.org/0000-0002-8401-8018"
+              affiliation: "Universidad Internacional de La Rioja (UNIR)"
+                  email: "juanmoises.delaserna@unir.net"
+                  repository-code: "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
+                  url: "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/"
+                  keywords:
+                    - latin-america
+                      - demographics
+                        - population
+                          - age-structure
+                            - demographic-transition
+                              - population-aging
+                                - open-data
+                                  - dataset
+                                    - cepal
+                                      - fair-data
+                                        - cc0
+                                        license: CC0-1.0
+                                        version: "1.1.0"
+                                        date-released: "2026-03-22"
+                                        doi: "10.17632/ygkmshr5fv.1"
+                                        references:
+                                          - type: dataset
+                                              title: "Open Research Collection — Juan Moisés de la Serna Tuya"
+                                                  doi: "10.5281/zenodo.19145316"
+                                                      url: "https://doi.org/10.5281/zenodo.19145316"
+                                                          authors:
+                                                                - family-names: "De la Serna Tuya"
+                                                                        given-names: "Juan Moisés"
+                                                                                orcid: "https://orcid.org/0000-0002-8401-8018"
+                                                                                    notes: "Master collection of 1273+ open research datasets"
