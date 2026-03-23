@@ -1,7 +1,83 @@
 {
   "datasetVersion": {
-    "title": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-    "description": "<p>Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1</p>",
+    "title": "Latin America Population Age Structure Dataset",
+    "description": "<p>Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Covers absolute population counts, percentage distributions by age group (0-14, 15-64, 65+), and derived demographic indicators including dependency ratio, aging index, and median age. Source: CEPALSTAT/ECLAC. Version 1.1.0. DOI: 10.17632/ygkmshr5fv.1</p>",
+    "subject": [
+      "Social Sciences",
+      "Medicine, Health and Life Sciences",
+      "Earth and Environmental Sciences"
+    ],
+    "keyword": [
+      "Latin America",
+      "population age structure",
+      "demographic transition",
+      "aging",
+      "CEPALSTAT",
+      "ECLAC",
+      "dependency ratio",
+      "aging index",
+      "open data",
+      "19 countries",
+      "1995-2030"
+    ],
+    "license": {
+      "name": "CC0 1.0",
+      "uri": "http://creativecommons.org/publicdomain/zero/1.0"
+    },
+    "author": [
+      {
+        "authorName": "de la Serna Tuya, Juan Moisés",
+        "affiliation": "Universidad Internacional de La Rioja (UNIR)",
+        "affiliationROR": "https://ror.org/0063t5s24",
+        "authorIdentifierScheme": "ORCID",
+        "authorIdentifier": "0000-0002-8401-8018"
+      }
+    ],
+    "depositor": "de la Serna Tuya, Juan Moisés",
+    "dateOfDeposit": "2026-03-01",
+    "producer": [
+      {
+        "producerName": "de la Serna Tuya, Juan Moisés",
+        "producerAffiliation": "Universidad Internacional de La Rioja (UNIR)"
+      }
+    ],
+    "distributionDate": "2026-03-01",
+    "language": ["English"],
+    "temporalCoverage": [
+      {
+        "temporalCoverageStartDate": "1995",
+        "temporalCoverageEndDate": "2030"
+      }
+    ],
+    "geographicCoverage": [
+      {
+        "geographicCoverageCountry": "Argentina"
+      },
+      {
+        "geographicCoverageCountry": "Bolivia"
+      },
+      {
+        "geographicCoverageCountry": "Brazil"
+      },
+      {
+        "geographicCoverageCountry": "Chile"
+      },
+      {
+        "geographicCoverageCountry": "Colombia"
+      },
+      {
+        "geographicCoverageCountry": "Costa Rica"
+      },
+      {
+        "geographicCoverageCountry": "Cuba"
+      },
+      {
+        "geographicCoverageCountry": "Dominican Republic"
+      },
+      {
+  "datasetVersion": {
+    "title": "Latin America Population Age Structure Dataset (19 countries, 1995-2030)",
+    "description": "<p>Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Covers age groups 0-14, 15-64, 65+ with absolute counts, percentages, dependency ratios, aging index, and median age. Source: CEPALSTAT/ECLAC. Version 1.1.0. DOI: 10.17632/ygkmshr5fv.1. License: CC0 1.0 (Public Domain).</p>",
     "subject": [
       "Computer and Information Science",
       "Social Sciences",
@@ -11,138 +87,54 @@
       {
         "typeName": "keyword",
         "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "age-structure"
-          }
+          "keywordValue": {"typeName": "keywordValue", "value": "Latin America"},
+          "keywordVocabulary": {"typeName": "keywordVocabulary", "value": ""},
+          "keywordVocabularyURI": {"typeName": "keywordVocabularyURI", "value": ""}
         }
       },
       {
         "typeName": "keyword",
         "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "cepal"
-          }
+          "keywordValue": {"typeName": "keywordValue", "value": "population age structure"},
+          "keywordVocabulary": {"typeName": "keywordVocabulary", "value": ""},
+          "keywordVocabularyURI": {"typeName": "keywordVocabularyURI", "value": ""}
         }
       },
       {
         "typeName": "keyword",
         "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "dataset"
-          }
+          "keywordValue": {"typeName": "keywordValue", "value": "demographic transition"},
+          "keywordVocabulary": {"typeName": "keywordVocabulary", "value": ""},
+          "keywordVocabularyURI": {"typeName": "keywordVocabularyURI", "value": ""}
         }
       },
       {
         "typeName": "keyword",
         "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "demographics"
-          }
+          "keywordValue": {"typeName": "keywordValue", "value": "CEPALSTAT"},
+          "keywordVocabulary": {"typeName": "keywordVocabulary", "value": ""},
+          "keywordVocabularyURI": {"typeName": "keywordVocabularyURI", "value": ""}
         }
       },
       {
         "typeName": "keyword",
         "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "github-pages"
-          }
+          "keywordValue": {"typeName": "keywordValue", "value": "aging index"},
+          "keywordVocabulary": {"typeName": "keywordVocabulary", "value": ""},
+          "keywordVocabularyURI": {"typeName": "keywordVocabularyURI", "value": ""}
         }
       },
       {
         "typeName": "keyword",
         "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "latin-america"
-          }
-        }
-      },
-      {
-        "typeName": "keyword",
-        "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "open-data"
-          }
-        }
-      },
-      {
-        "typeName": "keyword",
-        "value": {
-          "keywordValue": {
-            "typeName": "keywordValue",
-            "value": "population"
-          }
+          "keywordValue": {"typeName": "keywordValue", "value": "dependency ratio"},
+          "keywordVocabulary": {"typeName": "keywordVocabulary", "value": ""},
+          "keywordVocabularyURI": {"typeName": "keywordVocabularyURI", "value": ""}
         }
       }
-    ],
-    "author": [
-      {
-        "authorName": {
-          "typeName": "authorName",
-          "value": "de la Serna Tuya, Juan"
-        },
-        "authorAffiliation": {
-          "typeName": "authorAffiliation",
-          "value": "Universidad Internacional de La Rioja (UNIR)"
-        },
-        "authorIdentifierScheme": {
-          "typeName": "authorIdentifierScheme",
-          "value": "ORCID"
-        },
-        "authorIdentifier": {
-          "typeName": "authorIdentifier",
-          "value": "0000-0002-8401-8018"
-        }
-      }
-    ],
-    "datasetContact": [
-      {
-        "datasetContactEmail": {
-          "typeName": "datasetContactEmail",
-          "value": "juanmoises.delaserna@unir.net"
-        },
-        "datasetContactName": {
-          "typeName": "datasetContactName",
-          "value": "Juan Moisés de la Serna Tuya"
-        }
-      }
-    ],
-    "dsDescription": [
-      {
-        "dsDescriptionValue": {
-          "typeName": "dsDescriptionValue",
-          "value": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1"
-        }
-      }
-    ],
-    "language": [
-      "Spanish",
-      "English"
-    ],
-    "kindOfData": [
-      "Dataset"
     ],
     "license": "CC0 1.0",
-    "distributor": [
-      {
-        "distributorName": {
-          "typeName": "distributorName",
-          "value": "GitHub"
-        },
-        "distributorURL": {
-          "typeName": "distributorURL",
-          "value": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
-        }
-      }
-    ],
-    "distributionDate": "2026-03-20",
-    "depositor": "Juan Moisés de la Serna Tuya",
-    "dateOfDeposit": "2026-03-20"
+    "termsOfUse": "CC0 1.0 Universal — Public Domain Dedication",
+    "version": "1.1.0"
   }
-}
+      }
