@@ -1,8 +1,8 @@
 {
   "name": "latin-america-population-age-structure-dataset",
-  "title": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-  "description": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-  "version": "1.0.0",
+  "title": "Latin America Population Age Structure Dataset",
+  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Source: CEPALSTAT/ECLAC. DOI: 10.17632/ygkmshr5fv.1",
+  "version": "1.1.0",
   "licenses": [
     {
       "name": "CC0-1.0",
@@ -19,20 +19,37 @@
     }
   ],
   "keywords": [
-    "age-structure",
-    "cepal",
-    "dataset",
-    "demographics",
-    "github-pages",
     "latin-america",
-    "open-data",
-    "population"
+    "population",
+    "age-structure",
+    "demographics",
+    "cepal",
+    "cepalstat",
+    "eclac",
+    "dependency-ratio",
+    "aging",
+    "demographic-transition",
+    "dataset",
+    "open-data"
   ],
   "sources": [
     {
-      "title": "Compiled from public sources",
-      "path": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
+      "title": "CEPALSTAT - Economic Commission for Latin America and the Caribbean",
+      "path": "https://statistics.cepal.org/portal/cepalstat/"
     }
   ],
-  "created": "2026-03-20"
+  "resources": [
+    {
+      "name": "latin-america-population-age-structure",
+      "path": "data/latin_america_population_age_structure.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "description": "Main dataset: 228 rows, 41 columns. Population age structure for 19 Latin American countries, 1995-2030."
+    }
+  ],
+  "created": "2026-03-01",
+  "updated": "2026-03-23",
+  "homepage": "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
+  "repository": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
 }
