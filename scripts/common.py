@@ -203,10 +203,10 @@ def read_dataset(path: Path) -> pd.DataFrame:
     df["País"] = df["País"].astype(str).str.strip()
     df["Fuente"] = df["Fuente"].astype(str).str.strip()
     df["Sexo"] = df["Sexo"].astype(str).str.strip()
-    df["Año"] = pd.to_numeric(df["Año"], errors="raise").astype(int)
+    df["Año"] = pd.to_numeric(df["Año"], errors="coerce").astype(int)
 
     for col in RAW_NUMERIC_COLUMNS:
-        df[col] = pd.to_numeric(df[col], errors="raise")
+        df[col] = pd.to_numeric(df[col], errors="coerce")
 
     return df
 
