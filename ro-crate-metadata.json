@@ -12,13 +12,13 @@
       }
     },
     {
-      "@type": [
-        "Dataset"
-      ],
+      "@type": ["Dataset"],
       "@id": "./",
-      "name": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-      "description": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-      "datePublished": "2026-03-20",
+      "name": "Latin America Population Age Structure Dataset",
+      "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Source: CEPALSTAT/ECLAC. CC0 1.0. DOI: 10.17632/ygkmshr5fv.1",
+      "version": "1.1.0",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-23",
       "license": {
         "@id": "https://creativecommons.org/publicdomain/zero/1.0/"
       },
@@ -26,21 +26,94 @@
         "@id": "https://orcid.org/0000-0002-8401-8018"
       },
       "url": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
-      "keywords": "age-structure, cepal, dataset, demographics, github-pages, latin-america, open-data, population"
+      "identifier": "https://doi.org/10.17632/ygkmshr5fv.1",
+      "keywords": [
+        "Latin America",
+        "population age structure",
+        "demographic transition",
+        "aging",
+        "CEPALSTAT",
+        "ECLAC",
+        "dependency ratio",
+        "open data"
+      ],
+      "temporalCoverage": "1995/2030",
+      "spatialCoverage": "Latin America",
+      "hasPart": [
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@type": ["Dataset", "SoftwareSourceCode"],
+      "@id": "./",
+      "name": "Latin America Population Age Structure Dataset",
+      "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Source: CEPALSTAT/ECLAC. CC0 1.0.",
+      "version": "1.1.0",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-23",
+      "identifier": "https://doi.org/10.17632/ygkmshr5fv.1",
+      "url": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
+      "license": {
+        "@id": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "author": {
+        "@id": "https://orcid.org/0000-0002-8401-8018"
+      },
+      "keywords": [
+        "Latin America",
+        "population age structure",
+        "demographic transition",
+        "aging",
+        "CEPALSTAT",
+        "ECLAC",
+        "dependency ratio",
+        "open data"
+      ],
+      "temporalCoverage": "1995/2030",
+      "hasPart": [
+        { "@id": "data/latin_america_population_age_structure.csv" },
+        { "@id": "README.md" },
+        { "@id": "DATA_DICTIONARY.md" },
+        { "@id": "METHODOLOGY.md" },
+        { "@id": "CITATION.cff" }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://orcid.org/0000-0002-8401-8018",
       "name": "Juan Moisés de la Serna Tuya",
       "affiliation": {
-        "@id": "https://ror.org/0063t5s24"
+        "@id": "https://www.unir.net"
       },
-      "email": "juanmoises.delaserna@unir.net"
+      "email": "jmsernatuya@gmail.com"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.unir.net",
+      "name": "Universidad Internacional de La Rioja (UNIR)"
+    },
+    {
+      "@type": "File",
+      "@id": "data/latin_america_population_age_structure.csv",
+      "name": "latin_america_population_age_structure.csv",
+      "description": "Main dataset: 228 rows, 41 columns. Population age structure for 19 Latin American countries, 1995-2030.",
+      "encodingFormat": "text/csv",
+      "contentSize": "approx. 50KB"
     },
     {
       "@type": "CreativeWork",
       "@id": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "name": "CC0 1.0 Universal"
+      "name": "CC0 1.0 Universal",
+      "description": "Creative Commons Zero v1.0 Universal — Public Domain Dedication"
     }
   ]
-}
+    }
