@@ -2,12 +2,29 @@
 
 ## Latin America Population Age Structure Dataset (1995–2030)
 
-This dataset provides harmonized demographic data describing the population age structure and key demographic indicators for 19 Latin American countries over the period 1995–2030. The dataset includes quinquennial observations of population distribution across fifteen five-year age groups, disaggregated by sex (men, women, and total population).
+**Version:** 1.1.0  
+**DOI:** 10.17632/ygkmshr5fv.1  
+**License:** CC0 1.0 Universal (Public Domain)
 
-In addition to population age structure, the dataset incorporates core demographic indicators including total population size, fertility rate, life expectancy, infant mortality, net migration, urbanization level, population density, and dependency ratios. Population structure is provided both as percentage distributions and as absolute population counts (in thousands) for each age group.
+---
 
-The dataset contains 42 variables and 456 observations corresponding to country–year–sex units. This structure enables comparative demographic analysis across countries and over time, supporting research on demographic transition, population aging, demographic dividend dynamics, and regional population trends.
+This dataset provides harmonized demographic data describing the population age structure and key demographic indicators for **19 Latin American countries** over the period **1995–2030**.
 
-Data were compiled and harmonized from multiple international demographic sources, including the Economic Commission for Latin America and the Caribbean (CEPAL), the World Bank, BBVA Research, and national statistical institutes. The harmonization process ensures cross-country comparability of demographic indicators and population structure measures.
+The dataset contains **228 country-year records** and **41 variables**, covering: absolute population counts by three standard age groups (0–14, 15–64, 65+), percentage distributions, total and female population counts, and derived demographic indicators including the dependency ratio, aging index, and estimated median age.
 
-The dataset supports research in demography, development economics, population studies, and public policy planning. It can be used for statistical analysis, demographic modeling, comparative population studies, and visualization of demographic structures such as population pyramids and dependency ratios.
+All data were sourced from **CEPALSTAT** (Economic Commission for Latin America and the Caribbean — ECLAC/CEPAL), the authoritative source for harmonized demographic statistics in the Latin American and Caribbean region. Historical values (1995–2024) are based on census data and vital registration systems; values for 2025 and 2030 are CEPALSTAT demographic projections.
+
+The dataset enables comparative demographic analysis across countries and over time, supporting research on:
+- Demographic transition and population aging
+- Dependency burden and social protection systems
+- Labor force projections and demographic dividend analysis
+- Regional population trends and urbanization
+- Public health planning and healthcare demand forecasting
+
+Countries covered: Argentina, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Mexico, Nicaragua, Panama, Paraguay, Peru, and Venezuela.
+
+Data are provided in CSV format with UTF-8 encoding, using snake_case ASCII column names for maximum software compatibility (R, Python, SQL, spreadsheets).
+
+---
+
+*Abstract version 1.1.0 | March 2026*
