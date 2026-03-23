@@ -1,34 +1,43 @@
 cff-version: 1.2.0
-title: "Estructura de Edad de la Población en América Latina (1995–2030)"
-message: "Si utilizas este conjunto de datos, por favor cítalo utilizando la referencia siguiente."
+title: "Latin America Population Age Structure Dataset (2000-2015)"
+message: "If you use this dataset, please cite it using the metadata below."
 type: dataset
 
 authors:
-  - family-names: "de la Serna"
+  - family-names: "de la Serna Tuya"
     given-names: "Juan Moisés"
     orcid: "https://orcid.org/0000-0002-8401-8018"
 
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.18883431"
+    value: "10.17632/ygkmshr5fv.1"
+    description: "Mendeley Data DOI"
+  - type: doi
+    value: "10.5281/zenodo.18891177"
+    description: "Zenodo DOI"
 
-doi: "10.5281/zenodo.18883431"
+doi: "10.17632/ygkmshr5fv.1"
 
 repository-code: "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
 
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 
 abstract: >
-  Conjunto de datos demográficos que describe la estructura poblacional
-  por grupos de edad y sexo en países de América Latina entre 1995 y 2030.
-  Incluye distribución porcentual por cohortes etarias y desagregación por sexo.
+  Harmonized demographic dataset describing the population age structure
+  for 19 Latin American countries over the period 2000-2015.
+  Contains 228 observations (19 countries x 4 years x 3 sex categories)
+  and 41 variables. License: CC0 1.0.
 
 keywords:
-  - demografía
-  - estructura de edad
-  - envejecimiento poblacional
-  - América Latina
-  - transición demográfica
-  - análisis demográfico
+  - latin-america
+  - demographics
+  - age-structure
+  - population
+  - demographic-transition
+  - population-aging
+  - dependency-ratio
+  - cepal
+  - open-data
+  - cc0
 
 date-released: 2026
