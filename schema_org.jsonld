@@ -1,11 +1,20 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "name": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-  "description": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
+  "name": "Latin America Population Age Structure Dataset",
+  "alternateName": "latin-america-population-age-structure-dataset",
+  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Source: CEPALSTAT/ECLAC. CC0 1.0. DOI: 10.17632/ygkmshr5fv.1",
   "url": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
-  "sameAs": "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
-  "identifier": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
+  "sameAs": [
+    "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
+    "https://doi.org/10.17632/ygkmshr5fv.1"
+  ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.17632/ygkmshr5fv.1",
+    "url": "https://doi.org/10.17632/ygkmshr5fv.1"
+  },
   "author": {
     "@type": "Person",
     "name": "Juan Moisés de la Serna Tuya",
@@ -14,27 +23,119 @@
       "@type": "Organization",
       "name": "Universidad Internacional de La Rioja (UNIR)"
     },
-    "email": "juanmoises.delaserna@unir.net"
+    "email": "jmsernatuya@gmail.com"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Universidad Internacional de La Rioja (UNIR)",
-    "url": "https://www.unir.net"
+    "name": "Mendeley Data",
+    "url": "https://data.mendeley.com"
   },
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "datePublished": "2026-03-20",
-  "dateModified": "2026-03-20",
-  "keywords": "age-structure, cepal, dataset, demographics, github-pages, latin-america, open-data, population",
-  "inLanguage": [
-    "es",
-    "en"
+  "version": "1.1.0",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-23",
+  "keywords": [
+    "Latin America",
+    "population age structure",
+    "demographic transition",
+    "aging",
+    "CEPALSTAT",
+    "ECLAC",
+    "dependency ratio",
+    "open data",
+    "19 countries",
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Latin America Population Age Structure Dataset",
+  "alternateName": "Latin America demographic age structure 19 countries 1995-2030",
+  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Covers age groups 0-14, 15-64, 65+ with absolute counts, percentages, dependency ratios, aging index, and median age. Source: CEPALSTAT/ECLAC. CC0 1.0.",
+  "url": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
+  "sameAs": [
+    "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
+    "https://doi.org/10.17632/ygkmshr5fv.1"
   ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.17632/ygkmshr5fv.1",
+    "url": "https://doi.org/10.17632/ygkmshr5fv.1"
+  },
+  "version": "1.1.0",
+  "author": {
+    "@type": "Person",
+    "name": "Juan Moisés de la Serna Tuya",
+    "@id": "https://orcid.org/0000-0002-8401-8018",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Universidad Internacional de La Rioja (UNIR)"
+    },
+    "email": "jmsernatuya@gmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mendeley Data",
+    "url": "https://data.mendeley.com"
+  },
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-23",
+  "keywords": [
+    "Latin America",
+    "population age structure",
+    "demographic transition",
+    "aging",
+    "CEPALSTAT",
+    "ECLAC",
+    "dependency ratio",
+    "aging index",
+    "open data",
+    "population projections"
+  ],
+  "inLanguage": "en",
   "isAccessibleForFree": true,
+  "temporalCoverage": "1995/2030",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Latin America",
+    "containsPlace": [
+      {"@type": "Country", "name": "Argentina"},
+      {"@type": "Country", "name": "Bolivia"},
+      {"@type": "Country", "name": "Brazil"},
+      {"@type": "Country", "name": "Chile"},
+      {"@type": "Country", "name": "Colombia"},
+      {"@type": "Country", "name": "Costa Rica"},
+      {"@type": "Country", "name": "Cuba"},
+      {"@type": "Country", "name": "Dominican Republic"},
+      {"@type": "Country", "name": "Ecuador"},
+      {"@type": "Country", "name": "El Salvador"},
+      {"@type": "Country", "name": "Guatemala"},
+      {"@type": "Country", "name": "Haiti"},
+      {"@type": "Country", "name": "Honduras"},
+      {"@type": "Country", "name": "Mexico"},
+      {"@type": "Country", "name": "Nicaragua"},
+      {"@type": "Country", "name": "Panama"},
+      {"@type": "Country", "name": "Paraguay"},
+      {"@type": "Country", "name": "Peru"},
+      {"@type": "Country", "name": "Venezuela"}
+    ]
+  },
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
+      "contentUrl": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset/blob/main/data/latin_america_population_age_structure.csv",
+      "name": "latin_america_population_age_structure.csv"
     }
+  ],
+  "measurementTechnique": "Demographic statistics harmonized from CEPALSTAT/ECLAC national census and projection data",
+  "variableMeasured": [
+    "Total population",
+    "Population 0-14 years",
+    "Population 15-64 years",
+    "Population 65+ years",
+    "Age group percentages",
+    "Dependency ratio",
+    "Aging index",
+    "Median age"
   ]
 }
