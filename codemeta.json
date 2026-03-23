@@ -1,47 +1,66 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
-  "@type": "SoftwareSourceCode",
-  "name": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-  "description": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
+  "@type": "Dataset",
+  "name": "Latin America Population Age Structure Dataset",
+  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Covers Argentina, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Mexico, Nicaragua, Panama, Paraguay, Peru, and Venezuela. Released under CC0 1.0.",
   "url": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
   "codeRepository": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
-  "dateCreated": "2026-03-20",
-  "dateModified": "2026-03-20",
+  "version": "1.1.0",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-23",
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "version": "1.0.0",
+  "identifier": "https://doi.org/10.17632/ygkmshr5fv.1",
+  "keywords": [
+    "Latin America",
+    "population age structure",
+    "demographic transition",
+    "aging",
+    "CEPALSTAT",
+    "ECLAC",
+    "dependency ratio",
+    "aging index",
+    "population projections",
+    "open data"
+  ],
   "author": [
     {
       "@type": "Person",
       "givenName": "Juan Moisés",
       "familyName": "de la Serna Tuya",
-      "@id": "https://orcid.org/0000-0002-8401-8018",
       "affiliation": {
         "@type": "Organization",
         "name": "Universidad Internacional de La Rioja (UNIR)"
       },
-      "email": "juanmoises.delaserna@unir.net"
+      "@id": "https://orcid.org/0000-0002-8401-8018"
     }
   ],
-  "keywords": [
-    "age-structure",
-    "cepal",
-    "dataset",
-    "demographics",
-    "github-pages",
-    "latin-america",
-    "open-data",
-    "population"
-  ],
-  "programmingLanguage": "Python",
   "maintainer": [
     {
       "@type": "Person",
       "givenName": "Juan Moisés",
-      "familyName": "de la Serna Tuya"
+      "familyName": "de la Serna Tuya",
+      "email": "jmsernatuya@gmail.com",
+      "@id": "https://orcid.org/0000-0002-8401-8018"
     }
   ],
-  "funder": {
-    "@type": "Organization",
-    "name": "Universidad Internacional de La Rioja (UNIR)"
-  }
+  "funder": [],
+  "softwareRequirements": [
+    "Python >= 3.7 (pandas, numpy, matplotlib)",
+    "R >= 4.0 (tidyverse, ggplot2)"
+  ],
+  "programmingLanguage": [
+    "Python",
+    "R"
+  ],
+  "operatingSystem": [
+    "Linux",
+    "macOS",
+    "Windows"
+  ],
+  "contIntegration": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset/actions",
+  "relatedLink": [
+    "https://statistics.cepal.org/portal/cepalstat/",
+    "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
+    "https://doi.org/10.17632/ygkmshr5fv.1"
+  ]
 }
