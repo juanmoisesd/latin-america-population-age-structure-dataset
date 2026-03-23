@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
-          xmlns:dcterms="http://purl.org/dc/terms/"
-          xmlns:datacite="http://datacite.org/schema/kernel-4">
-  <dc:title>Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1</dc:title>
+<metadata
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:datacite="http://datacite.org/schema/kernel-4">
+
+  <dc:title>Latin America Population Age Structure Dataset (19 countries, 1995-2030)</dc:title>
   <dc:creator>Juan Moisés de la Serna Tuya</dc:creator>
   <dc:creator id="orcid:0000-0002-8401-8018">Juan Moisés de la Serna Tuya</dc:creator>
-  <dc:publisher>GitHub</dc:publisher>
-  <dc:date>2026-03-20</dc:date>
+  <dc:publisher>Mendeley Data</dc:publisher>
+  <dc:date>2026-03-01</dc:date>
+  <dcterms:modified>2026-03-23</dcterms:modified>
   <dc:type>Dataset</dc:type>
   <dc:format>text/csv</dc:format>
   <dc:format>application/json</dc:format>
-  <dc:language>es</dc:language>
   <dc:language>en</dc:language>
   <dc:rights>CC0 1.0 Universal</dc:rights>
   <dc:rights>https://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
-  <dc:description>Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1</dc:description>
-  <dc:subject>age-structure, cepal, dataset, demographics, github-pages, latin-america, open-data, population</dc:subject>
-  <dc:identifier>https://github.com/juanmoisesd/latin-america-population-age-structure-dataset</dc:identifier>
+  <dc:description>Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Covers age groups 0-14, 15-64, 65+ with absolute counts, percentages, dependency ratios, aging index, and median age. Source: CEPALSTAT/ECLAC. Version 1.1.0. DOI: 10.17632/ygkmshr5fv.1</dc:description>
+  <dc:subject>Latin America, population age structure, demographic transition, aging, CEPALSTAT, ECLAC, dependency ratio, open data</dc:subject>
+  <dc:identifier>https://doi.org/10.17632/ygkmshr5fv.1</dc:identifier>
+
   <dcterms:license>https://creativecommons.org/publicdomain/zero/1.0/</dcterms:license>
-  <dcterms:created>2026-03-20</dcterms:created>
-  <dcterms:modified>2026-03-20</dcterms:modified>
+  <dcterms:created>2026-03-01</dcterms:created>
   <dcterms:isPartOf>https://github.com/juanmoisesd</dcterms:isPartOf>
+  <dcterms:hasVersion>1.1.0</dcterms:hasVersion>
+
   <datacite:contributor contributorType="DataManager">
     <datacite:contributorName>Juan Moisés de la Serna Tuya</datacite:contributorName>
     <datacite:nameIdentifier schemeURI="https://orcid.org/" nameIdentifierScheme="ORCID">https://orcid.org/0000-0002-8401-8018</datacite:nameIdentifier>
+    <datacite:affiliation>Universidad Internacional de La Rioja (UNIR)</datacite:affiliation>
   </datacite:contributor>
+
+  <datacite:relatedIdentifier relatedIdentifierType="URL" relationType="IsIdenticalTo">
+    https://github.com/juanmoisesd/latin-america-population-age-structure-dataset
+  </datacite:relatedIdentifier>
+
+  <datacite:relatedIdentifier relatedIdentifierType="DOI" relationType="Cites">
+    10.17632/ygkmshr5fv.1
+  </datacite:relatedIdentifier>
+
 </metadata>
