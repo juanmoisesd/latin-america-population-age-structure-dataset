@@ -1,9 +1,12 @@
 {
-  "title": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
-  "description": "Demographic dataset: Population age structure in Latin America (11 countries, 2000-2023). Static microsite with 907 pages. DOI: 10.17632/ygkmshr5fv.1",
+  "title": "Latin America Population Age Structure Dataset",
+  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Covers age groups 0-14, 15-64, 65+ with absolute counts, percentages, dependency ratios, aging index, and median age. Source: CEPALSTAT/ECLAC. Released under CC0 1.0 (public domain).",
   "upload_type": "dataset",
   "access_right": "open",
   "license": "cc-zero",
+  "version": "1.1.0",
+  "publication_date": "2026-03-01",
+  "language": "eng",
   "creators": [
     {
       "name": "de la Serna Tuya, Juan Moisés",
@@ -12,29 +15,37 @@
     }
   ],
   "keywords": [
-    "age-structure",
-    "cepal",
-    "dataset",
-    "demographics",
-    "github-pages",
-    "latin-america",
-    "open-data",
-    "population",
-    "open-data",
-    "dataset"
+    "Latin America",
+    "population age structure",
+    "demographic transition",
+    "aging",
+    "dependency ratio",
+    "CEPALSTAT",
+    "ECLAC",
+    "open data",
+    "population projections",
+    "aging index"
   ],
-  "language": "eng",
-  "communities": [
-    {
-      "identifier": "zenodo"
-    }
-  ],
-  "grants": [],
   "related_identifiers": [
+    {
+      "identifier": "10.17632/ygkmshr5fv.1",
+      "relation": "isIdenticalTo",
+      "resource_type": "dataset"
+    },
     {
       "identifier": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
       "relation": "isSupplementTo",
-      "scheme": "url"
+      "resource_type": "software"
+    }
+  ],
+  "subjects": [
+    {
+      "term": "Demography",
+      "identifier": "http://id.loc.gov/authorities/subjects/sh85036862"
+    },
+    {
+      "term": "Population aging",
+      "identifier": "http://id.loc.gov/authorities/subjects/sh85104640"
     }
   ]
 }
