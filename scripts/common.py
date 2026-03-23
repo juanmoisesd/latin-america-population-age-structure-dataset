@@ -193,7 +193,7 @@ def read_dataset(path: Path) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(f"No existe el dataset de entrada: {path}")
 
-    df = pd.read_csv(path, usecols=RAW_REQUIRED_COLUMNS)
+    df = pd.read_csv(path)
 
     missing = [c for c in RAW_REQUIRED_COLUMNS if c not in df.columns]
     if missing:
