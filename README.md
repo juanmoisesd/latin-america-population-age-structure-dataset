@@ -13,11 +13,11 @@
 
 ## Overview
 
-Harmonized demographic dataset describing the **population age structure and key demographic indicators** for **19 Latin American countries** over the period **1995–2030**.
+Harmonized demographic dataset describing the **population age structure** for **19 Latin American countries** over the period **1995–2030**.
 
-The dataset provides quinquennial observations (1995, 2000, 2005, 2010, 2015, 2020, 2025, 2030) disaggregated by sex (men, women, total), distributed across **15 five-year age groups**, and enriched with core demographic indicators. It contains **456 observations** and **42 variables**.
+The dataset contains **228 country-year records** and **41 variables**: absolute population counts by three standard age groups (0–14, 15–64, 65+), percentage distributions, dependency ratio, aging index, and estimated median age.
 
-**Live Dashboard:** https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/
+**Source:** CEPALSTAT/ECLAC | **License:** CC0 1.0 | **DOI:** [10.17632/ygkmshr5fv.1](https://doi.org/10.17632/ygkmshr5fv.1) | **Version:** 1.1.0
 
 ---
 
@@ -32,7 +32,7 @@ The dataset provides quinquennial observations (1995, 2000, 2005, 2010, 2015, 20
 | 5 | Colombia | 15 | Paraguay |
 | 6 | Costa Rica | 16 | Peru |
 | 7 | Cuba | 17 | Dominican Republic |
-| 8 | Ecuador | 18 | Uruguay |
+| 8 | Ecuador | 18 | Haiti |
 | 9 | El Salvador | 19 | Venezuela |
 | 10 | Guatemala | | |
 
@@ -44,34 +44,26 @@ The dataset provides quinquennial observations (1995, 2000, 2005, 2010, 2015, 20
 
 | File | Description |
 |------|-------------|
-| `data/dataset.csv` | Main dataset — 456 rows x 42 columns |
+| `data/latin_america_population_age_structure.csv` | Main dataset — 228 rows × 41 columns |
 
-### Variables
+### Key Variables
 
-**Identification variables**
+| Variable | Description |
+|----------|-------------|
+| `country` | Country name (English) |
+| `year` | Reference year (1995–2030) |
+| `pop_total` | Total population |
+| `pop_0_14` | Population aged 0–14 |
+| `pop_15_64` | Population aged 15–64 |
+| `pop_65_mas` | Population aged 65+ |
+| `pct_0_14` | % aged 0–14 |
+| `pct_15_64` | % aged 15–64 |
+| `pct_65_mas` | % aged 65+ |
+| `dependency_ratio` | (pop 0-14 + pop 65+) / pop 15-64 |
+| `aging_index` | pop_65+ / pop_0-14 × 100 |
+| `median_age` | Estimated median age |
 
-| Variable | Description | Type |
-|----------|-------------|------|
-| `Country` | Country name | Categorical |
-| `Year` | Observation year (quinquennial: 1995–2030) | Numeric |
-| `Sex` | H = men, M = women, TOTAL = total population | Categorical |
-
-**Demographic indicators**
-
-| Variable | Description | Unit |
-|----------|-------------|------|
-| `Pob_Total_Millones` | Total population | Millions |
-| `Pct_Urbana` | Urban population share | % |
-| `TFT` | Total fertility rate | Children per woman |
-| `Esp_Vida_Anos` | Life expectancy at birth | Years |
-| `Mort_Inf_1k` | Infant mortality rate | Deaths per 1,000 births |
-| `Migr_Neta_k` | Net migration | Thousands |
-| `Dens_hab_km2` | Population density | Inhabitants/km2 |
-| `Ind_Dependencia` | Total dependency ratio | Ratio |
-
-**Age structure (% distribution):** `Pct_0_4`, `Pct_5_9`, `Pct_10_14`, `Pct_15_19`, `Pct_20_24`, `Pct_25_29`, `Pct_30_34`, `Pct_35_39`, `Pct_40_44`, `Pct_45_49`, `Pct_50_54`, `Pct_55_59`, `Pct_60_64`, `Pct_65_69`, `Pct_70_mas`
-
-**Age structure (absolute counts, thousands):** `Pob_0_4_k`, `Pob_5_9_k` ... `Pob_70_mas_k` (same 15 groups)
+Full variable list: [DATA_DICTIONARY.md](DATA_DICTIONARY.md)
 
 ---
 
@@ -82,75 +74,64 @@ The dataset provides quinquennial observations (1995, 2000, 2005, 2010, 2015, 20
 ```python
 import pandas as pd
 
-df = pd.read_csv("data/dataset.csv")
+url = "https://raw.githubusercontent.com/juanmoisesd/latin-america-population-age-structure-dataset/main/data/latin_america_population_age_structure.csv"
+df = pd.read_csv(url)
 
-# Filter: Argentina, total population, all years
-argentina = df[(df["Country"] == "Argentina") & (df["Sex"] == "TOTAL")]
-print(argentina[["Year", "Pob_Total_Millones", "Pct_0_4", "Pct_65_69", "Pct_70_mas"]])
+print(df.shape)        # (228, 41)
+print(df['country'].unique())  # 19 countries
+print(df.groupby('country')['pct_65_mas'].last().sort_values(ascending=False))
 ```
 
 ### R
 
 ```r
-library(readr)
+url <- "https://raw.githubusercontent.com/juanmoisesd/latin-america-population-age-structure-dataset/main/data/latin_america_population_age_structure.csv"
+df <- read.csv(url)
+
+dim(df)               # 228 × 41
+unique(df$country)    # 19 countries
 library(dplyr)
-
-df <- read_csv("data/dataset.csv")
-
-brazil <- df %>%
-  filter(Country == "Brazil", Sex == "TOTAL") %>%
-  select(Year, Pob_Total_Millones, TFT, Esp_Vida_Anos)
-
-print(brazil)
+df %>% group_by(country) %>% summarise(latest_pct_65 = last(pct_65_mas)) %>% arrange(desc(latest_pct_65))
 ```
-
----
-
-## Data Sources
-
-- **CEPAL** — Economic Commission for Latin America and the Caribbean
-- **World Bank** — Demographic databases
-- **BBVA Research** — Demographic reports
-- **National statistical institutes** — Of Latin American countries
 
 ---
 
 ## Dataset Status
 
-| Field | Value |
-|-------|-------|
-| Status | Published |
-| Dataset DOI | [10.17632/ygkmshr5fv.1](https://doi.org/10.17632/ygkmshr5fv.1) |
-| Zenodo DOI | [10.5281/zenodo.18891177](https://doi.org/10.5281/zenodo.18891177) |
+| Property | Value |
+|----------|-------|
+| Version | 1.1.0 |
+| Records | 228 country-year pairs |
+| Variables | 41 |
 | Countries | 19 |
-| Period | 1995–2030 (quinquennial) |
-| Observations | 456 |
-| Variables | 42 |
-| Last update | 2026-03-22 |
-| License | CC0 1.0 — Public Domain |
+| Period | 1995–2030 |
+| Source | CEPALSTAT/ECLAC |
+| License | CC0 1.0 (Public Domain) |
+| DOI | 10.17632/ygkmshr5fv.1 |
 
 ---
 
 ## How to Cite
 
-**APA 7:**
+### APA (Recommended)
 
-> De la Serna Tuya, J. M. (2026). *Latin America Population Age Structure Dataset* (v1.1.0) [Dataset]. GitHub & Zenodo. https://doi.org/10.17632/ygkmshr5fv.1
+> de la Serna Tuya, J. M. (2026). *Latin America Population Age Structure Dataset* (Version 1.1.0) [Data set]. Mendeley Data. https://doi.org/10.17632/ygkmshr5fv.1
 
-**BibTeX:**
+### BibTeX
 
 ```bibtex
-@dataset{delaserna2026_latin_america_population_age,
-  author    = {De la Serna Tuya, Juan Moisés},
+@dataset{delaserna2026,
+  author    = {de la Serna Tuya, Juan Moisés},
   title     = {Latin America Population Age Structure Dataset},
   year      = {2026},
   version   = {1.1.0},
-  publisher = {GitHub and Zenodo},
+  publisher = {Mendeley Data},
   doi       = {10.17632/ygkmshr5fv.1},
-  url       = {https://github.com/juanmoisesd/latin-america-population-age-structure-dataset},
-  note      = {ORCID: 0000-0002-8401-8018}
+  url       = {https://doi.org/10.17632/ygkmshr5fv.1}
 }
 ```
+
+See [CITATION_GUIDE.md](CITATION_GUIDE.md) for more formats.
 
 ---
 
@@ -158,36 +139,33 @@ print(brazil)
 
 | File | Description |
 |------|-------------|
-| [DATA_DICTIONARY.md](DATA_DICTIONARY.md) | Full variable descriptions and units |
-| [METHODOLOGY.md](METHODOLOGY.md) | Data compilation and harmonization methods |
-| [DATA_PAPER.md](DATA_PAPER.md) | Academic data paper |
-| [DATASET_ABSTRACT.md](DATASET_ABSTRACT.md) | Scientific abstract |
+| [DATA_DICTIONARY.md](DATA_DICTIONARY.md) | Variable definitions, types, units |
+| [METHODOLOGY.md](METHODOLOGY.md) | Data collection and harmonization |
+| [DATA_PAPER.md](DATA_PAPER.md) | Full scientific data paper (8 sections) |
+| [KNOWN_ISSUES.md](KNOWN_ISSUES.md) | Known limitations and caveats |
 | [CHANGELOG.md](CHANGELOG.md) | Version history |
-| [CITATION_GUIDE.md](CITATION_GUIDE.md) | Citation formats (APA, BibTeX, RIS) |
-| [GLOSSARY.md](GLOSSARY.md) | Demographic terminology |
-| [KNOWN_ISSUES.md](KNOWN_ISSUES.md) | Known limitations and errata |
+| [CITATION_GUIDE.md](CITATION_GUIDE.md) | Citation formats |
 
 ---
 
 ## Known Limitations
 
-- Demographic estimates for 2025 and 2030 are **projections**, not census data.
-- Minor differences may exist across source institutions due to differing statistical methodologies.
-- Variable names use ASCII encoding (e.g., `Esp_Vida_Anos` instead of `Esp_Vida_Años`).
-- Some smaller countries rely more on CEPAL projections than national census data.
+- Values for **2025 and 2030** are projections, not observed data
+- Venezuela data (2016–2022) is estimated
+- Cross-country comparisons should account for differing census intervals
+- See [KNOWN_ISSUES.md](KNOWN_ISSUES.md) for full details
 
 ---
 
 ## License
 
-**CC0 1.0 Universal — Public Domain Dedication.**
-This dataset is dedicated to the public domain. You may copy, modify, distribute and use the work, even for commercial purposes, without asking permission. See the [LICENSE](LICENSE) file.
+Released under **[CC0 1.0 Universal (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)** — free to copy, modify, distribute and use, even commercially, without asking permission.
 
 ---
 
 ## Author
 
-**Juan Moisés de la Serna Tuya**
+**Juan Moisés de la Serna Tuya**  
 Universidad Internacional de La Rioja (UNIR)
 
 | Identifier | Value |
@@ -196,8 +174,4 @@ Universidad Internacional de La Rioja (UNIR)
 | Scopus | [26632846700](https://www.scopus.com/authid/detail.uri?authorId=26632846700) |
 | ResearcherID | [M-8296-2019](https://www.webofscience.com/wos/author/record/M-8296-2019) |
 | ResearchGate | [Juan_De_La_Serna_Tuya](https://www.researchgate.net/profile/Juan_De_La_Serna_Tuya) |
-| LinkedIn | [juanmoisesdelaserna](https://linkedin.com/in/juanmoisesdelaserna) |
-
-290+ scientific works · 500+ DOIs · 90+ open datasets · Top 1% Academia.edu
-
-See also: [ABOUT_THE_AUTHOR.md](ABOUT_THE_AUTHOR.md) · [CITATION_GUIDE.md](CITATION_GUIDE.md) · [GLOSSARY.md](GLOSSARY.md)
+| LinkedIn | [juanmoisesdelaserna](https://www.linkedin.com/in/juanmoisesdelaserna) |
