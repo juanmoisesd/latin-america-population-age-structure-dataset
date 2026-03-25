@@ -3,24 +3,18 @@
   "@type": "SoftwareSourceCode",
   "name": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 2000-2015).",
   "version": "1.0.0",
-  "identifier": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
-  "datePublished": "2025",
+  "identifier": "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "codeRepository": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset",
   "author": [
     {
       "@type": "Person",
       "givenName": "Juan Moisés",
-      "familyName": "de la Serna",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "Universidad Internacional de La Rioja (UNIR)"
-      }
+      "familyName": "de la Serna"
     }
   ],
   "programmingLanguage": [
     "Python",
     "Jupyter Notebook"
-  ],
-  "keywords": "age-structure, cc0, cepal, citation, dataset, demographic-transition, demographics, demography, fair-data, github-pages, iberoamerica, juan-moises-de-la-serna, latin-america, open-data, open-science, orcid, population, population-data, research, zenodo"
+  ]
 }
