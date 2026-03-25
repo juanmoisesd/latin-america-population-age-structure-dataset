@@ -18,6 +18,6 @@
     "fair-data",
     "github-pages"
   ],
-  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 2000-2015). 228 records, 41 variables. DOI: 10.17632/ygkmshr5fv.1\n\nDOI: https://github.com/juanmoisesd/latin-america-population-age-structure-dataset\nGitHub: https://github.com/juanmoisesd/latin-america-population-age-structure-dataset\nAuthor: de la Serna, Juan Moisés",
+  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 2000-2015). 228 records, 41 variables. DOI: 10.17632/ygkmshr5fv.1\nDOI: https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
   "isPrivate": false
 }
