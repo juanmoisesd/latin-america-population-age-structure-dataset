@@ -1,14 +1,41 @@
-<!doctype html>
-<html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{html.escape(title)}</title>
-<meta name="description" content="{html.escape(description)}">
-<link rel="canonical" href="https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/pages/indicators.html">
-<link rel="stylesheet" href="../assets/style.css"><script defer src="../assets/app.js"></script>
-<script type="application/ld+json">{ld_json(title, description, page_url)}</script>
-</head><body><div class="wrap">
-{nav(css_prefix)}
-<div class='hero'><h1>Indicadores del dataset</h1><p class='sub'>Doce indicadores disponibles con ranking regional.</p></div>
-<div class='section card'><ul class='cols'><li><a href='indicator-pct_65_mas.html'>65+ años (%)</a></li><li><a href='indicator-pct_0_14.html'>0–14 años (%)</a></li><li><a href='indicator-pct_15_24.html'>15–24 años (%)</a></li><li><a href='indicator-pct_25_54.html'>25–54 años (%)</a></li><li><a href='indicator-pct_55_64.html'>55–64 años (%)</a></li><li><a href='indicator-indice_envejecimiento.html'>Índice de envejecimiento</a></li><li><a href='indicator-razon_dependencia_total.html'>Razón de dependencia total</a></li><li><a href='indicator-razon_dependencia_juvenil.html'>Razón de dependencia juvenil</a></li><li><a href='indicator-razon_dependencia_vejez.html'>Razón de dependencia vejez</a></li><li><a href='indicator-indice_bono_demografico.html'>Índice bono demográfico</a></li><li><a href='indicator-poblacion_total_millones.html'>Población total (millones)</a></li><li><a href='indicator-pct_edad_laboral.html'>Edad laboral (%)</a></li></ul></div>
-{footer()}
-</div></body></html>
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Indicadores</title>
+<style>
+    :root { --primary: #2c3e50; --secondary: #34495e; --accent: #1abc9c; --bg: #ecf0f1; --text: #333; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text); background: var(--bg); }
+    .header-container, .footer-container, main { max-width: 1200px; margin: auto; padding: 0 20px; }
+    header { background: var(--primary); color: #fff; padding: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    nav a { color: #ecf0f1; margin: 0 10px; text-decoration: none; font-weight: 600; }
+    nav a:hover { color: var(--accent); }
+    section { margin: 40px 0; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    h2 { border-left: 5px solid var(--accent); padding-left: 15px; color: var(--primary); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    img { max-width: 100%; height: auto; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background: var(--secondary); color: white; }
+    tr:hover { background: #f5f5f5; }
+    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; }
+    footer { background: var(--primary); color: white; padding: 30px 0; margin-top: 60px; text-align: center; }
+</style>
+</head><body>
+    <header>
+        <div class="header-container">
+            <h1><a href="../index.html" style="color: white; text-decoration: none;">América Latina Demográfica</a></h1>
+            <nav>
+                <a href="../index.html">Inicio</a> |
+                <a href="../index.html#countries">Países</a> |
+                <a href="years.html">Años</a> |
+                <a href="indicators.html">Indicadores</a> |
+                <a href="comparisons.html">Comparativas</a>
+            </nav>
+        </div>
+    </header>
+    <main><section><h2>Indicadores Analizados</h2><div class='grid'><div class='card'><h4>Tasa Dependencia</h4><p>Relación entre población dependiente y activa.</p></div><div class='card'><h4>Esperanza Vida</h4><p>Años promedio de vida al nacer.</p></div><div class='card'><h4>Bono Demográfico</h4><p>Ventaja económica por alta proporción de trabajadores.</p></div></div></section></main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2026 Juan Moisés de la Serna Tuya. <a href="https://github.com/juanmoisesd/latin-america-population-age-structure-dataset">GitHub</a> | <a href="/docs/api/">JSON API</a></p>
+        </div>
+    </footer>
+    </body></html>

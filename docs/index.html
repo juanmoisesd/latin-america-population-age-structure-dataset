@@ -1,88 +1,41 @@
-
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>Demografía América Latina 2000-2030</title>
-        <link rel="stylesheet" href="style.css">
-        <style>
-            body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
-            header { background: #333; color: #fff; padding: 10px 20px; margin-bottom: 20px; }
-            nav a { color: #fff; margin-right: 15px; text-decoration: none; }
-            main { display: flex; flex-wrap: wrap; gap: 20px; }
-            section { flex: 1; min-width: 300px; }
-            .viz-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-            .viz-grid img { max-width: 100%; border: 1px solid #ddd; }
-            ul { list-style: none; padding: 0; }
-            li { margin-bottom: 5px; }
-            footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; font-size: 0.8em; }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Portal Demográfico de América Latina</h1>
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Demografía AL</title>
+<style>
+    :root { --primary: #2c3e50; --secondary: #34495e; --accent: #1abc9c; --bg: #ecf0f1; --text: #333; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text); background: var(--bg); }
+    .header-container, .footer-container, main { max-width: 1200px; margin: auto; padding: 0 20px; }
+    header { background: var(--primary); color: #fff; padding: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    nav a { color: #ecf0f1; margin: 0 10px; text-decoration: none; font-weight: 600; }
+    nav a:hover { color: var(--accent); }
+    section { margin: 40px 0; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    h2 { border-left: 5px solid var(--accent); padding-left: 15px; color: var(--primary); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    img { max-width: 100%; height: auto; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background: var(--secondary); color: white; }
+    tr:hover { background: #f5f5f5; }
+    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; }
+    footer { background: var(--primary); color: white; padding: 30px 0; margin-top: 60px; text-align: center; }
+</style>
+</head><body>
+    <header>
+        <div class="header-container">
+            <h1><a href="index.html" style="color: white; text-decoration: none;">América Latina Demográfica</a></h1>
             <nav>
                 <a href="index.html">Inicio</a> |
-                <a href="https://github.com/juanmoisesd/latin-america-population-age-structure-dataset">GitHub Repository</a>
+                <a href="index.html#countries">Países</a> |
+                <a href="pages/years.html">Años</a> |
+                <a href="pages/indicators.html">Indicadores</a> |
+                <a href="pages/comparisons.html">Comparativas</a>
             </nav>
-        </header>
-
-        <main>
-            <section>
-                <h2>Selecciona un País / Select a Country</h2>
-                <ul>
-
-                    <li><a href="countries/argentina.html">Argentina</a></li>
-
-                    <li><a href="countries/bolivia.html">Bolivia</a></li>
-
-                    <li><a href="countries/brasil.html">Brasil</a></li>
-
-                    <li><a href="countries/chile.html">Chile</a></li>
-
-                    <li><a href="countries/colombia.html">Colombia</a></li>
-
-                    <li><a href="countries/costa_rica.html">Costa Rica</a></li>
-
-                    <li><a href="countries/cuba.html">Cuba</a></li>
-
-                    <li><a href="countries/ecuador.html">Ecuador</a></li>
-
-                    <li><a href="countries/el_salvador.html">El Salvador</a></li>
-
-                    <li><a href="countries/guatemala.html">Guatemala</a></li>
-
-                    <li><a href="countries/honduras.html">Honduras</a></li>
-
-                    <li><a href="countries/mexico.html">México</a></li>
-
-                    <li><a href="countries/nicaragua.html">Nicaragua</a></li>
-
-                    <li><a href="countries/panama.html">Panamá</a></li>
-
-                    <li><a href="countries/paraguay.html">Paraguay</a></li>
-
-                    <li><a href="countries/peru.html">Perú</a></li>
-
-                    <li><a href="countries/republica_dominicana.html">República Dominicana</a></li>
-
-                    <li><a href="countries/uruguay.html">Uruguay</a></li>
-
-                    <li><a href="countries/venezuela.html">Venezuela</a></li>
-
-                </ul>
-            </section>
-            <section>
-                <h2>Visualizaciones Regionales / Regional Visualizations</h2>
-                <div class="viz-grid">
-                    <img src="assets/dependency_trend.png" alt="Tendencia de Dependencia">
-                    <img src="assets/aging_regional_bar.png" alt="Envejecimiento por País">
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2026 Juan Moisés de la Serna Tuya. Todos los derechos reservados / All rights reserved.</p>
-        </footer>
-    </body>
-    </html>
+        </div>
+    </header>
+    <main><section><h2>Explora América Latina</h2><p>Datos demográficos de 19 países. Análisis de transición demográfica y proyecciones a 2030.</p><div id='countries' class='grid'><div class='card'><h3>Argentina</h3><a href='pages/countries/argentina.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Bolivia</h3><a href='pages/countries/bolivia.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Brasil</h3><a href='pages/countries/brasil.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Chile</h3><a href='pages/countries/chile.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Colombia</h3><a href='pages/countries/colombia.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Costa Rica</h3><a href='pages/countries/costa_rica.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Cuba</h3><a href='pages/countries/cuba.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Ecuador</h3><a href='pages/countries/ecuador.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>El Salvador</h3><a href='pages/countries/el_salvador.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Guatemala</h3><a href='pages/countries/guatemala.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Honduras</h3><a href='pages/countries/honduras.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>México</h3><a href='pages/countries/mexico.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Nicaragua</h3><a href='pages/countries/nicaragua.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Panamá</h3><a href='pages/countries/panama.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Paraguay</h3><a href='pages/countries/paraguay.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Perú</h3><a href='pages/countries/peru.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>República Dominicana</h3><a href='pages/countries/republica_dominicana.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Uruguay</h3><a href='pages/countries/uruguay.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Venezuela</h3><a href='pages/countries/venezuela.html' class='btn'>Ver Detalle</a></div></div></section></main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2026 Juan Moisés de la Serna Tuya. <a href="https://github.com/juanmoisesd/latin-america-population-age-structure-dataset">GitHub</a> | <a href="/docs/api/">JSON API</a></p>
+        </div>
+    </footer>
+    </body></html>
