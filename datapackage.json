@@ -1,8 +1,9 @@
 {
-  "name": "latin-america-population-age-structure-dataset",
-  "title": "Latin America Population Age Structure Dataset",
-  "description": "Harmonized demographic dataset: population age structure in Latin America (19 countries, 1995-2030). 228 records, 41 variables. Source: CEPALSTAT/ECLAC. DOI: 10.17632/ygkmshr5fv.1",
-  "version": "1.1.0",
+  "name": "latin-america-population-demographics-refined",
+  "title": "Latin America Population Demographics (2000-2030) - Refined and Forecasted",
+  "description": "Refined demographic data for Latin America with corrected age group inconsistencies and projections to 2030. Includes dependency ratios, life expectancy, and median age.",
+  "version": "2.0.0",
+  "profile": "tabular-data-package",
   "licenses": [
     {
       "name": "CC0-1.0",
@@ -10,46 +11,242 @@
       "path": "https://creativecommons.org/publicdomain/zero/1.0/"
     }
   ],
-  "contributors": [
+  "resources": [
     {
-      "title": "Juan Moisés de la Serna Tuya",
-      "path": "https://orcid.org/0000-0002-8401-8018",
-      "role": "author",
-      "organization": "Universidad Internacional de La Rioja (UNIR)"
+      "name": "population-evolution-historical",
+      "path": "data/population_evolution_latin_america_by_age_2000_2023.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "País",
+            "type": "string"
+          },
+          {
+            "name": "ISO3",
+            "type": "string"
+          },
+          {
+            "name": "Año",
+            "type": "integer"
+          },
+          {
+            "name": "Pob_Total_Millones",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Urbanización",
+            "type": "number"
+          },
+          {
+            "name": "Esperanza_Vida",
+            "type": "number"
+          },
+          {
+            "name": "Densidad_Poblacional",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Dependencia_Infantil",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Dependencia_Vejez",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Dependencia_Total",
+            "type": "number"
+          },
+          {
+            "name": "Edad_Mediana_Estimada",
+            "type": "number"
+          },
+          {
+            "name": "Pct_0_4",
+            "type": "number"
+          },
+          {
+            "name": "Pct_5_9",
+            "type": "number"
+          },
+          {
+            "name": "Pct_10_14",
+            "type": "number"
+          },
+          {
+            "name": "Pct_15_19",
+            "type": "number"
+          },
+          {
+            "name": "Pct_20_24",
+            "type": "number"
+          },
+          {
+            "name": "Pct_25_29",
+            "type": "number"
+          },
+          {
+            "name": "Pct_30_34",
+            "type": "number"
+          },
+          {
+            "name": "Pct_35_39",
+            "type": "number"
+          },
+          {
+            "name": "Pct_40_44",
+            "type": "number"
+          },
+          {
+            "name": "Pct_45_49",
+            "type": "number"
+          },
+          {
+            "name": "Pct_50_54",
+            "type": "number"
+          },
+          {
+            "name": "Pct_55_59",
+            "type": "number"
+          },
+          {
+            "name": "Pct_60_64",
+            "type": "number"
+          },
+          {
+            "name": "Pct_65_69",
+            "type": "number"
+          },
+          {
+            "name": "Pct_70_mas",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "population-evolution-forecast",
+      "path": "data/population_evolution_latin_america_by_age_2000_2030_forecast.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "País",
+            "type": "string"
+          },
+          {
+            "name": "ISO3",
+            "type": "string"
+          },
+          {
+            "name": "Año",
+            "type": "integer"
+          },
+          {
+            "name": "Pob_Total_Millones",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Urbanización",
+            "type": "number"
+          },
+          {
+            "name": "Esperanza_Vida",
+            "type": "number"
+          },
+          {
+            "name": "Densidad_Poblacional",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Dependencia_Infantil",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Dependencia_Vejez",
+            "type": "number"
+          },
+          {
+            "name": "Tasa_Dependencia_Total",
+            "type": "number"
+          },
+          {
+            "name": "Edad_Mediana_Estimada",
+            "type": "number"
+          },
+          {
+            "name": "Pct_0_4",
+            "type": "number"
+          },
+          {
+            "name": "Pct_5_9",
+            "type": "number"
+          },
+          {
+            "name": "Pct_10_14",
+            "type": "number"
+          },
+          {
+            "name": "Pct_15_19",
+            "type": "number"
+          },
+          {
+            "name": "Pct_20_24",
+            "type": "number"
+          },
+          {
+            "name": "Pct_25_29",
+            "type": "number"
+          },
+          {
+            "name": "Pct_30_34",
+            "type": "number"
+          },
+          {
+            "name": "Pct_35_39",
+            "type": "number"
+          },
+          {
+            "name": "Pct_40_44",
+            "type": "number"
+          },
+          {
+            "name": "Pct_45_49",
+            "type": "number"
+          },
+          {
+            "name": "Pct_50_54",
+            "type": "number"
+          },
+          {
+            "name": "Pct_55_59",
+            "type": "number"
+          },
+          {
+            "name": "Pct_60_64",
+            "type": "number"
+          },
+          {
+            "name": "Pct_65_69",
+            "type": "number"
+          },
+          {
+            "name": "Pct_70_mas",
+            "type": "number"
+          }
+        ]
+      }
     }
   ],
   "keywords": [
     "latin-america",
     "population",
-    "age-structure",
-    "demographics",
-    "cepal",
-    "cepalstat",
-    "eclac",
-    "dependency-ratio",
     "aging",
-    "demographic-transition",
-    "dataset",
-    "open-data"
-  ],
-  "sources": [
-    {
-      "title": "CEPALSTAT - Economic Commission for Latin America and the Caribbean",
-      "path": "https://statistics.cepal.org/portal/cepalstat/"
-    }
-  ],
-  "resources": [
-    {
-      "name": "latin-america-population-age-structure",
-      "path": "data/latin_america_population_age_structure.csv",
-      "format": "csv",
-      "mediatype": "text/csv",
-      "encoding": "utf-8",
-      "description": "Main dataset: 228 rows, 41 columns. Population age structure for 19 Latin American countries, 1995-2030."
-    }
-  ],
-  "created": "2026-03-01",
-  "updated": "2026-03-23",
-  "homepage": "https://juanmoisesd.github.io/latin-america-population-age-structure-dataset/",
-  "repository": "https://github.com/juanmoisesd/latin-america-population-age-structure-dataset"
+    "demographics",
+    "forecast",
+    "projections"
+  ]
 }
