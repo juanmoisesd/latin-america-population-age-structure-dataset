@@ -1,5 +1,5 @@
 
-    <!DOCTYPE html><html><head><meta charset='UTF-8'><title>Portal Demográfico América Latina 2030</title>
+    <!DOCTYPE html><html><head><meta charset='UTF-8'><title>Portal Demográfico AL</title>
 <style>
     :root { --primary: #2c3e50; --secondary: #34495e; --accent: #1abc9c; --bg: #ecf0f1; --text: #333; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text); background: var(--bg); }
@@ -16,13 +16,11 @@
     table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9em; }
     th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
     th { background: var(--secondary); color: white; }
-    tr:hover { background: #f5f5f5; }
+    #map { height: 500px; width: 100%; border-radius: 12px; }
     .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
-    .search-container { margin-bottom: 20px; }
-    #search-box { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1.1em; }
     footer { background: var(--primary); color: white; padding: 30px 0; margin-top: 60px; text-align: center; }
-    .meta-tags { visibility: hidden; position: absolute; }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head><body>
     <header>
         <div class="header-container">
@@ -37,56 +35,55 @@
         </div>
     </header>
 
-    <main><section><h2>Explora América Latina</h2><p>Análisis y proyecciones de 19 países hasta 2030.</p>
-    <div class="search-container"><input type="text" id="search-box" placeholder="Buscar país..." onkeyup="filterCountries()"></div>
-    <div id='countries' class='grid'>
-    <div class='card country-card' data-name='Argentina'><h3>Argentina</h3><a href='pages/countries/argentina.html' class='btn'>Ver Perfil</a></div>
+    <main><section><h2>Mapa Interactivo Regional</h2><div id="map"></div></section>
+    <section><h2>Explora Países</h2><div id='countries' class='grid'>
+    <div class='card'><h3>Argentina</h3><a href='pages/countries/argentina.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Bolivia'><h3>Bolivia</h3><a href='pages/countries/bolivia.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Bolivia</h3><a href='pages/countries/bolivia.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Brasil'><h3>Brasil</h3><a href='pages/countries/brasil.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Brasil</h3><a href='pages/countries/brasil.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Chile'><h3>Chile</h3><a href='pages/countries/chile.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Chile</h3><a href='pages/countries/chile.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Colombia'><h3>Colombia</h3><a href='pages/countries/colombia.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Colombia</h3><a href='pages/countries/colombia.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Costa Rica'><h3>Costa Rica</h3><a href='pages/countries/costa_rica.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Costa Rica</h3><a href='pages/countries/costa_rica.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Cuba'><h3>Cuba</h3><a href='pages/countries/cuba.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Cuba</h3><a href='pages/countries/cuba.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Ecuador'><h3>Ecuador</h3><a href='pages/countries/ecuador.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Ecuador</h3><a href='pages/countries/ecuador.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='El Salvador'><h3>El Salvador</h3><a href='pages/countries/el_salvador.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>El Salvador</h3><a href='pages/countries/el_salvador.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Guatemala'><h3>Guatemala</h3><a href='pages/countries/guatemala.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Guatemala</h3><a href='pages/countries/guatemala.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Honduras'><h3>Honduras</h3><a href='pages/countries/honduras.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Honduras</h3><a href='pages/countries/honduras.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='México'><h3>México</h3><a href='pages/countries/mexico.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>México</h3><a href='pages/countries/mexico.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Nicaragua'><h3>Nicaragua</h3><a href='pages/countries/nicaragua.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Nicaragua</h3><a href='pages/countries/nicaragua.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Panamá'><h3>Panamá</h3><a href='pages/countries/panama.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Panamá</h3><a href='pages/countries/panama.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Paraguay'><h3>Paraguay</h3><a href='pages/countries/paraguay.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Paraguay</h3><a href='pages/countries/paraguay.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Perú'><h3>Perú</h3><a href='pages/countries/peru.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Perú</h3><a href='pages/countries/peru.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='República Dominicana'><h3>República Dominicana</h3><a href='pages/countries/republica_dominicana.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>República Dominicana</h3><a href='pages/countries/republica_dominicana.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Uruguay'><h3>Uruguay</h3><a href='pages/countries/uruguay.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Uruguay</h3><a href='pages/countries/uruguay.html' class='btn'>Ver Perfil</a></div>
 
-    <div class='card country-card' data-name='Venezuela'><h3>Venezuela</h3><a href='pages/countries/venezuela.html' class='btn'>Ver Perfil</a></div>
+    <div class='card'><h3>Venezuela</h3><a href='pages/countries/venezuela.html' class='btn'>Ver Perfil</a></div>
     </div></section></main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-    function filterCountries() {
-        let input = document.getElementById('search-box').value.toLowerCase();
-        let cards = document.getElementsByClassName('country-card');
-        for (let card of cards) {
-            let name = card.getAttribute('data-name').toLowerCase();
-            card.style.display = name.includes(input) ? "block" : "none";
-        }
-    }
+    var map = L.map('map').setView([-15, -60], 3);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    var data = [{"name": "Argentina", "lat": -38.4161, "lng": -63.6167, "pop": 43.0, "ev": 77.8, "slug": "argentina"}, {"name": "Bolivia", "lat": -16.2902, "lng": -63.5887, "pop": 11.0, "ev": 68.5, "slug": "bolivia"}, {"name": "Brasil", "lat": -14.235, "lng": -51.9253, "pop": 207.8, "ev": 76.8, "slug": "brasil"}, {"name": "Chile", "lat": -35.6751, "lng": -71.543, "pop": 18.0, "ev": 79.5, "slug": "chile"}, {"name": "Colombia", "lat": 4.5709, "lng": -74.2973, "pop": 49.1, "ev": 76.0, "slug": "colombia"}, {"name": "Costa Rica", "lat": 9.7489, "lng": -83.7534, "pop": 4.81, "ev": 80.0, "slug": "costa_rica"}, {"name": "Cuba", "lat": 21.5218, "lng": -77.7812, "pop": 11.22, "ev": 80.0, "slug": "cuba"}, {"name": "Ecuador", "lat": -1.8312, "lng": -78.1834, "pop": 16.2, "ev": 77.0, "slug": "ecuador"}, {"name": "El Salvador", "lat": 13.7942, "lng": -88.8965, "pop": 6.4, "ev": 74.8, "slug": "el_salvador"}, {"name": "Guatemala", "lat": 15.7835, "lng": -90.2308, "pop": 16.3, "ev": 73.0, "slug": "guatemala"}, {"name": "Honduras", "lat": 15.1999, "lng": -86.2419, "pop": 8.53, "ev": 72.5, "slug": "honduras"}, {"name": "M\u00e9xico", "lat": 23.6345, "lng": -102.5528, "pop": 121.5, "ev": 77.5, "slug": "mexico"}, {"name": "Nicaragua", "lat": 12.8654, "lng": -85.2072, "pop": 6.67, "ev": 74.5, "slug": "nicaragua"}, {"name": "Panam\u00e1", "lat": 8.538, "lng": -80.7821, "pop": 4.07, "ev": 78.3, "slug": "panama"}, {"name": "Paraguay", "lat": -23.4425, "lng": -58.4438, "pop": 6.69, "ev": 74.8, "slug": "paraguay"}, {"name": "Per\u00fa", "lat": -9.19, "lng": -75.0152, "pop": 31.0, "ev": 75.5, "slug": "peru"}, {"name": "Rep\u00fablica Dominicana", "lat": 18.7357, "lng": -70.1627, "pop": 10.35, "ev": 74.5, "slug": "republica_dominicana"}, {"name": "Uruguay", "lat": -32.5228, "lng": -55.7658, "pop": 3.43, "ev": 78.3, "slug": "uruguay"}, {"name": "Venezuela", "lat": 6.4238, "lng": -66.5897, "pop": 30.1, "ev": 76.0, "slug": "venezuela"}];
+    data.forEach(c => {
+        L.marker([c.lat, c.lng]).addTo(map)
+            .bindPopup(`<b>${c.name}</b><br>Pob: ${c.pop}M<br>Exp. Vida: ${c.ev} años<br><a href="pages/countries/${c.slug}.html">Ver más</a>`);
+    });
     </script>
 
     <footer>

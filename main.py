@@ -14,6 +14,7 @@ def main():
     scripts = [
         "prepare_data.py",
         "forecast_data.py",
+        "analyze_stats.py",
         "generate_visualizations.py",
         "generate_site.py",
         "update_metadata.py",
@@ -24,7 +25,7 @@ def main():
         if not run_script(script):
             sys.exit(1)
 
-    print("\nFull pipeline v3 executed successfully!")
+    print("\nUltimate Research Pipeline executed successfully!")
 
 if __name__ == "__main__":
     main()
