@@ -56,8 +56,8 @@ def main():
     pct_cols = [c for c in df.columns if c.startswith('Pct_')]
     abs_cols = [c for c in df.columns if c.startswith('Pob_') and c.endswith('_k')]
 
-    numeric_to_fix = pct_cols + abs_cols + ['Pob_Total_Millones', 'Tasa_Urbanización', 'Esperanza_Vida', 'Densidad_Poblacional', 'Año', 'TFT']
-    for col in numeric_to_fix: df[col] = pd.to_numeric(df[col], errors='coerce')
+    for col in pct_cols + abs_cols + ['Pob_Total_Millones', 'Tasa_Urbanización', 'Esperanza_Vida', 'Densidad_Poblacional', 'Año', 'TFT']:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
 
     df = df.dropna(subset=['País', 'Año'])
     df['Año'] = df['Año'].astype(int)
@@ -65,10 +65,6 @@ def main():
     # Inconsistencies fix
     df['sum_pct'] = df[pct_cols].sum(axis=1)
     for col in pct_cols: df[col] = (df[col] / df['sum_pct']) * 100
-    for col in pct_cols:
-        abs_col = col.replace('Pct_', 'Pob_').replace('mas', 'mas_k')
-        if '70_mas' in col: abs_col = 'Pob_70_mas_k'
-        df[abs_col] = (df[col] / 100) * df['Pob_Total_Millones'] * 1000
 
     df['ISO3'] = df['País'].map(ISO3_MAP)
     df['Región'] = df['País'].map(REGION_MAP)
@@ -76,18 +72,14 @@ def main():
     pob_0_14 = df['Pob_0_4_k'] + df['Pob_5_9_k'] + df['Pob_10_14_k']
     pob_15_64 = df[abs_cols].sum(axis=1) - pob_0_14 - df['Pob_65_69_k'] - df['Pob_70_mas_k']
     pob_65_plus = df['Pob_65_69_k'] + df['Pob_70_mas_k']
+    pob_15_plus = df[abs_cols].sum(axis=1) - pob_0_14
+    pob_15_24 = df['Pob_15_19_k'] + df['Pob_20_24_k']
 
-    df['Tasa_Dependencia_Infantil'] = (pob_0_14 / pob_15_64) * 100
-    df['Tasa_Dependencia_Vejez'] = (pob_65_plus / pob_15_64) * 100
+    # Advanced Metrics
+    df['PSR'] = (pob_15_64 / pob_65_plus).replace([np.inf, -np.inf], np.nan) # Potential Support Ratio
+    df['Youth_Bulge'] = (pob_15_24 / pob_15_plus) * 100
     df['Tasa_Dependencia_Total'] = ((pob_0_14 + pob_65_plus) / pob_15_64) * 100
     df['Edad_Mediana_Estimada'] = df.apply(estimate_median_age, axis=1)
-
-    # Enrichment: Growth rates
-    df = df.sort_values(['País', 'Año'])
-    df['Crecimiento_Anual_Pob'] = df.groupby('País')['Pob_Total_Millones'].pct_change() * 100
-
-    # Enrichment: Demographic Bonus Indicator (15-64 share)
-    df['Pct_Pob_Edad_Trabajar'] = (pob_15_64 / (df['Pob_Total_Millones'] * 1000)) * 100
 
     countries = df['País'].unique()
     all_years_df = []
@@ -98,19 +90,14 @@ def main():
         c_df['País'] = country
         c_df['ISO3'] = ISO3_MAP.get(country)
         c_df['Región'] = REGION_MAP.get(country)
+
+        # Aging Speed (decade change in median age)
+        c_df['Aging_Speed'] = c_df['Edad_Mediana_Estimada'].diff(10)
+
         all_years_df.append(c_df.reset_index())
 
     final_df = pd.concat(all_years_df).round(2)
     final_df.to_csv('data/population_evolution_latin_america_by_age_2000_2023.csv', index=False)
-
-    # API Generation
-    os.makedirs('docs/api', exist_ok=True)
-    for country in countries:
-        slug = country.lower().replace(' ', '_').replace('é', 'e').replace('ó', 'o').replace('í', 'i').replace('á', 'a').replace('ú', 'u').replace('ñ', 'n')
-        country_data = final_df[final_df['País'] == country].to_dict('records')
-        with open(f'docs/api/{slug}.json', 'w', encoding='utf-8') as f:
-            json.dump(country_data, f, indent=2, ensure_ascii=False)
-
-    print("Data enrichment and API generation complete.")
+    print("Enriched historical data generated.")
 
 if __name__ == "__main__": main()
