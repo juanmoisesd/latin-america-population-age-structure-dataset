@@ -1,4 +1,5 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Demografía AL</title>
+
+    <!DOCTYPE html><html><head><meta charset='UTF-8'><title>Portal Demográfico América Latina 2030</title>
 <style>
     :root { --primary: #2c3e50; --secondary: #34495e; --accent: #1abc9c; --bg: #ecf0f1; --text: #333; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text); background: var(--bg); }
@@ -9,15 +10,18 @@
     section { margin: 40px 0; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     h2 { border-left: 5px solid var(--accent); padding-left: 15px; color: var(--primary); }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-5px); }
+    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; background: white; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     img { max-width: 100%; height: auto; border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9em; }
     th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
     th { background: var(--secondary); color: white; }
     tr:hover { background: #f5f5f5; }
-    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; }
+    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    .search-container { margin-bottom: 20px; }
+    #search-box { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1.1em; }
     footer { background: var(--primary); color: white; padding: 30px 0; margin-top: 60px; text-align: center; }
+    .meta-tags { visibility: hidden; position: absolute; }
 </style>
 </head><body>
     <header>
@@ -32,7 +36,59 @@
             </nav>
         </div>
     </header>
-    <main><section><h2>Explora América Latina</h2><p>Datos demográficos de 19 países. Análisis de transición demográfica y proyecciones a 2030.</p><div id='countries' class='grid'><div class='card'><h3>Argentina</h3><a href='pages/countries/argentina.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Bolivia</h3><a href='pages/countries/bolivia.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Brasil</h3><a href='pages/countries/brasil.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Chile</h3><a href='pages/countries/chile.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Colombia</h3><a href='pages/countries/colombia.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Costa Rica</h3><a href='pages/countries/costa_rica.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Cuba</h3><a href='pages/countries/cuba.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Ecuador</h3><a href='pages/countries/ecuador.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>El Salvador</h3><a href='pages/countries/el_salvador.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Guatemala</h3><a href='pages/countries/guatemala.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Honduras</h3><a href='pages/countries/honduras.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>México</h3><a href='pages/countries/mexico.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Nicaragua</h3><a href='pages/countries/nicaragua.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Panamá</h3><a href='pages/countries/panama.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Paraguay</h3><a href='pages/countries/paraguay.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Perú</h3><a href='pages/countries/peru.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>República Dominicana</h3><a href='pages/countries/republica_dominicana.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Uruguay</h3><a href='pages/countries/uruguay.html' class='btn'>Ver Detalle</a></div><div class='card'><h3>Venezuela</h3><a href='pages/countries/venezuela.html' class='btn'>Ver Detalle</a></div></div></section></main>
+
+    <main><section><h2>Explora América Latina</h2><p>Análisis y proyecciones de 19 países hasta 2030.</p>
+    <div class="search-container"><input type="text" id="search-box" placeholder="Buscar país..." onkeyup="filterCountries()"></div>
+    <div id='countries' class='grid'>
+    <div class='card country-card' data-name='Argentina'><h3>Argentina</h3><a href='pages/countries/argentina.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Bolivia'><h3>Bolivia</h3><a href='pages/countries/bolivia.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Brasil'><h3>Brasil</h3><a href='pages/countries/brasil.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Chile'><h3>Chile</h3><a href='pages/countries/chile.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Colombia'><h3>Colombia</h3><a href='pages/countries/colombia.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Costa Rica'><h3>Costa Rica</h3><a href='pages/countries/costa_rica.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Cuba'><h3>Cuba</h3><a href='pages/countries/cuba.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Ecuador'><h3>Ecuador</h3><a href='pages/countries/ecuador.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='El Salvador'><h3>El Salvador</h3><a href='pages/countries/el_salvador.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Guatemala'><h3>Guatemala</h3><a href='pages/countries/guatemala.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Honduras'><h3>Honduras</h3><a href='pages/countries/honduras.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='México'><h3>México</h3><a href='pages/countries/mexico.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Nicaragua'><h3>Nicaragua</h3><a href='pages/countries/nicaragua.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Panamá'><h3>Panamá</h3><a href='pages/countries/panama.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Paraguay'><h3>Paraguay</h3><a href='pages/countries/paraguay.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Perú'><h3>Perú</h3><a href='pages/countries/peru.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='República Dominicana'><h3>República Dominicana</h3><a href='pages/countries/republica_dominicana.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Uruguay'><h3>Uruguay</h3><a href='pages/countries/uruguay.html' class='btn'>Ver Perfil</a></div>
+
+    <div class='card country-card' data-name='Venezuela'><h3>Venezuela</h3><a href='pages/countries/venezuela.html' class='btn'>Ver Perfil</a></div>
+    </div></section></main>
+    <script>
+    function filterCountries() {
+        let input = document.getElementById('search-box').value.toLowerCase();
+        let cards = document.getElementsByClassName('country-card');
+        for (let card of cards) {
+            let name = card.getAttribute('data-name').toLowerCase();
+            card.style.display = name.includes(input) ? "block" : "none";
+        }
+    }
+    </script>
+
     <footer>
         <div class="footer-container">
             <p>© 2026 Juan Moisés de la Serna Tuya. <a href="https://github.com/juanmoisesd/latin-america-population-age-structure-dataset">GitHub</a> | <a href="/docs/api/">JSON API</a></p>

@@ -9,15 +9,18 @@
     section { margin: 40px 0; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     h2 { border-left: 5px solid var(--accent); padding-left: 15px; color: var(--primary); }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-5px); }
+    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; background: white; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     img { max-width: 100%; height: auto; border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9em; }
     th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
     th { background: var(--secondary); color: white; }
     tr:hover { background: #f5f5f5; }
-    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; }
+    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    .search-container { margin-bottom: 20px; }
+    #search-box { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1.1em; }
     footer { background: var(--primary); color: white; padding: 30px 0; margin-top: 60px; text-align: center; }
+    .meta-tags { visibility: hidden; position: absolute; }
 </style>
 </head><body>
     <header>

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Honduras</title>
+
+    <!DOCTYPE html><html><head><meta charset='UTF-8'><title>Honduras</title>
 <style>
     :root { --primary: #2c3e50; --secondary: #34495e; --accent: #1abc9c; --bg: #ecf0f1; --text: #333; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text); background: var(--bg); }
@@ -9,15 +10,18 @@
     section { margin: 40px 0; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     h2 { border-left: 5px solid var(--accent); padding-left: 15px; color: var(--primary); }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-5px); }
+    .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; transition: transform 0.2s; background: white; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     img { max-width: 100%; height: auto; border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9em; }
     th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
     th { background: var(--secondary); color: white; }
     tr:hover { background: #f5f5f5; }
-    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; }
+    .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    .search-container { margin-bottom: 20px; }
+    #search-box { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1.1em; }
     footer { background: var(--primary); color: white; padding: 30px 0; margin-top: 60px; text-align: center; }
+    .meta-tags { visibility: hidden; position: absolute; }
 </style>
 </head><body>
     <header>
@@ -32,7 +36,24 @@
             </nav>
         </div>
     </header>
-    <main><section><h2>Honduras (HND)</h2><div class='grid'><div><h3>Pirámide Poblacional</h3><img src='../../assets/pyramid_honduras_2023.png'></div><div><h3>Tendencia Dependencia</h3><img src='../../assets/dependency_honduras.png'></div></div></section><section><h3>Histórico y Proyección</h3><table><thead><tr><th>Año</th><th>Pob (M)</th><th>Dependencia (%)</th><th>Esperanza Vida</th></tr></thead><tbody><tr><td>2000</td><td>6.58</td><td>nan</td><td>68.8</td></tr><tr><td>2001</td><td>6.78</td><td>nan</td><td>69.04</td></tr><tr><td>2002</td><td>6.98</td><td>nan</td><td>69.28</td></tr><tr><td>2003</td><td>7.17</td><td>nan</td><td>69.52</td></tr><tr><td>2004</td><td>7.37</td><td>nan</td><td>69.76</td></tr><tr><td>2005</td><td>7.57</td><td>nan</td><td>70.0</td></tr><tr><td>2006</td><td>7.73</td><td>nan</td><td>70.26</td></tr><tr><td>2007</td><td>7.89</td><td>nan</td><td>70.52</td></tr><tr><td>2008</td><td>8.05</td><td>nan</td><td>70.78</td></tr><tr><td>2009</td><td>8.21</td><td>nan</td><td>71.04</td></tr><tr><td>2010</td><td>8.37</td><td>nan</td><td>71.3</td></tr><tr><td>2011</td><td>8.4</td><td>nan</td><td>71.54</td></tr><tr><td>2012</td><td>8.43</td><td>nan</td><td>71.78</td></tr><tr><td>2013</td><td>8.47</td><td>nan</td><td>72.02</td></tr><tr><td>2014</td><td>8.5</td><td>nan</td><td>72.26</td></tr><tr><td>2015</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2016</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2017</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2018</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2019</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2020</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2021</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2022</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2023</td><td>8.53</td><td>nan</td><td>72.5</td></tr><tr><td>2024</td><td>9.05</td><td>0.0</td><td>73.47</td></tr><tr><td>2025</td><td>9.13</td><td>0.0</td><td>73.65</td></tr><tr><td>2026</td><td>9.21</td><td>0.0</td><td>73.83</td></tr><tr><td>2027</td><td>9.29</td><td>0.0</td><td>74.0</td></tr><tr><td>2028</td><td>9.37</td><td>0.0</td><td>74.18</td></tr><tr><td>2029</td><td>9.45</td><td>0.0</td><td>74.36</td></tr><tr><td>2030</td><td>9.53</td><td>0.0</td><td>74.53</td></tr></tbody></table></section></main>
+
+    <main><section><h2>Honduras (HND)</h2>
+    <div style="margin-bottom: 20px;">
+        <a href="../../api/honduras.csv" class="btn">Descargar CSV</a>
+        <a href="../../api/honduras.json" class="btn" style="background: #3498db;">Ver JSON</a>
+    </div>
+    <div class='grid'>
+        <div><h3>Estructura de Edad</h3><img src='../../assets/pyramid_honduras_2023.png'></div>
+        <div><h3>Dinámica de Grupos</h3><img src='../../assets/evolution_groups_honduras.png'></div>
+    </div>
+    <div class='grid' style='margin-top: 20px;'>
+        <div><h3>Tendencias de Dependencia</h3><img src='../../assets/dependency_honduras.png'></div>
+        <div><h3>Ficha Técnica</h3><ul><li>Esperanza Vida (2023): 72.5 años</li><li>Edad Mediana (2023): 32.3 años</li><li>Estado: En Transición</li></ul></div>
+    </div>
+    </section>
+    <section><h3>Histórico y Proyecciones</h3><table><thead><tr><th>Año</th><th>Pob (M)</th><th>Dependencia (%)</th><th>Esp. Vida</th><th>Urb (%)</th></tr></thead><tbody>
+    <tr><td>2000</td><td>6.58</td><td>nan</td><td>68.8</td><td>45.0</td></tr><tr><td>2001</td><td>6.78</td><td>nan</td><td>69.04</td><td>45.6</td></tr><tr><td>2002</td><td>6.98</td><td>nan</td><td>69.28</td><td>46.2</td></tr><tr><td>2003</td><td>7.17</td><td>nan</td><td>69.52</td><td>46.8</td></tr><tr><td>2004</td><td>7.37</td><td>nan</td><td>69.76</td><td>47.4</td></tr><tr><td>2005</td><td>7.57</td><td>nan</td><td>70.0</td><td>48.0</td></tr><tr><td>2006</td><td>7.73</td><td>nan</td><td>70.26</td><td>48.6</td></tr><tr><td>2007</td><td>7.89</td><td>nan</td><td>70.52</td><td>49.2</td></tr><tr><td>2008</td><td>8.05</td><td>nan</td><td>70.78</td><td>49.8</td></tr><tr><td>2009</td><td>8.21</td><td>nan</td><td>71.04</td><td>50.4</td></tr><tr><td>2010</td><td>8.37</td><td>nan</td><td>71.3</td><td>51.0</td></tr><tr><td>2011</td><td>8.4</td><td>nan</td><td>71.54</td><td>51.8</td></tr><tr><td>2012</td><td>8.43</td><td>nan</td><td>71.78</td><td>52.6</td></tr><tr><td>2013</td><td>8.47</td><td>nan</td><td>72.02</td><td>53.4</td></tr><tr><td>2014</td><td>8.5</td><td>nan</td><td>72.26</td><td>54.2</td></tr><tr><td>2015</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2016</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2017</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2018</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2019</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2020</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2021</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2022</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2023</td><td>8.53</td><td>nan</td><td>72.5</td><td>55.0</td></tr><tr><td>2024</td><td>9.05</td><td>0.0</td><td>73.47</td><td>57.57</td></tr><tr><td>2025</td><td>9.13</td><td>0.0</td><td>73.65</td><td>58.06</td></tr><tr><td>2026</td><td>9.21</td><td>0.0</td><td>73.83</td><td>58.55</td></tr><tr><td>2027</td><td>9.29</td><td>0.0</td><td>74.0</td><td>59.04</td></tr><tr><td>2028</td><td>9.37</td><td>0.0</td><td>74.18</td><td>59.53</td></tr><tr><td>2029</td><td>9.45</td><td>0.0</td><td>74.36</td><td>60.02</td></tr><tr><td>2030</td><td>9.53</td><td>0.0</td><td>74.53</td><td>60.51</td></tr>
+    </tbody></table></section></main>
     <footer>
         <div class="footer-container">
             <p>© 2026 Juan Moisés de la Serna Tuya. <a href="https://github.com/juanmoisesd/latin-america-population-age-structure-dataset">GitHub</a> | <a href="/docs/api/">JSON API</a></p>
