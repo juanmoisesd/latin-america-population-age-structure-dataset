@@ -1,0 +1,16 @@
+{
+  "name": "LATAM Demográfico 2030",
+  "short_name": "DemografíaAL",
+  "description": "Análisis demográfico de América Latina 2000-2030",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#2c3e50",
+  "theme_color": "#1abc9c",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/color/192/000000/globe.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

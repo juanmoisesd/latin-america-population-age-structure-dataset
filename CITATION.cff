@@ -1,8 +1,5 @@
 cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below."
-type: dataset
-title: "Latin America Population Age Structure Dataset"
-abstract: "Harmonized demographic dataset describing the population age structure and key demographic indicators for 19 Latin American countries over the period 1995-2030. Contains 456 observations and 42 variables. DOI: 10.17632/ygkmshr5fv.1"
 authors:
   - family-names: "de la Serna Tuya"
     given-names: "Juan Moisés"
